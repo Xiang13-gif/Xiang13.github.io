@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>TAN ZE XIANG — Personal Profile</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg: #0f172a;           /* slate-900 */
+      --bg-soft:#111827;       /* gray-900 */
+      --card:#0b1220cc;        /* translucent */
+      --text:#e5e7eb;          /* gray-200 */
+      --muted:#94a3b8;         /* slate-400 */
+      --brand:#60a5fa;         /* blue-400 */
+      --brand-2:#a78bfa;       /* violet-400 */
+      --ring: #1f2937;         /* gray-800 */
+      --shadow: 0 10px 30px rgba(2,6,23,.35);
+      --radius: 18px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,Apple Color Emoji,Segoe UI Emoji;
+      color:var(--text);
+      background:
+        radial-gradient(1200px 600px at 10% -20%, #1e293b 0%, transparent 60%),
+        radial-gradient(900px 500px at 110% 10%, #1e293b 0%, transparent 60%),
+        linear-gradient(180deg, #0b1020 0%, #0f172a 100%);
+      min-height:100vh;
+    }
+    a{color:inherit;text-decoration:none}
+    .container{max-width:1060px;margin:0 auto;padding:20px}
+    .pill{display:inline-flex;gap:8px;align-items:center;padding:8px 12px;border:1px solid #2a3346;border-radius:999px;background:#0b1424bf}
+    .nav{position:sticky;top:0;backdrop-filter:saturate(160%) blur(10px);background:#0b1020bf;border-bottom:1px solid #1f2737;z-index:40}
+    .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:14px 20px}
+    .nav-links{display:flex;gap:18px;font-size:14px;color:var(--muted)}
+    .nav-links a{padding:8px 10px;border-radius:10px}
+    .nav-links a:hover{background:#11182a;color:#cbd5e1}
+
+    /* HERO */
+    .hero{padding:56px 20px 32px}
+    .hero-grid{display:grid;gap:28px;grid-template-columns:1.2fr .8fr;align-items:center}
+    .headline{font-weight:800;font-size:40px;line-height:1.1;margin:14px 0 6px}
+    .subtitle{color:#a5b4fc;font-weight:600}
+    .lede{color:var(--muted);margin-top:12px;line-height:1.7}
+    .cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:20px}
+    .btn{padding:12px 16px;border-radius:12px;border:1px solid #273047;background:#0d1426;color:#e5e7eb;display:inline-flex;gap:10px;align-items:center}
+    .btn.primary{background:linear-gradient(135deg,var(--brand),var(--brand-2));border-color:transparent;color:#0b1020;font-weight:700}
+    .btn:hover{transform:translateY(-1px);box-shadow:var(--shadow)}
+    .avatar-wrap{max-width:340px;margin-left:auto}
+    .avatar{aspect-ratio:1/1;width:100%;border-radius:24px;overflow:hidden;box-shadow:var(--shadow);border:1px solid #1f2737}
+    .avatar img{width:100%;height:100%;object-fit:cover;display:block}
+
+    /* SECTIONS */
+    section{padding:36px 20px}
+    h2.section-title{font-size:22px;font-weight:700;margin:0 0 16px}
+    .card{background:var(--card);border:1px solid #1a2233;border-radius:var(--radius);box-shadow:var(--shadow)}
+
+    /* ABOUT */
+    .about{display:grid;gap:20px;grid-template-columns:1fr 2fr}
+    .about .text{color:var(--muted);line-height:1.8}
+
+    /* EXPERIENCE */
+    .timeline{display:grid;gap:16px}
+    .job{padding:18px;border-radius:16px}
+    .job-head{display:flex;gap:12px;justify-content:space-between;align-items:baseline}
+    .job-title{font-weight:600}
+    .job-meta{color:var(--muted);font-size:14px}
+    .job ul{margin:10px 0 0 18px;color:#cbd5e1;line-height:1.6}
+
+    /* PROJECTS */
+    .projects{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+    .project{padding:18px;border-radius:16px;transition:transform .15s ease, box-shadow .15s ease}
+    .project:hover{transform:translateY(-3px);box-shadow:0 16px 40px rgba(2,6,23,.45)}
+    .badge{display:inline-block;padding:6px 10px;border-radius:999px;border:1px solid #263049;color:#c7d2fe;background:#141a2d;margin-right:8px;font-size:12px}
+
+    /* SKILLS */
+    .skills{display:flex;flex-wrap:wrap;gap:10px}
+    .chip{padding:8px 12px;border-radius:999px;border:1px solid #2a3346;background:#0b1424;color:#cbd5e1;font-size:14px}
+
+    /* CONTACT */
+    .cta-strip{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;padding:22px;border-radius:18px;background:linear-gradient(135deg,rgba(96,165,250,.25),rgba(167,139,250,.25));border:1px solid #2a3350}
+
+    /* FOOTER */
+    footer{padding:28px 20px;color:#8aa0c2;text-align:center}
+
+    /* RESPONSIVE */
+    @media (max-width: 900px){
+      .hero-grid{grid-template-columns:1fr}
+      .avatar-wrap{margin:0}
+      .about{grid-template-columns:1fr}
+      .projects{grid-template-columns:1fr}
+      .headline{font-size:34px}
+    }
+  </style>
+</head>
+<body>
+  <!-- NAV -->
+  <div class="nav">
+    <div class="container nav-inner">
+      <a href="#home" class="pill" aria-label="Home">
+        <!-- minimal logo -->
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 3l8 6v12H4V9l8-6z" stroke="#6ea8ff" stroke-width="1.5"/></svg>
+        <strong>TAN ZE XIANG</strong>
+      </a>
+      <nav class="nav-links">
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <header id="home" class="container hero">
+    <div class="hero-grid">
+      <div>
+        <span class="pill" title="Open to opportunities">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="9" stroke="#60a5fa"/><circle cx="12" cy="12" r="5" fill="#60a5fa"/></svg>
+          Available for opportunities
+        </span>
+        <h1 class="headline">Frontend Developer crafting clean, fast UIs</h1>
+        <div class="subtitle">TAN ZE XIANG · Malaysia</div>
+        <p class="lede">I build responsive, accessible web interfaces with HTML, CSS, and a modern mindset. I focus on usability, performance, and a delightful look & feel.</p>
+        <div class="cta">
+          <a class="btn primary" href="#contact">Contact Me</a>
+          <a class="btn" href="mailto:you@example.com">you@example.com</a>
+          <a class="btn" href="https://github.com/yourusername" target="_blank" rel="noreferrer">GitHub</a>
+          <a class="btn" href="https://www.linkedin.com/in/yourusername/" target="_blank" rel="noreferrer">LinkedIn</a>
+        </div>
+      </div>
+      <div class="avatar-wrap">
+        <div class="avatar">
+          <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=900&auto=format&fit=crop" alt="Profile portrait placeholder">
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ABOUT -->
+  <section id="about" class="container">
+    <div class="about card">
+      <div style="padding:22px;border-right:1px solid #1a2233">
+        <h2 class="section-title">About</h2>
+        <p style="color:#a5b4fc;margin:0">Who I am</p>
+      </div>
+      <div class="text" style="padding:22px">
+        I’m a UI‑focused developer who enjoys turning ideas into polished, usable websites. I value semantic HTML, modern CSS, and thoughtful micro‑interactions that make products feel effortless.
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience" class="container">
+    <h2 class="section-title">Experience</h2>
+    <div class="timeline">
+      <article class="job card">
+        <div class="job-head">
+          <div class="job-title">Frontend Developer · <span style="color:#cbd5e1">Acme Web Studio</span></div>
+          <div class="job-meta">2023 – Present · Remote</div>
+        </div>
+        <ul>
+          <li>Built reusable UI components and page layouts with modern HTML + CSS.</li>
+          <li>Improved Lighthouse accessibility and performance scores across key pages.</li>
+          <li>Collaborated with designers to deliver consistent, responsive experiences.</li>
+        </ul>
+      </article>
+      <article class="job card">
+        <div class="job-head">
+          <div class="job-title">Web Developer · <span style="color:#cbd5e1">Pixel & Co</span></div>
+          <div class="job-meta">2021 – 2023 · Kuala Lumpur</div>
+        </div>
+        <ul>
+          <li>Implemented mobile‑first marketing sites and simple dashboards.</li>
+          <li>Shipped accessible forms, animations, and clean navigation.</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects" class="container">
+    <h2 class="section-title">Projects</h2>
+    <div class="projects">
+      <a class="project card" href="#" target="_blank" rel="noreferrer">
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:12px">
+          <strong>Personal Portfolio</strong>
+          <span class="badge">HTML • CSS</span>
+        </div>
+        <p style="color:var(--muted);margin:10px 0 0">A fast, one‑page personal site with a polished, responsive design.</p>
+      </a>
+      <a class="project card" href="#" target="_blank" rel="noreferrer">
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:12px">
+          <strong>Landing Page Kit</strong>
+          <span class="badge">UI Design</span>
+        </div>
+        <p style="color:var(--muted);margin:10px 0 0">A small set of hero, feature, and pricing sections for quick site builds.</p>
+      </a>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills" class="container">
+    <h2 class="section-title">Skills</h2>
+    <div class="skills">
+      <span class="chip">HTML5</span>
+      <span class="chip">CSS3</span>
+      <span class="chip">Responsive Design</span>
+      <span class="chip">Accessibility (a11y)</span>
+      <span class="chip">UI/UX Basics</span>
+      <span class="chip">GitHub Pages</span>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="container">
+    <div class="cta-strip card">
+      <div>
+        <div style="font-weight:700;font-size:18px">Let’s build something</div>
+        <div style="color:#dbeafe">Happy to chat about roles, projects, or collaboration.</div>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:10px">
+        <a class="btn primary" href="mailto:you@example.com">Email me</a>
+        <a class="btn" href="https://github.com/yourusername" target="_blank" rel="noreferrer">GitHub</a>
+        <a class="btn" href="https://www.linkedin.com/in/yourusername/" target="_blank" rel="noreferrer">LinkedIn</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>© <span id="year"></span> TAN ZE XIANG · All rights reserved.</footer>
+  <script>document.getElementById('year').textContent = new Date().getFullYear()</script>
+</body>
+</html>
