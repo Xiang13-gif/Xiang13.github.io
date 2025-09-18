@@ -81,7 +81,28 @@
     .badge{display:inline-block;padding:6px 10px;border-radius:999px;border:1px solid #263049;color:#c7d2fe;background:#141a2d;margin-right:8px;font-size:12px}
 
     /* SKILLS */
-    .skills{display:flex;flex-wrap:wrap;gap:10px}
+    /*.skills{display:flex;flex-wrap:wrap;gap:10px}*/
+    /* 分组容器：桌面 2 列，移动 1 列 */
+.skill-groups{
+  display:grid;
+  grid-template-columns:repeat(2, minmax(0,1fr));
+  gap:16px;
+}
+@media (max-width:900px){
+  .skill-groups{ grid-template-columns:1fr; }
+}
+/* 分组卡片与标题 */
+.skill-group{ padding:18px; border-radius:16px; }
+.skill-group h3{
+  margin:0 0 10px;
+  font-size:16px;
+  font-weight:700;
+  color:#cbd5e1;
+}
+/* 标签容器；用你现有的 .chip 样式即可 */
+     .skill-group .tags{ display:flex; flex-wrap:wrap; gap:10px; }
+/* 可选：长英文自动断行（防止太长顶宽） */
+    .chip{ word-break:break-word; }
     .chip{padding:8px 12px;border-radius:999px;border:1px solid #2a3346;background:#0b1424;color:#cbd5e1;font-size:14px}
 
     /* CONTACT */
@@ -268,7 +289,7 @@
   </div>
 </section>
 
-  <!-- SKILLS -->
+  <!-- SKILLS 
   <section id="skills" class="container">
     <h2 class="section-title">Skills</h2>
     <div class="skills">
@@ -291,7 +312,69 @@
       <span class="chip">Defect Management Lifecycle</span>
       <span class="chip">Root Cause Analysis</span>
     </div>
-  </section>
+  </section>-->
+
+  <section id="skills" class="container">
+  <h2 class="section-title">Skills</h2>
+
+  <div class="skill-groups">
+    <!-- A. Core Skills -->
+    <div class="skill-group card">
+      <h3>Core Skills</h3>
+      <div class="tags">
+        <span class="chip">Requirements Elicitation & Traceability</span>
+        <span class="chip">BRD / FSD Documentation</span>
+        <span class="chip">Stakeholder Management</span>
+        <span class="chip">Workflow / State-Machine Modeling (UML · BPMN/Mermaid)</span>
+        <span class="chip">Policy & Approval Matrix Design</span>
+        <span class="chip">Data Integrity & Validation</span>
+        <span class="chip">Regulatory Reporting (e.g., CCRIS-like)</span>
+        <span class="chip">Risk-based Test Strategy (VSIT/SIT/UAT/Regression)</span>
+        <span class="chip">UAT Leadership & Defect Triage</span>
+        <span class="chip">Root Cause Analysis</span>
+        <span class="chip">Release & Change Management</span>
+        <span class="chip">Post-release Monitoring & Observability</span>
+      </div>
+    </div>
+
+    <!-- B. Technical & Tools -->
+    <div class="skill-group card">
+      <h3>Technical &amp; Tools</h3>
+      <div class="tags">
+        <span class="chip">API Integration & Contract Validation</span>
+        <span class="chip">Jira</span>
+        <span class="chip">Confluence</span>
+        <span class="chip">HP ALM</span>
+        <span class="chip">DocGen / Word Templates</span>
+        <span class="chip">SQL (basic)</span>
+        <span class="chip">Dashboarding / Monitoring</span>
+      </div>
+    </div>
+
+    <!-- C. Collaboration -->
+    <div class="skill-group card">
+      <h3>Collaboration</h3>
+      <div class="tags">
+        <span class="chip">Cross-functional Collaboration</span>
+        <span class="chip">Conflict Resolution</span>
+        <span class="chip">Facilitation & Workshop</span>
+      </div>
+    </div>
+
+    <!-- D. Secondary / Other -->
+    <div class="skill-group card">
+      <h3>Secondary / Other</h3>
+      <div class="tags">
+        <span class="chip">UI/UX Collaboration</span>
+        <span class="chip">HTML5</span>
+        <span class="chip">CSS3</span>
+        <span class="chip">Responsive Design</span>
+        <span class="chip">Stakeholder Alignment / Commercial Awareness</span>
+      </div>
+    </div>
+  </div>
+</section>
+
 
   <!-- CONTACT -->
   <section id="contact" class="container">
