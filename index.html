@@ -102,8 +102,51 @@
 /* 标签容器；用你现有的 .chip 样式即可 */
      .skill-group .tags{ display:flex; flex-wrap:wrap; gap:10px; }
 /* 可选：长英文自动断行（防止太长顶宽） */
-    .chip{ word-break:break-word; }
-    .chip{padding:8px 12px;border-radius:999px;border:1px solid #2a3346;background:#0b1424;color:#cbd5e1;font-size:14px}
+    /*.chip{ word-break:break-word; }
+    .chip{padding:8px 12px;border-radius:999px;border:1px solid #2a3346;background:#0b1424;color:#cbd5e1;font-size:14px}*/
+    /* Base chip (replaces your two .chip rules) */
+.chip{
+  padding:8px 12px;
+  border-radius:999px;
+  border:1px solid #2a3346;
+  background:#0b1424;
+  color:#cbd5e1;
+  font-size:14px;
+  word-break:break-word;
+  cursor:pointer; /* new */
+  transition: transform .15s ease,
+              box-shadow .15s ease,
+              background-color .15s ease,
+              border-color .15s ease; /* new */
+}
+
+/* Hover / focus effect */
+.chip:hover,
+.chip:focus-visible{
+  transform:translateY(-2px);
+  box-shadow:0 8px 24px rgba(96,165,250,.25);
+  background:#101a30;
+  border-color:#38507a;
+  outline:none;
+}
+
+/* Active feedback */
+.chip:active{
+  transform:translateY(-1px);
+  box-shadow:0 6px 16px rgba(96,165,250,.2);
+}
+
+/* Accessible focus ring */
+.chip:focus-visible{
+  box-shadow:0 0 0 3px rgba(96,165,250,.35),
+             0 8px 24px rgba(96,165,250,.25);
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce){
+  .chip{ transition:none }
+  .chip:hover,.chip:focus-visible,.chip:active{ transform:none; }
+}
 
     /* CONTACT */
     .cta-strip{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;padding:22px;border-radius:18px;background:linear-gradient(135deg,rgba(96,165,250,.25),rgba(167,139,250,.25));border:1px solid #2a3350}
