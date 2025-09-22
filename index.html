@@ -354,29 +354,31 @@
     <div class="case-grid">
       <div class="case-sec">
         <h4>Context</h4>
-        <p>需要稳定、可追踪、可审计的提交流程。</p>
+        <p>In the SME lending journey (application → pre-screening → approval), users may move backward to earlier steps to edit data.</p>
       </div>
       <div class="case-sec">
         <h4>Problem</h4>
-        <p>缺少报送前校验与标准化错误处理，重试策略不统一。</p>
+        <p>Stage reversal often caused mandatory fields to be bypassed, stale data to persist, and inconsistent validations, leading to rework and slower approvals.</p>
       </div>
       <div class="case-sec">
         <h4>Role</h4>
-        <p>Senior BA：规则与流程设计、错误码治理、端到端测试对齐。</p>
+        <p>designed the rule framework and state machine, unified trigger points and error messages, and led UAT and defect triage.</p>
       </div>
       <div class="case-sec">
         <h4>Actions</h4>
         <ul>
-          <li>建立报送前验证清单与可复用规则。</li>
-          <li>设计幂等提交、受控重试与回执处理。</li>
-          <li>打通状态追踪与审计日志，支持稽核。</li>
+          <li>Implemented stage-reversal re-validation: entering a previous step automatically triggers fresh checks.</li>
+          <li>Externalized validation rules (required/conditional fields, dependencies, timestamps) for reuse across front/back end.</li>
+          <li>Added audit logging and observability (rollback rate, failure reasons).</li>
+          <li>Built dedicated test packs for reversal scenarios and included them in regression.</li>
         </ul>
       </div>
       <div class="case-sec">
         <h4>Impact</h4>
         <ul>
-          <li>提升一次通过率，减少返工。</li>
-          <li>审计可追溯，合规性更强。</li>
+          <li>Higher first-pass rate and fewer resubmissions.</li>
+          <li>Stronger data integrity and more stable end-to-end flow.</li>
+          <li>Faster investigation for support/ops (e.g., ~15–30% quicker).</li>
         </ul>
       </div>
     </div>
