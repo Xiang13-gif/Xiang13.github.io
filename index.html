@@ -162,6 +162,43 @@
       .projects{grid-template-columns:1fr}
       .headline{font-size:34px}
     }
+
+    /* 项目卡片头部与描述（可与现有样式共存） */
+.proj-head h3{ margin:0 0 8px; font-weight:800; color:#e5e7eb; }
+.proj-desc{ margin:10px 0 0; color:var(--muted); }
+
+/* 下拉按钮（summary） */
+.case-toggle{ margin-top:12px; border-top:1px solid #1f2737; padding-top:10px; }
+.case-toggle summary{ list-style:none; }       /* 去掉默认三角 */
+.case-toggle summary::-webkit-details-marker{ display:none; }
+
+.toggle{
+  display:flex; align-items:center; justify-content:space-between;
+  gap:10px; padding:10px 12px; border:1px solid #263049;
+  border-radius:12px; background:#141a2d; color:#cbd5e1;
+  cursor:pointer; user-select:none;
+  transition:background-color .15s ease, border-color .15s ease;
+}
+.toggle:hover{ background:#192035; border-color:#31405f; }
+.toggle .chev{ transition: transform .15s ease; }
+.case-toggle[open] .toggle .chev{ transform: rotate(180deg); } /* 展开时箭头向上 */
+
+/* Case Study 内容布局 */
+.case-grid{
+  margin-top:12px;
+  display:grid;
+  grid-template-columns:repeat(2, minmax(0,1fr));
+  gap:16px;
+}
+@media (max-width:900px){
+  .case-grid{ grid-template-columns:1fr; }
+}
+.case-sec h4{
+  margin:0 0 6px; font-size:14px; font-weight:700; color:#cbd5e1;
+}
+.case-sec p{ margin:0; color:#d1d5db; line-height:1.7; }
+.case-sec ul{ margin:6px 0 0 18px; color:#d1d5db; line-height:1.7; }
+
   </style>
 </head>
 <body>
@@ -284,21 +321,69 @@
     </div>
   </section> -->
 
-  <section id="projects" class="container">
-  <h2 class="section-title">Projects</h2>
-  <div class="projects">
-    <a class="project card" href="#">
-      <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap">
-        <strong>SME Lending — Stage Re-validation</strong>
-        <span class="badge">Validation</span>
-        <span class="badge">State Machine</span>
-        <span class="badge">Data Integrity</span>
-        <span class="badge">UAT</span>
+<!-- Project 1 -->
+<article class="project card">
+  <div class="proj-head">
+    <h3>SME Lending — Stage Re-validation</h3>
+    <div class="badges">
+      <span class="badge">Validation</span>
+      <span class="badge">State Machine</span>
+      <span class="badge">Data Integrity</span>
+      <span class="badge">UAT</span>
+    </div>
+  </div>
+
+  <p class="proj-desc">
+    Implemented stage-reversal re-validation to improve data integrity and first-pass rate.
+  </p>
+
+  <!-- ↓↓↓ 展开按钮 + Case Study 内容 ↓↓↓ -->
+  <details class="case-toggle">
+    <summary class="toggle">
+      <span>Case study</span>
+      <!-- 下箭头图标 -->
+      <svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none">
+        <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </summary>
+
+    <div class="case-grid">
+      <div class="case-sec">
+        <h4>Context</h4>
+        <p>需要稳定、可追踪、可审计的提交流程。</p>
       </div>
-      <p style="color:var(--muted);margin:10px 0 0">
-        Implemented stage-reversal re-validation to improve data integrity and first-pass rate.
-      </p>
-    </a>
+      <div class="case-sec">
+        <h4>Problem</h4>
+        <p>缺少报送前校验与标准化错误处理，重试策略不统一。</p>
+      </div>
+      <div class="case-sec">
+        <h4>Role</h4>
+        <p>Senior BA：规则与流程设计、错误码治理、端到端测试对齐。</p>
+      </div>
+      <div class="case-sec">
+        <h4>Actions</h4>
+        <ul>
+          <li>建立报送前验证清单与可复用规则。</li>
+          <li>设计幂等提交、受控重试与回执处理。</li>
+          <li>打通状态追踪与审计日志，支持稽核。</li>
+        </ul>
+      </div>
+      <div class="case-sec">
+        <h4>Impact</h4>
+        <ul>
+          <li>提升一次通过率，减少返工。</li>
+          <li>审计可追溯，合规性更强。</li>
+        </ul>
+      </div>
+    </div>
+  </details>
+
+  <!-- 可选：外链按钮 -->
+  <!-- <a class="visit" href="#" target="_blank" rel="noreferrer">Visit</a> -->
+</article>
+
+<!-- Project 2/3/4… 重复上面结构，替换文字即可 -->
+
 
     <a class="project card" href="#">
       <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
