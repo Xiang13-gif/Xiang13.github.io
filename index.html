@@ -391,15 +391,67 @@
 <!-- Project 2/3/4… 重复上面结构，替换文字即可 -->
 
 
-    <a class="project card" href="#">
-      <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
-        <strong>Regulatory Credit Reporting</strong>
-        <span class="badge">UI Design</span>
+   <article class="project card">
+  <div class="proj-head">
+    <h3>SME Lending — Stage Re-validation</h3>
+    <div class="badges">
+      <span class="badge">Validation</span>
+      <span class="badge">State Machine</span>
+      <span class="badge">Data Integrity</span>
+      <span class="badge">UAT</span>
+    </div>
+  </div>
+
+  <p class="proj-desc">
+    Implemented stage-reversal re-validation to improve data integrity and first-pass rate.
+  </p>
+
+  <!-- ↓↓↓ 展开按钮 + Case Study 内容 ↓↓↓ -->
+  <details class="case-toggle">
+    <summary class="toggle">
+      <span>Case study</span>
+      <!-- 下箭头图标 -->
+      <svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none">
+        <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </summary>
+
+    <div class="case-grid">
+      <div class="case-sec">
+        <h4>Context</h4>
+        <p>In the SME lending journey (application → pre-screening → approval), users may move backward to earlier steps to edit data.</p>
       </div>
-      <p style="color:var(--muted);margin:10px 0 0">
-        Strengthened pre-submission checks, submission/retry, and receipts for higher compliance and auditability.
-      </p>
-    </a>
+      <div class="case-sec">
+        <h4>Problem</h4>
+        <p>Stage reversal often caused mandatory fields to be bypassed, stale data to persist, and inconsistent validations, leading to rework and slower approvals.</p>
+      </div>
+      <div class="case-sec">
+        <h4>Role</h4>
+        <p>designed the rule framework and state machine, unified trigger points and error messages, and led UAT and defect triage.</p>
+      </div>
+      <div class="case-sec">
+        <h4>Actions</h4>
+        <ul>
+          <li>Implemented stage-reversal re-validation: entering a previous step automatically triggers fresh checks.</li>
+          <li>Externalized validation rules (required/conditional fields, dependencies, timestamps) for reuse across front/back end.</li>
+          <li>Added audit logging and observability (rollback rate, failure reasons).</li>
+          <li>Built dedicated test packs for reversal scenarios and included them in regression.</li>
+        </ul>
+      </div>
+      <div class="case-sec">
+        <h4>Impact</h4>
+        <ul>
+          <li>Higher first-pass rate and fewer resubmissions.</li>
+          <li>Stronger data integrity and more stable end-to-end flow.</li>
+          <li>Faster investigation for support/ops (e.g., ~15–30% quicker).</li>
+        </ul>
+      </div>
+    </div>
+  </details>
+
+  <!-- 可选：外链按钮 -->
+  <!-- <a class="visit" href="#" target="_blank" rel="noreferrer">Visit</a> -->
+</article>
 
     <a class="project card" href="#">
       <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
