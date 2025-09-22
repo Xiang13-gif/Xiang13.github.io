@@ -393,7 +393,7 @@
 
    <article class="project card">
   <div class="proj-head">
-    <h3>SME Lending — Stage Re-validation</h3>
+    <h3>Regulatory Credit Reporting</h3>
     <div class="badges">
       <span class="badge">Validation</span>
       <span class="badge">State Machine</span>
@@ -403,7 +403,7 @@
   </div>
 
   <p class="proj-desc">
-    Implemented stage-reversal re-validation to improve data integrity and first-pass rate.
+    Led enhancements for regulatory credit reporting (e.g., CCRIS-like), covering pre-submission validation, submission/retry, and response/error handling.
   </p>
 
   <!-- ↓↓↓ 展开按钮 + Case Study 内容 ↓↓↓ -->
@@ -419,31 +419,31 @@
     <div class="case-grid">
       <div class="case-sec">
         <h4>Context</h4>
-        <p>In the SME lending journey (application → pre-screening → approval), users may move backward to earlier steps to edit data.</p>
+        <p>Regulatory credit reporting demands stable, traceable, and auditable submission pipelines..</p>
       </div>
       <div class="case-sec">
         <h4>Problem</h4>
-        <p>Stage reversal often caused mandatory fields to be bypassed, stale data to persist, and inconsistent validations, leading to rework and slower approvals.</p>
+        <p>Gaps included missing pre-submission checks, inconsistent error handling, and uneven async receipt processing/retries, hurting compliance and efficiency.</p>
       </div>
       <div class="case-sec">
         <h4>Role</h4>
-        <p>designed the rule framework and state machine, unified trigger points and error messages, and led UAT and defect triage.</p>
+        <p>owned rule/process design, error code governance, end-to-end testing, and alignment with compliance.</p>
       </div>
       <div class="case-sec">
         <h4>Actions</h4>
         <ul>
-          <li>Implemented stage-reversal re-validation: entering a previous step automatically triggers fresh checks.</li>
-          <li>Externalized validation rules (required/conditional fields, dependencies, timestamps) for reuse across front/back end.</li>
-          <li>Added audit logging and observability (rollback rate, failure reasons).</li>
-          <li>Built dedicated test packs for reversal scenarios and included them in regression.</li>
+          <li>Introduced a pre-submission validation checklist (required/range/format/mapping) implemented as reusable rules.</li>
+          <li>Designed idempotent submission with controlled retries and async receipt handling; standardized error taxonomy and monitoring.</li>
+          <li>Enabled status tracking and audit trails for reconciliation and reviews.</li>
+          <li>Defined regression packs and change windows; co-reviewed with compliance.</li>
         </ul>
       </div>
       <div class="case-sec">
         <h4>Impact</h4>
         <ul>
-          <li>Higher first-pass rate and fewer resubmissions.</li>
-          <li>Stronger data integrity and more stable end-to-end flow.</li>
-          <li>Faster investigation for support/ops (e.g., ~15–30% quicker).</li>
+          <li>Improved compliance consistency and data quality; lower failure rate.</li>
+          <li>Faster exception closure (e.g., ~20–40%); reduced manual intervention.</li>
+          <li>Submission path became fully auditable and explainable.</li>
         </ul>
       </div>
     </div>
