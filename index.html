@@ -453,15 +453,67 @@
   <!-- <a class="visit" href="#" target="_blank" rel="noreferrer">Visit</a> -->
 </article>
 
-    <a class="project card" href="#">
-      <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
-        <strong>SME Digital — Guarantee API</strong>
-        <span class="badge">UI Design</span>
+    <article class="project card">
+  <div class="proj-head">
+    <h3>Digital of Small Medium Enterprise flow · Third-Party Guarantee API</h3>
+    <div class="badges">
+      <span class="badge">Validation</span>
+      <span class="badge">State Machine</span>
+      <span class="badge">Data Integrity</span>
+      <span class="badge">UAT</span>
+    </div>
+  </div>
+
+  <p class="proj-desc">
+    Integrated guarantee workflow API with mapping, idempotency, and state sync for stability and observability.
+  </p>
+
+  <!-- ↓↓↓ 展开按钮 + Case Study 内容 ↓↓↓ -->
+  <details class="case-toggle">
+    <summary class="toggle">
+      <span>Case study</span>
+      <!-- 下箭头图标 -->
+      <svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none">
+        <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </summary>
+
+    <div class="case-grid">
+      <div class="case-sec">
+        <h4>Context</h4>
+        <p>ntegrate a third-party credit guarantee provider into the existing SME application flow to lift straight-through processing (STP).</p>
       </div>
-      <p style="color:var(--muted);margin:10px 0 0">
-        Integrated guarantee workflow API with mapping, idempotency, and state sync for stability and observability.
-      </p>
-    </a>
+      <div class="case-sec">
+        <h4>Problem</h4>
+        <p>External integration introduced risks: timeouts, duplicate submissions, state drift, and lack of a unified audit trail.</p>
+      </div>
+      <div class="case-sec">
+        <h4>Role</h4>
+        <p>odefined integration rules and exception paths; drove API orchestration requirements, contract alignment, UAT, and release strategy.</p>
+      </div>
+      <div class="case-sec">
+        <h4>Actions</h4>
+        <ul>
+          <li>Externalized guarantee eligibility/coverage/document rules with versioned governance.</li>
+          <li>Built API orchestration with idempotency keys, retry policies, async callbacks/webhooks, and state synchronization.</li>
+          <li>Standardized data mapping & validations; added logs, metrics, and alerts.</li>
+          <li>Defined exception flows & SLAs (timeouts, partial failures, cancellations).</li>
+        </ul>
+      </div>
+      <div class="case-sec">
+        <h4>Impact</h4>
+        <ul>
+          <li>Higher STP rate (e.g., ~10–25%) and fewer manual handoffs.</li>
+          <li>Shorter TAT (e.g., ~15–30%); fewer integration incidents.</li>
+          <li>Clear audit chain; faster root-cause analysis.</li>
+        </ul>
+      </div>
+    </div>
+  </details>
+
+  <!-- 可选：外链按钮 -->
+  <!-- <a class="visit" href="#" target="_blank" rel="noreferrer">Visit</a> -->
+</article>
 
     <a class="project card" href="#">
       <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
