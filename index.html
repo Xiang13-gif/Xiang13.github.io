@@ -3,214 +3,929 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>TAN ZE XIANG — Personal Profile</title>
+  <meta name="description" content="Tan Ze Xiang - Senior Business Analyst portfolio for core banking transformation, lending, regulatory reporting, UAT, and API integration." />
+  <title>TAN ZE XIANG - Senior Business Analyst</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest" defer></script>
   <style>
-    :root{
-      --bg: #0f172a;           /* slate-900 */
-      --bg-soft:#111827;       /* gray-900 */
-      --card:#0b1220cc;        /* translucent */
-      --text:#e5e7eb;          /* gray-200 */
-      --muted:#94a3b8;         /* slate-400 */
-      --brand:#60a5fa;         /* blue-400 */
-      --brand-2:#a78bfa;       /* violet-400 */
-      --ring: #1f2937;         /* gray-800 */
-      --shadow: 0 10px 30px rgba(2,6,23,.35);
-      --radius: 18px;
+    :root {
+      color-scheme: light;
+      --ink: #172033;
+      --ink-strong: #08111f;
+      --muted: #667085;
+      --line: #d8dee8;
+      --paper: #f7f8fb;
+      --surface: #ffffff;
+      --surface-soft: #eef3f7;
+      --navy: #10243e;
+      --blue: #2563eb;
+      --teal: #0f766e;
+      --amber: #b45309;
+      --green: #166534;
+      --shadow: 0 18px 45px rgba(16, 36, 62, .11);
+      --radius: 8px;
+      --max: 1120px;
     }
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{
-      margin:0;
-      font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,Apple Color Emoji,Segoe UI Emoji;
-      color:var(--text);
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--ink);
+      background: var(--paper);
+      line-height: 1.6;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    summary {
+      font: inherit;
+    }
+
+    .container {
+      width: min(var(--max), calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      border-bottom: 1px solid rgba(216, 222, 232, .82);
+      background: rgba(247, 248, 251, .92);
+      backdrop-filter: blur(18px);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 72px;
+      gap: 20px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      letter-spacing: 0;
+      color: var(--ink-strong);
+      white-space: nowrap;
+    }
+
+    .brand-mark {
+      display: grid;
+      width: 38px;
+      height: 38px;
+      place-items: center;
+      border-radius: var(--radius);
+      background: var(--navy);
+      color: #fff;
+      font-size: 13px;
+      box-shadow: 0 12px 28px rgba(16, 36, 62, .2);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: #3d4a5f;
+      font-size: 14px;
+      font-weight: 650;
+    }
+
+    .nav-links a {
+      border-radius: var(--radius);
+      padding: 9px 12px;
+    }
+
+    .nav-links a:hover,
+    .nav-links a:focus-visible {
+      background: #e8edf3;
+      color: var(--ink-strong);
+      outline: none;
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
       background:
-        radial-gradient(1200px 600px at 10% -20%, #1e293b 0%, transparent 60%),
-        radial-gradient(900px 500px at 110% 10%, #1e293b 0%, transparent 60%),
-        linear-gradient(180deg, #0b1020 0%, #0f172a 100%);
-      min-height:100vh;
-    }
-    a{color:inherit;text-decoration:none}
-    .container{max-width:1060px;margin:0 auto;padding:20px}
-    .pill{display:inline-flex;gap:8px;align-items:center;padding:8px 12px;border:1px solid #2a3346;border-radius:999px;background:#0b1424bf}
-    .nav{position:sticky;top:0;backdrop-filter:saturate(160%) blur(10px);background:#0b1020bf;border-bottom:1px solid #1f2737;z-index:40}
-    .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:14px 20px}
-    .nav-links{display:flex;gap:18px;font-size:14px;color:var(--muted)}
-    .nav-links a{padding:8px 10px;border-radius:10px}
-    .nav-links a:hover{background:#11182a;color:#cbd5e1}
-
-    /* HERO */
-    .hero{padding:56px 20px 32px}
-    .hero-grid{display:grid;gap:28px;grid-template-columns:1.2fr .8fr;align-items:center}
-    .headline{font-weight:800;font-size:40px;line-height:1.1;margin:14px 0 6px}
-    .subtitle{color:#a5b4fc;font-weight:600}
-    .lede{color:var(--muted);margin-top:12px;line-height:1.7}
-    .cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:20px}
-    .btn{padding:12px 16px;border-radius:12px;border:1px solid #273047;background:#0d1426;color:#e5e7eb;display:inline-flex;gap:10px;align-items:center}
-    .btn.primary{background:linear-gradient(135deg,var(--brand),var(--brand-2));border-color:transparent;color:#0b1020;font-weight:700}
-    .btn:hover{transform:translateY(-1px);box-shadow:var(--shadow)}
-    .avatar-wrap{max-width:340px;margin-left:auto}
-    .avatar{aspect-ratio:1/1;width:100%;border-radius:24px;overflow:hidden;box-shadow:var(--shadow);border:1px solid #1f2737}
-    .avatar img{width:100%;height:100%;object-fit:cover;display:block}
-
-    /* SECTIONS */
-    section{padding:36px 20px}
-    h2.section-title{font-size:22px;font-weight:700;margin:0 0 16px}
-    .card{background:var(--card);border:1px solid #1a2233;border-radius:var(--radius);box-shadow:var(--shadow)}
-
-    /* ABOUT */
-    .about{display:grid;gap:20px;grid-template-columns:1fr 2fr}
-    .about .text{color:var(--muted);line-height:1.8}
-
-    /* EXPERIENCE */
-    .timeline{display:grid;gap:16px}
-    .job{padding:18px;border-radius:16px}
-    .job-head{display:flex;gap:12px;justify-content:space-between;align-items:baseline}
-    .job-title{font-weight:600}
-    .job-meta{color:var(--muted);font-size:14px}
-    .job ul{margin:10px 0 0 18px;color:#cbd5e1;line-height:1.6}
-
-    /* PROJECTS */
-    /*.projects{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}*/
-    .projects{display:grid;grid-template-columns:repeat(2, minmax(0,1fr));gap:16px;}@media (max-width:900px){ .projects{ grid-template-columns:1fr; } }
-    .project{ display:block; }
-    .project{padding:18px;border-radius:16px;transition:transform .15s ease, box-shadow .15s ease}
-    .project:hover{transform:translateY(-3px);box-shadow:0 16px 40px rgba(2,6,23,.45)}
-    .badge{display:inline-block;padding:6px 10px;border-radius:999px;border:1px solid #263049;color:#c7d2fe;background:#141a2d;margin-right:8px;font-size:12px}
-
-    /* SKILLS */
-    /*.skills{display:flex;flex-wrap:wrap;gap:10px}*/
-    /* 分组容器：桌面 2 列，移动 1 列 */
-.skill-groups{
-  display:grid;
-  grid-template-columns:repeat(2, minmax(0,1fr));
-  gap:16px;
-}
-@media (max-width:900px){
-  .skill-groups{ grid-template-columns:1fr; }
-}
-/* 分组卡片与标题 */
-.skill-group{ padding:18px; border-radius:16px; }
-.skill-group h3{
-  margin:0 0 10px;
-  font-size:16px;
-  font-weight:700;
-  color:#cbd5e1;
-}
-/* 标签容器；用你现有的 .chip 样式即可 */
-     .skill-group .tags{ display:flex; flex-wrap:wrap; gap:10px; }
-/* 可选：长英文自动断行（防止太长顶宽） */
-    /*.chip{ word-break:break-word; }
-    .chip{padding:8px 12px;border-radius:999px;border:1px solid #2a3346;background:#0b1424;color:#cbd5e1;font-size:14px}*/
-    /* Base chip (replaces your two .chip rules) */
-.chip{
-  padding:8px 12px;
-  border-radius:999px;
-  border:1px solid #2a3346;
-  background:#0b1424;
-  color:#cbd5e1;
-  font-size:14px;
-  word-break:break-word;
-  cursor:pointer; /* new */
-  transition: transform .15s ease,
-              box-shadow .15s ease,
-              background-color .15s ease,
-              border-color .15s ease; /* new */
-}
-
-/* Hover / focus effect */
-.chip:hover,
-.chip:focus-visible{
-  transform:translateY(-2px);
-  box-shadow:0 8px 24px rgba(96,165,250,.25);
-  background:#101a30;
-  border-color:#38507a;
-  outline:none;
-}
-
-/* Active feedback */
-.chip:active{
-  transform:translateY(-1px);
-  box-shadow:0 6px 16px rgba(96,165,250,.2);
-}
-
-/* Accessible focus ring */
-.chip:focus-visible{
-  box-shadow:0 0 0 3px rgba(96,165,250,.35),
-             0 8px 24px rgba(96,165,250,.25);
-}
-
-/* Reduced motion */
-@media (prefers-reduced-motion: reduce){
-  .chip{ transition:none }
-  .chip:hover,.chip:focus-visible,.chip:active{ transform:none; }
-}
-
-    /* CONTACT */
-    .cta-strip{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;padding:22px;border-radius:18px;background:linear-gradient(135deg,rgba(96,165,250,.25),rgba(167,139,250,.25));border:1px solid #2a3350}
-
-    /* FOOTER */
-    footer{padding:28px 20px;color:#8aa0c2;text-align:center}
-
-    /* RESPONSIVE */
-    @media (max-width: 900px){
-      .hero-grid{grid-template-columns:1fr}
-      .avatar-wrap{margin:0}
-      .about{grid-template-columns:1fr}
-      .projects{grid-template-columns:1fr}
-      .headline{font-size:34px}
+        linear-gradient(180deg, rgba(255,255,255,.66), rgba(247,248,251,0) 58%),
+        repeating-linear-gradient(90deg, rgba(16,36,62,.045) 0, rgba(16,36,62,.045) 1px, transparent 1px, transparent 72px),
+        repeating-linear-gradient(0deg, rgba(16,36,62,.045) 0, rgba(16,36,62,.045) 1px, transparent 1px, transparent 72px);
+      border-bottom: 1px solid var(--line);
     }
 
-    /* 项目卡片头部与描述（可与现有样式共存） */
-.proj-head h3{ margin:0 0 8px; font-weight:800; color:#e5e7eb; }
-.proj-desc{ margin:10px 0 0; color:var(--muted); }
+    .hero-inner {
+      display: grid;
+      grid-template-columns: minmax(0, 1.12fr) minmax(320px, .88fr);
+      gap: 52px;
+      align-items: center;
+      padding: 64px 0 52px;
+    }
 
-/* 下拉按钮（summary） */
-.case-toggle{ margin-top:12px; border-top:1px solid #1f2737; padding-top:10px; }
-.case-toggle summary{ list-style:none; }       /* 去掉默认三角 */
-.case-toggle summary::-webkit-details-marker{ display:none; }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 11px;
+      border: 1px solid #c8d4e3;
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, .7);
+      color: var(--teal);
+      font-size: 13px;
+      font-weight: 800;
+    }
 
-.toggle{
-  display:flex; align-items:center; justify-content:space-between;
-  gap:10px; padding:10px 12px; border:1px solid #263049;
-  border-radius:12px; background:#141a2d; color:#cbd5e1;
-  cursor:pointer; user-select:none;
-  transition:background-color .15s ease, border-color .15s ease;
-}
-.toggle:hover{ background:#192035; border-color:#31405f; }
-.toggle .chev{ transition: transform .15s ease; }
-.case-toggle[open] .toggle .chev{ transform: rotate(180deg); } /* 展开时箭头向上 */
+    .headline {
+      max-width: 760px;
+      margin: 22px 0 16px;
+      color: var(--ink-strong);
+      font-size: clamp(42px, 7vw, 78px);
+      line-height: .98;
+      font-weight: 900;
+      letter-spacing: 0;
+    }
 
-/* Case Study 内容布局 */
-.case-grid{
-  margin-top:12px;
-  display:grid;
-  grid-template-columns:repeat(2, minmax(0,1fr));
-  gap:16px;
-}
-@media (max-width:900px){
-  .case-grid{ grid-template-columns:1fr; }
-}
-.case-sec h4{
-  margin:0 0 6px; font-size:14px; font-weight:700; color:#cbd5e1;
-}
-.case-sec p{ margin:0; color:#d1d5db; line-height:1.7; }
-.case-sec ul{ margin:6px 0 0 18px; color:#d1d5db; line-height:1.7; }
+    .role {
+      color: var(--navy);
+      font-size: clamp(19px, 2.2vw, 27px);
+      font-weight: 800;
+      line-height: 1.22;
+    }
 
+    .lede {
+      max-width: 690px;
+      margin: 18px 0 0;
+      color: #445064;
+      font-size: 18px;
+      line-height: 1.8;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 46px;
+      border: 1px solid #c9d3df;
+      border-radius: var(--radius);
+      padding: 11px 15px;
+      background: #fff;
+      color: var(--ink-strong);
+      font-weight: 800;
+      box-shadow: 0 10px 24px rgba(16, 36, 62, .08);
+      transition: transform .16s ease, box-shadow .16s ease, border-color .16s ease, background .16s ease;
+    }
+
+    .btn:hover,
+    .btn:focus-visible {
+      transform: translateY(-2px);
+      border-color: #aebdcd;
+      box-shadow: 0 14px 30px rgba(16, 36, 62, .13);
+      outline: none;
+    }
+
+    .btn.primary {
+      border-color: var(--navy);
+      background: var(--navy);
+      color: #fff;
+    }
+
+    .btn .icon,
+    .meta-item .icon,
+    .section-kicker .icon,
+    .contact-link .icon {
+      width: 18px;
+      height: 18px;
+      stroke-width: 2.2;
+      flex: 0 0 auto;
+    }
+
+    .hero-panel {
+      border: 1px solid #cad5df;
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, .78);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .portrait-shell {
+      display: grid;
+      grid-template-columns: .72fr 1fr;
+      min-height: 420px;
+      background: #fff;
+    }
+
+    .portrait {
+      min-height: 420px;
+      background: #dbe5ee;
+    }
+
+    .portrait img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .proof {
+      display: grid;
+      align-content: stretch;
+      border-left: 1px solid var(--line);
+    }
+
+    .proof-item {
+      display: grid;
+      align-content: center;
+      gap: 4px;
+      min-height: 105px;
+      padding: 18px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .proof-item:last-child {
+      border-bottom: 0;
+    }
+
+    .proof-number {
+      color: var(--ink-strong);
+      font-size: 30px;
+      font-weight: 900;
+      line-height: 1;
+    }
+
+    .proof-label {
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 1.35;
+    }
+
+    .meta-strip {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      border-top: 1px solid var(--line);
+      background: var(--surface-soft);
+    }
+
+    .meta-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 16px;
+      border-right: 1px solid var(--line);
+      color: #354156;
+      font-size: 13px;
+      font-weight: 750;
+      min-width: 0;
+    }
+
+    .meta-item:last-child {
+      border-right: 0;
+    }
+
+    .section {
+      padding: 72px 0;
+      border-bottom: 1px solid var(--line);
+      background: var(--paper);
+    }
+
+    .section.alt {
+      background: var(--surface);
+    }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr);
+      gap: 42px;
+      align-items: end;
+      margin-bottom: 30px;
+    }
+
+    .section-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--teal);
+      font-size: 13px;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    h2 {
+      margin: 10px 0 0;
+      color: var(--ink-strong);
+      font-size: clamp(30px, 4.6vw, 48px);
+      line-height: 1.05;
+      font-weight: 900;
+      letter-spacing: 0;
+    }
+
+    .section-intro {
+      margin: 0;
+      color: #4b586d;
+      font-size: 16px;
+      line-height: 1.8;
+    }
+
+    .about-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(280px, .95fr);
+      gap: 22px;
+      align-items: start;
+    }
+
+    .statement {
+      padding: 28px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+
+    .statement p {
+      margin: 0;
+      color: #3f4a5e;
+      font-size: 18px;
+      line-height: 1.9;
+    }
+
+    .focus-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .focus-card,
+    .experience-item,
+    .project-card,
+    .skill-group {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--surface);
+      box-shadow: 0 14px 34px rgba(16, 36, 62, .08);
+    }
+
+    .focus-card {
+      padding: 18px;
+    }
+
+    .focus-card strong {
+      display: block;
+      color: var(--ink-strong);
+      font-size: 16px;
+      line-height: 1.35;
+    }
+
+    .focus-card span {
+      display: block;
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.55;
+    }
+
+    .experience-list {
+      display: grid;
+      gap: 16px;
+    }
+
+    .experience-item {
+      display: grid;
+      grid-template-columns: 220px minmax(0, 1fr);
+      overflow: hidden;
+    }
+
+    .experience-side {
+      padding: 22px;
+      border-right: 1px solid var(--line);
+      background: var(--surface-soft);
+    }
+
+    .experience-side strong {
+      display: block;
+      color: var(--navy);
+      font-size: 15px;
+      line-height: 1.35;
+    }
+
+    .experience-side span {
+      display: block;
+      margin-top: 7px;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .experience-body {
+      padding: 22px;
+    }
+
+    .experience-body h3,
+    .project-card h3,
+    .skill-group h3 {
+      margin: 0;
+      color: var(--ink-strong);
+      font-size: 20px;
+      line-height: 1.25;
+      font-weight: 900;
+    }
+
+    .experience-body p {
+      margin: 11px 0 0;
+      color: #4b586d;
+    }
+
+    .impact-list {
+      display: grid;
+      gap: 8px;
+      margin: 16px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .impact-list li {
+      position: relative;
+      padding-left: 24px;
+      color: #344154;
+    }
+
+    .impact-list li::before {
+      position: absolute;
+      left: 0;
+      top: .66em;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--teal);
+      content: "";
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .project-card {
+      display: flex;
+      flex-direction: column;
+      min-height: 100%;
+      overflow: hidden;
+    }
+
+    .project-top {
+      padding: 22px 22px 18px;
+      border-bottom: 1px solid var(--line);
+      background: linear-gradient(180deg, #ffffff, #f3f6f9);
+    }
+
+    .badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 14px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      min-height: 28px;
+      padding: 5px 9px;
+      border: 1px solid #cdd8e2;
+      border-radius: var(--radius);
+      background: #fff;
+      color: #354156;
+      font-size: 12px;
+      font-weight: 800;
+      line-height: 1;
+    }
+
+    .badge.teal {
+      border-color: #b7d8d4;
+      background: #ecfdf9;
+      color: var(--teal);
+    }
+
+    .badge.amber {
+      border-color: #ead2a7;
+      background: #fff8e8;
+      color: var(--amber);
+    }
+
+    .project-body {
+      display: grid;
+      gap: 18px;
+      padding: 22px;
+    }
+
+    .project-body p {
+      margin: 0;
+      color: #4b586d;
+    }
+
+    details {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: #fff;
+    }
+
+    summary {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      min-height: 46px;
+      padding: 12px 14px;
+      cursor: pointer;
+      color: var(--navy);
+      font-weight: 900;
+      list-style: none;
+    }
+
+    summary::-webkit-details-marker {
+      display: none;
+    }
+
+    summary .icon {
+      width: 18px;
+      height: 18px;
+      transition: transform .16s ease;
+    }
+
+    details[open] summary .icon {
+      transform: rotate(180deg);
+    }
+
+    .case-content {
+      display: grid;
+      gap: 14px;
+      padding: 0 14px 14px;
+    }
+
+    .case-content dl {
+      display: grid;
+      gap: 12px;
+      margin: 0;
+    }
+
+    .case-content div {
+      padding-top: 12px;
+      border-top: 1px solid #e7ecf2;
+    }
+
+    .case-content dt {
+      color: var(--ink-strong);
+      font-size: 13px;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    .case-content dd {
+      margin: 4px 0 0;
+      color: #4b586d;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .skill-group {
+      padding: 22px;
+    }
+
+    .skill-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      margin-top: 16px;
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      min-height: 34px;
+      padding: 7px 10px;
+      border: 1px solid #cbd6e2;
+      border-radius: var(--radius);
+      background: #f8fafc;
+      color: #334155;
+      font-size: 13px;
+      font-weight: 750;
+      line-height: 1.22;
+    }
+
+    .contact-band {
+      padding: 54px 0;
+      background: var(--navy);
+      color: #fff;
+    }
+
+    .contact-inner {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .contact-inner h2 {
+      color: #fff;
+    }
+
+    .contact-inner p {
+      max-width: 650px;
+      margin: 12px 0 0;
+      color: #d8e2ee;
+    }
+
+    .contact-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: flex-end;
+    }
+
+    .contact-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      min-height: 44px;
+      padding: 10px 14px;
+      border: 1px solid rgba(255, 255, 255, .24);
+      border-radius: var(--radius);
+      color: #fff;
+      font-weight: 850;
+    }
+
+    .contact-link:hover,
+    .contact-link:focus-visible {
+      background: rgba(255, 255, 255, .09);
+      outline: none;
+    }
+
+    footer {
+      padding: 24px 0;
+      background: #08111f;
+      color: #b7c2d1;
+      font-size: 13px;
+      text-align: center;
+    }
+
+    @media (max-width: 960px) {
+      .hero-inner,
+      .section-head,
+      .about-layout,
+      .contact-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-inner {
+        padding: 50px 0 42px;
+      }
+
+      .hero-panel {
+        max-width: 720px;
+      }
+
+      .section-head {
+        gap: 14px;
+      }
+
+      .contact-actions {
+        justify-content: flex-start;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .container {
+        width: min(var(--max), calc(100% - 28px));
+      }
+
+      .nav {
+        min-height: auto;
+        padding: 12px 0;
+        align-items: flex-start;
+      }
+
+      .brand span:last-child {
+        display: none;
+      }
+
+      .nav-links {
+        max-width: calc(100vw - 90px);
+        overflow-x: auto;
+        padding-bottom: 2px;
+      }
+
+      .headline {
+        font-size: 40px;
+      }
+
+      .portrait-shell,
+      .experience-item,
+      .project-grid,
+      .skills-grid,
+      .focus-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .portrait {
+        min-height: 300px;
+      }
+
+      .proof {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        border-left: 0;
+        border-top: 1px solid var(--line);
+      }
+
+      .proof-item {
+        min-height: 94px;
+        border-right: 1px solid var(--line);
+      }
+
+      .proof-item:nth-child(2n) {
+        border-right: 0;
+      }
+
+      .meta-strip {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .meta-item {
+        align-items: flex-start;
+        border-right: 1px solid var(--line);
+        border-bottom: 0;
+        padding: 12px 10px;
+        font-size: 12px;
+        line-height: 1.25;
+      }
+
+      .meta-item:last-child {
+        border-right: 0;
+      }
+
+      .experience-side {
+        border-right: 0;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .section {
+        padding: 54px 0;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .nav-links {
+        gap: 4px;
+        font-size: 13px;
+      }
+
+      .nav-links a {
+        padding: 8px;
+      }
+
+      .hero-inner {
+        gap: 20px;
+        padding: 28px 0 22px;
+      }
+
+      .eyebrow {
+        padding: 7px 9px;
+        font-size: 12px;
+      }
+
+      .headline {
+        margin: 14px 0 10px;
+        font-size: 34px;
+      }
+
+      .role {
+        font-size: 17px;
+      }
+
+      .lede {
+        margin-top: 12px;
+        font-size: 15px;
+        line-height: 1.58;
+      }
+
+      .hero-actions {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 9px;
+        margin-top: 16px;
+      }
+
+      .hero-actions .btn {
+        min-height: 42px;
+        padding: 9px 10px;
+        font-size: 13px;
+      }
+
+      .hero-actions .btn.primary {
+        grid-column: span 2;
+      }
+
+      .portrait-shell {
+        grid-template-columns: 112px minmax(0, 1fr);
+        min-height: 0;
+      }
+
+      .portrait {
+        min-height: 0;
+      }
+
+      .proof {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        border-top: 0;
+        border-left: 1px solid var(--line);
+      }
+
+      .proof-item {
+        min-height: 63px;
+        padding: 9px 10px;
+      }
+
+      .proof-number {
+        font-size: 20px;
+      }
+
+      .proof-label {
+        font-size: 11px;
+      }
+
+      .proof-item:nth-child(2n) {
+        border-right: 0;
+      }
+
+      .statement,
+      .project-top,
+      .project-body,
+      .skill-group,
+      .experience-body,
+      .experience-side {
+        padding: 18px;
+      }
+
+      .meta-item .icon {
+        display: none;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        transition-duration: .01ms !important;
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+      }
+    }
   </style>
 </head>
 <body>
-  <!-- NAV -->
-  <div class="nav">
-    <div class="container nav-inner">
-      <a href="#home" class="pill" aria-label="Home">
-        <!-- minimal logo -->
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 3l8 6v12H4V9l8-6z" stroke="#6ea8ff" stroke-width="1.5"/></svg>
-        <strong>TAN ZE XIANG</strong>
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="#home" aria-label="Go to top">
+        <span class="brand-mark">TZ</span>
+        <span>TAN ZE XIANG</span>
       </a>
-      <nav class="nav-links">
+      <nav class="nav-links" aria-label="Primary navigation">
         <a href="#about">About</a>
         <a href="#experience">Experience</a>
         <a href="#projects">Projects</a>
@@ -218,416 +933,395 @@
         <a href="#contact">Contact</a>
       </nav>
     </div>
-  </div>
-
-  <!-- HERO -->
-  <header id="home" class="container hero">
-    <div class="hero-grid">
-      <div>
-        <span class="pill" title="Open to opportunities">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="9" stroke="#60a5fa"/><circle cx="12" cy="12" r="5" fill="#60a5fa"/></svg>
-          Available for opportunities
-        </span>
-        <h1 class="headline">Business Analyst (Senior) for Core Banking Transformation</h1>
-        <div class="subtitle">TAN ZE XIANG · Malaysia</div>
-        <p class="lede">I translate business goals into rules, interfaces, and verifiable outcomes.</p>
-        <div class="cta">
-          <a class="btn primary" href="#contact">Contact Me</a>
-          <a class="btn" href="mailto:you@example.com">tanzexiang8@gmail.com</a>
-          <a class="btn" href="https://www.linkedin.com/in/yourusername/" target="_blank" rel="noreferrer">LinkedIn</a>
-        </div>
-      </div>
-      <div class="avatar-wrap">
-        <div class="avatar">
-          <img src="assets/profile.jpg?v=3" alt="Tan Ze Xiang headshot">
-        </div>
-      </div>
-    </div>
   </header>
 
-  <!-- ABOUT -->
-  <section id="about" class="container">
-    <div class="about card">
-      <div style="padding:22px;border-right:1px solid #1a2233">
-        <h2 class="section-title">About</h2>
-        <p style="color:#a5b4fc;margin:0">Who I am</p>
-      </div>
-      <div class="text" style="padding:22px">
-        Business Analyst focused on core banking transformation. I led multiple concurrent LOS enhancements, partnered with senior stakeholders, and co-designed 100+ UI screens plus a configurable approval matrix. Quality is my north star: 30+ modules covered, 2,000+ detailed test scripts, UAT & defect triage leadership, and documentation automation that cut manual effort by 70%+. Post-go-live dashboards further reduced incident investigation & resolution time by ~35%. I believe great systems come from clear requirements, rigorous testing, and measurable business value.
-      </div>
-    </div>
-  </section>
-
-  <!-- EXPERIENCE -->
-  <section id="experience" class="container">
-    <h2 class="section-title">Experience</h2>
-    <div class="timeline">
-      <article class="job card">
-        <div class="job-head">
-          <div class="job-title">Frontend Developer · <span style="color:#cbd5e1">Acme Web Studio</span></div>
-          <div class="job-meta">2023 – Present · Remote</div>
+  <main id="home">
+    <section class="hero" aria-label="Profile introduction">
+      <div class="container hero-inner">
+        <div>
+          <span class="eyebrow"><i data-lucide="sparkles" class="icon" aria-hidden="true"></i>Available for opportunities</span>
+          <h1 class="headline">TAN ZE XIANG</h1>
+          <div class="role">Senior Business Analyst for core banking transformation</div>
+          <p class="lede">
+            I turn complex lending, regulatory, and operational requirements into clear workflows,
+            testable rules, and measurable delivery outcomes for banking technology teams.
+          </p>
+          <div class="hero-actions">
+            <a class="btn primary" href="mailto:tanzexiang8@gmail.com"><i data-lucide="mail" class="icon" aria-hidden="true"></i>Email me</a>
+            <a class="btn" href="#projects"><i data-lucide="briefcase-business" class="icon" aria-hidden="true"></i>View work</a>
+            <a class="btn" href="https://github.com/Xiang13-gif" target="_blank" rel="noreferrer"><i data-lucide="github" class="icon" aria-hidden="true"></i>GitHub</a>
+          </div>
         </div>
-        <ul>
-          <li>Built reusable UI components and page layouts with modern HTML + CSS.</li>
-          <li>Improved Lighthouse accessibility and performance scores across key pages.</li>
-          <li>Collaborated with designers to deliver consistent, responsive experiences.</li>
-        </ul>
-      </article>
-      <article class="job card">
-        <div class="job-head">
-          <div class="job-title">Web Developer · <span style="color:#cbd5e1">Pixel & Co</span></div>
-          <div class="job-meta">2021 – 2023 · Kuala Lumpur</div>
+
+        <aside class="hero-panel" aria-label="Profile highlights">
+          <div class="portrait-shell">
+            <div class="portrait">
+              <img src="assets/profile.jpg?v=4" alt="Tan Ze Xiang headshot">
+            </div>
+            <div class="proof">
+              <div class="proof-item">
+                <div class="proof-number">100+</div>
+                <div class="proof-label">UI screens co-designed</div>
+              </div>
+              <div class="proof-item">
+                <div class="proof-number">2,000+</div>
+                <div class="proof-label">detailed test scripts prepared</div>
+              </div>
+              <div class="proof-item">
+                <div class="proof-number">30+</div>
+                <div class="proof-label">modules covered through testing</div>
+              </div>
+              <div class="proof-item">
+                <div class="proof-number">70%+</div>
+                <div class="proof-label">manual documentation effort reduced</div>
+              </div>
+            </div>
+          </div>
+          <div class="meta-strip">
+            <div class="meta-item"><i data-lucide="map-pin" class="icon" aria-hidden="true"></i>Malaysia</div>
+            <div class="meta-item"><i data-lucide="landmark" class="icon" aria-hidden="true"></i>Banking systems</div>
+            <div class="meta-item"><i data-lucide="check-circle-2" class="icon" aria-hidden="true"></i>UAT & delivery</div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="about" class="section alt">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="section-kicker"><i data-lucide="user-check" class="icon" aria-hidden="true"></i>About</span>
+            <h2>Requirements with business clarity and delivery discipline.</h2>
+          </div>
+          <p class="section-intro">
+            My work sits between stakeholders, product decisions, system behavior, and production outcomes.
+            I focus on making ambiguity visible early, then turning it into rules, journeys, test packs, and release-ready documentation.
+          </p>
         </div>
-        <ul>
-          <li>Implemented mobile‑first marketing sites and simple dashboards.</li>
-          <li>Shipped accessible forms, animations, and clean navigation.</li>
-        </ul>
-      </article>
-    </div>
-  </section>
 
-  <!-- PROJECTS 
-  <section id="projects" class="container">
-    <h2 class="section-title">Projects</h2>
-    <div class="projects">
-      <a class="project card" href="#" target="_blank" rel="noreferrer">
-        <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
-          <strong>SME Lending — Stage Re-validation</strong>
-          <span class="badge">Validation • State Machine • Data Integrity • UAT</span》
+        <div class="about-layout">
+          <div class="statement">
+            <p>
+              Business Analyst focused on core banking transformation. I have led multiple concurrent LOS enhancements,
+              partnered with senior stakeholders, co-designed 100+ UI screens, shaped a configurable approval matrix,
+              and supported delivery through rigorous UAT, defect triage, documentation automation, and post-go-live monitoring.
+            </p>
+          </div>
+          <div class="focus-grid">
+            <div class="focus-card">
+              <strong>Business process translation</strong>
+              <span>Converting policy, lending journeys, and stakeholder needs into usable flows and decision rules.</span>
+            </div>
+            <div class="focus-card">
+              <strong>Rule and validation design</strong>
+              <span>Defining mandatory fields, dependencies, state handling, auditability, and reusable validation logic.</span>
+            </div>
+            <div class="focus-card">
+              <strong>Testing and release control</strong>
+              <span>Creating coverage, leading UAT, prioritizing defects, and protecting regression confidence.</span>
+            </div>
+            <div class="focus-card">
+              <strong>Operational visibility</strong>
+              <span>Using dashboards, monitoring, and incident analysis to shorten investigation and resolution cycles.</span>
+            </div>
+          </div>
         </div>
-        <p style="color:var(--muted);margin:10px 0 0">Implemented stage-reversal re-validation to improve data integrity and first-pass rate.</p>
-      </a>
-      <a class="project card" href="#" target="_blank" rel="noreferrer">
-        <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
-          <strong>Regulatory Credit Reporting</strong>
-          <span class="badge">UI Design</span>
+      </div>
+    </section>
+
+    <section id="experience" class="section">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="section-kicker"><i data-lucide="route" class="icon" aria-hidden="true"></i>Experience</span>
+            <h2>Selected delivery responsibilities.</h2>
+          </div>
+          <p class="section-intro">
+            This section is shaped around the work you can speak to in interviews without inventing employer details.
+          </p>
         </div>
-        <p style="color:var(--muted);margin:10px 0 0">Strengthened pre-submission checks, submission/retry, and receipts for higher compliance and auditability.</p>
-      </a>
-      <a class="project card" href="#" target="_blank" rel="noreferrer">
-        <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
-          <strong>SME Digital — Guarantee API</strong>
-          <span class="badge">UI Design</span>
+
+        <div class="experience-list">
+          <article class="experience-item">
+            <div class="experience-side">
+              <strong>Core Banking Transformation</strong>
+              <span>Senior BA focus</span>
+            </div>
+            <div class="experience-body">
+              <h3>Loan origination and approval workflow enhancements</h3>
+              <p>
+                Led requirement analysis for concurrent LOS changes, including journey design, approval matrix configuration,
+                UI requirements, validation behavior, defect triage, and stakeholder alignment.
+              </p>
+              <ul class="impact-list">
+                <li>Co-designed 100+ UI screens and refined business rules across lending journeys.</li>
+                <li>Improved delivery confidence through traceable requirements and structured sign-off.</li>
+                <li>Supported post-go-live issue resolution with dashboard-led investigation patterns.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="experience-item">
+            <div class="experience-side">
+              <strong>Quality & Release</strong>
+              <span>UAT, regression, readiness</span>
+            </div>
+            <div class="experience-body">
+              <h3>Testing strategy and defect governance</h3>
+              <p>
+                Built detailed test coverage for banking modules, coordinated UAT execution, clarified failure scenarios,
+                and kept business, technology, and operations teams aligned during defect closure.
+              </p>
+              <ul class="impact-list">
+                <li>Prepared 2,000+ detailed scripts across 30+ modules.</li>
+                <li>Led UAT and defect triage with clear ownership, severity, and retest paths.</li>
+                <li>Used root-cause analysis to reduce repeat defects and speed up release readiness.</li>
+              </ul>
+            </div>
+          </article>
         </div>
-        <p style="color:var(--muted);margin:10px 0 0">Integrated guarantee workflow API with mapping, idempotency, and state sync for stability and observability.</p>
-      </a>
-      <a class="project card" href="#" target="_blank" rel="noreferrer">
-        <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
-          <strong>Asset-Based Credit (VoAP)</strong>
-          <span class="badge">UI Design</span>
+      </div>
+    </section>
+
+    <section id="projects" class="section alt">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="section-kicker"><i data-lucide="folder-kanban" class="icon" aria-hidden="true"></i>Projects</span>
+            <h2>Case studies with measurable business impact.</h2>
+          </div>
+          <p class="section-intro">
+            Each project is framed the way hiring managers scan: context, problem, your role, actions, and results.
+          </p>
         </div>
-        <p style="color:var(--muted);margin:10px 0 0">Added VoAP fields & dependency checks with rules-engine integration for more accurate decisions.</p>
-      </a>
-    </div>
-  </section> -->
 
-<!-- Project 1 -->
-  <div class="section-title-bar">
-  <h2 class="section-title xl">Projects</h2>
-  <div class="line"></div>
-</div>
-<article class="project card">
-  <div class="proj-head">
-    <h3>SME Lending — Stage Re-validation</h3>
-    <div class="badges">
-      <span class="badge">Validation</span>
-      <span class="badge">State Machine</span>
-      <span class="badge">Data Integrity</span>
-      <span class="badge">UAT</span>
-    </div>
-  </div>
+        <div class="project-grid">
+          <article class="project-card">
+            <div class="project-top">
+              <h3>SME Lending - Stage Re-validation</h3>
+              <div class="badges">
+                <span class="badge teal">Validation</span>
+                <span class="badge">State machine</span>
+                <span class="badge">Data integrity</span>
+                <span class="badge amber">UAT</span>
+              </div>
+            </div>
+            <div class="project-body">
+              <p>Implemented stage-reversal re-validation so applications moving backward through the journey trigger fresh checks before progressing again.</p>
+              <details>
+                <summary>Case study <i data-lucide="chevron-down" class="icon" aria-hidden="true"></i></summary>
+                <div class="case-content">
+                  <dl>
+                    <div>
+                      <dt>Problem</dt>
+                      <dd>Mandatory fields and conditional checks could be bypassed during stage reversal, creating stale data and rework.</dd>
+                    </div>
+                    <div>
+                      <dt>Actions</dt>
+                      <dd>Defined reusable validation triggers, dependency rules, audit logs, failure reasons, and regression coverage for reversal scenarios.</dd>
+                    </div>
+                    <div>
+                      <dt>Impact</dt>
+                      <dd>Improved first-pass quality, strengthened data integrity, and made support investigation faster.</dd>
+                    </div>
+                  </dl>
+                </div>
+              </details>
+            </div>
+          </article>
 
-  <p class="proj-desc">
-    Implemented stage-reversal re-validation to improve data integrity and first-pass rate.
-  </p>
+          <article class="project-card">
+            <div class="project-top">
+              <h3>Regulatory Credit Reporting</h3>
+              <div class="badges">
+                <span class="badge teal">Compliance</span>
+                <span class="badge">Pre-checks</span>
+                <span class="badge">Error taxonomy</span>
+                <span class="badge amber">Audit trail</span>
+              </div>
+            </div>
+            <div class="project-body">
+              <p>Led improvements for credit reporting submission readiness, retry handling, status tracking, and explainable exception closure.</p>
+              <details>
+                <summary>Case study <i data-lucide="chevron-down" class="icon" aria-hidden="true"></i></summary>
+                <div class="case-content">
+                  <dl>
+                    <div>
+                      <dt>Problem</dt>
+                      <dd>Submission quality depended on inconsistent checks and uneven response handling, slowing compliance operations.</dd>
+                    </div>
+                    <div>
+                      <dt>Actions</dt>
+                      <dd>Introduced reusable pre-submission validation, standardized error codes, controlled retries, and reconciliation visibility.</dd>
+                    </div>
+                    <div>
+                      <dt>Impact</dt>
+                      <dd>Reduced manual intervention, improved data quality, and made the submission path more auditable.</dd>
+                    </div>
+                  </dl>
+                </div>
+              </details>
+            </div>
+          </article>
 
-  <!-- ↓↓↓ 展开按钮 + Case Study 内容 ↓↓↓ -->
-  <details class="case-toggle">
-    <summary class="toggle">
-      <span>Case study</span>
-      <!-- 下箭头图标 -->
-      <svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none">
-        <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-    </summary>
+          <article class="project-card">
+            <div class="project-top">
+              <h3>SME Digital - Third-Party Guarantee API</h3>
+              <div class="badges">
+                <span class="badge teal">API integration</span>
+                <span class="badge">Idempotency</span>
+                <span class="badge">State sync</span>
+                <span class="badge amber">Exception flow</span>
+              </div>
+            </div>
+            <div class="project-body">
+              <p>Designed integration requirements for a guarantee provider workflow, with reliable state handling, mapping, and observability.</p>
+              <details>
+                <summary>Case study <i data-lucide="chevron-down" class="icon" aria-hidden="true"></i></summary>
+                <div class="case-content">
+                  <dl>
+                    <div>
+                      <dt>Problem</dt>
+                      <dd>External integration introduced timeout, duplicate submission, state drift, and audit trail risks.</dd>
+                    </div>
+                    <div>
+                      <dt>Actions</dt>
+                      <dd>Defined eligibility rules, contract validation, idempotency keys, retry policies, callbacks, alerts, and exception SLAs.</dd>
+                    </div>
+                    <div>
+                      <dt>Impact</dt>
+                      <dd>Supported higher straight-through processing and faster root-cause analysis for integration issues.</dd>
+                    </div>
+                  </dl>
+                </div>
+              </details>
+            </div>
+          </article>
 
-    <div class="case-grid">
-      <div class="case-sec">
-        <h4>Context</h4>
-        <p>In the SME lending journey (application → pre-screening → approval), users may move backward to earlier steps to edit data.</p>
+          <article class="project-card">
+            <div class="project-top">
+              <h3>Asset-Based Credit - VoAP</h3>
+              <div class="badges">
+                <span class="badge teal">Credit rules</span>
+                <span class="badge">Dependency checks</span>
+                <span class="badge">Rules engine</span>
+                <span class="badge amber">Decision quality</span>
+              </div>
+            </div>
+            <div class="project-body">
+              <p>Added VoAP fields and dependency checks to improve credit decision completeness and reduce avoidable rework.</p>
+              <details>
+                <summary>Case study <i data-lucide="chevron-down" class="icon" aria-hidden="true"></i></summary>
+                <div class="case-content">
+                  <dl>
+                    <div>
+                      <dt>Problem</dt>
+                      <dd>Asset-based credit inputs needed clearer validation and stronger dependency control before decisioning.</dd>
+                    </div>
+                    <div>
+                      <dt>Actions</dt>
+                      <dd>Mapped field dependencies, validation states, front-end prompts, rules-engine behavior, and UAT scenarios.</dd>
+                    </div>
+                    <div>
+                      <dt>Impact</dt>
+                      <dd>Improved completeness of credit assessment inputs and reduced downstream clarification cycles.</dd>
+                    </div>
+                  </dl>
+                </div>
+              </details>
+            </div>
+          </article>
+        </div>
       </div>
-      <div class="case-sec">
-        <h4>Problem</h4>
-        <p>Stage reversal often caused mandatory fields to be bypassed, stale data to persist, and inconsistent validations, leading to rework and slower approvals.</p>
+    </section>
+
+    <section id="skills" class="section">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="section-kicker"><i data-lucide="layers-3" class="icon" aria-hidden="true"></i>Skills</span>
+            <h2>What I bring into delivery rooms.</h2>
+          </div>
+          <p class="section-intro">
+            A practical mix of business analysis, banking delivery, testing leadership, and technical collaboration.
+          </p>
+        </div>
+
+        <div class="skills-grid">
+          <div class="skill-group">
+            <h3>Business Analysis</h3>
+            <div class="skill-list">
+              <span class="chip">Requirements elicitation</span>
+              <span class="chip">Traceability</span>
+              <span class="chip">BRD / FSD documentation</span>
+              <span class="chip">Stakeholder management</span>
+              <span class="chip">Approval matrix design</span>
+              <span class="chip">Workflow modeling</span>
+            </div>
+          </div>
+          <div class="skill-group">
+            <h3>Banking & Delivery</h3>
+            <div class="skill-list">
+              <span class="chip">Loan origination systems</span>
+              <span class="chip">Core banking transformation</span>
+              <span class="chip">Regulatory reporting</span>
+              <span class="chip">Data integrity</span>
+              <span class="chip">Release readiness</span>
+              <span class="chip">Change management</span>
+            </div>
+          </div>
+          <div class="skill-group">
+            <h3>Testing & Quality</h3>
+            <div class="skill-list">
+              <span class="chip">UAT leadership</span>
+              <span class="chip">Defect triage</span>
+              <span class="chip">Regression planning</span>
+              <span class="chip">Root-cause analysis</span>
+              <span class="chip">Risk-based test strategy</span>
+              <span class="chip">Post-release monitoring</span>
+            </div>
+          </div>
+          <div class="skill-group">
+            <h3>Technical Collaboration</h3>
+            <div class="skill-list">
+              <span class="chip">API contract validation</span>
+              <span class="chip">SQL basics</span>
+              <span class="chip">Jira</span>
+              <span class="chip">Confluence</span>
+              <span class="chip">HP ALM</span>
+              <span class="chip">HTML / CSS</span>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="case-sec">
-        <h4>Role</h4>
-        <p>designed the rule framework and state machine, unified trigger points and error messages, and led UAT and defect triage.</p>
+    </section>
+
+    <section id="contact" class="contact-band">
+      <div class="container contact-inner">
+        <div>
+          <span class="section-kicker"><i data-lucide="send" class="icon" aria-hidden="true"></i>Contact</span>
+          <h2>Let us talk about business analysis, banking delivery, or your next role.</h2>
+          <p>Best reached by email. I am open to BA, senior BA, and transformation roles where clear requirements and strong delivery control matter.</p>
+        </div>
+        <div class="contact-actions">
+          <a class="contact-link" href="mailto:tanzexiang8@gmail.com"><i data-lucide="mail" class="icon" aria-hidden="true"></i>tanzexiang8@gmail.com</a>
+          <a class="contact-link" href="https://github.com/Xiang13-gif" target="_blank" rel="noreferrer"><i data-lucide="github" class="icon" aria-hidden="true"></i>GitHub</a>
+        </div>
       </div>
-      <div class="case-sec">
-        <h4>Actions</h4>
-        <ul>
-          <li>Implemented stage-reversal re-validation: entering a previous step automatically triggers fresh checks.</li>
-          <li>Externalized validation rules (required/conditional fields, dependencies, timestamps) for reuse across front/back end.</li>
-          <li>Added audit logging and observability (rollback rate, failure reasons).</li>
-          <li>Built dedicated test packs for reversal scenarios and included them in regression.</li>
-        </ul>
-      </div>
-      <div class="case-sec">
-        <h4>Impact</h4>
-        <ul>
-          <li>Higher first-pass rate and fewer resubmissions.</li>
-          <li>Stronger data integrity and more stable end-to-end flow.</li>
-          <li>Faster investigation for support/ops (e.g., ~15–30% quicker).</li>
-        </ul>
-      </div>
-    </div>
-  </details>
+    </section>
+  </main>
 
-  <!-- 可选：外链按钮 -->
-  <!-- <a class="visit" href="#" target="_blank" rel="noreferrer">Visit</a> -->
-</article>
+  <footer>
+    <div class="container">© <span id="year"></span> TAN ZE XIANG. All rights reserved.</div>
+  </footer>
 
-<!-- Project 2/3/4… 重复上面结构，替换文字即可 -->
-
-
-   <article class="project card">
-  <div class="proj-head">
-    <h3>Regulatory Credit Reporting</h3>
-    <div class="badges">
-      <span class="badge">Validation</span>
-      <span class="badge">State Machine</span>
-      <span class="badge">Data Integrity</span>
-      <span class="badge">UAT</span>
-    </div>
-  </div>
-
-  <p class="proj-desc">
-    Led enhancements for regulatory credit reporting (e.g., CCRIS-like), covering pre-submission validation, submission/retry, and response/error handling.
-  </p>
-
-  <!-- ↓↓↓ 展开按钮 + Case Study 内容 ↓↓↓ -->
-  <details class="case-toggle">
-    <summary class="toggle">
-      <span>Case study</span>
-      <!-- 下箭头图标 -->
-      <svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none">
-        <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-    </summary>
-
-    <div class="case-grid">
-      <div class="case-sec">
-        <h4>Context</h4>
-        <p>Regulatory credit reporting demands stable, traceable, and auditable submission pipelines..</p>
-      </div>
-      <div class="case-sec">
-        <h4>Problem</h4>
-        <p>Gaps included missing pre-submission checks, inconsistent error handling, and uneven async receipt processing/retries, hurting compliance and efficiency.</p>
-      </div>
-      <div class="case-sec">
-        <h4>Role</h4>
-        <p>owned rule/process design, error code governance, end-to-end testing, and alignment with compliance.</p>
-      </div>
-      <div class="case-sec">
-        <h4>Actions</h4>
-        <ul>
-          <li>Introduced a pre-submission validation checklist (required/range/format/mapping) implemented as reusable rules.</li>
-          <li>Designed idempotent submission with controlled retries and async receipt handling; standardized error taxonomy and monitoring.</li>
-          <li>Enabled status tracking and audit trails for reconciliation and reviews.</li>
-          <li>Defined regression packs and change windows; co-reviewed with compliance.</li>
-        </ul>
-      </div>
-      <div class="case-sec">
-        <h4>Impact</h4>
-        <ul>
-          <li>Improved compliance consistency and data quality; lower failure rate.</li>
-          <li>Faster exception closure (e.g., ~20–40%); reduced manual intervention.</li>
-          <li>Submission path became fully auditable and explainable.</li>
-        </ul>
-      </div>
-    </div>
-  </details>
-
-  <!-- 可选：外链按钮 -->
-  <!-- <a class="visit" href="#" target="_blank" rel="noreferrer">Visit</a> -->
-</article>
-
-    <article class="project card">
-  <div class="proj-head">
-    <h3>Digital of Small Medium Enterprise flow · Third-Party Guarantee API</h3>
-    <div class="badges">
-      <span class="badge">Validation</span>
-      <span class="badge">State Machine</span>
-      <span class="badge">Data Integrity</span>
-      <span class="badge">UAT</span>
-    </div>
-  </div>
-
-  <p class="proj-desc">
-    Integrated guarantee workflow API with mapping, idempotency, and state sync for stability and observability.
-  </p>
-
-  <!-- ↓↓↓ 展开按钮 + Case Study 内容 ↓↓↓ -->
-  <details class="case-toggle">
-    <summary class="toggle">
-      <span>Case study</span>
-      <!-- 下箭头图标 -->
-      <svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none">
-        <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-    </summary>
-
-    <div class="case-grid">
-      <div class="case-sec">
-        <h4>Context</h4>
-        <p>ntegrate a third-party credit guarantee provider into the existing SME application flow to lift straight-through processing (STP).</p>
-      </div>
-      <div class="case-sec">
-        <h4>Problem</h4>
-        <p>External integration introduced risks: timeouts, duplicate submissions, state drift, and lack of a unified audit trail.</p>
-      </div>
-      <div class="case-sec">
-        <h4>Role</h4>
-        <p>odefined integration rules and exception paths; drove API orchestration requirements, contract alignment, UAT, and release strategy.</p>
-      </div>
-      <div class="case-sec">
-        <h4>Actions</h4>
-        <ul>
-          <li>Externalized guarantee eligibility/coverage/document rules with versioned governance.</li>
-          <li>Built API orchestration with idempotency keys, retry policies, async callbacks/webhooks, and state synchronization.</li>
-          <li>Standardized data mapping & validations; added logs, metrics, and alerts.</li>
-          <li>Defined exception flows & SLAs (timeouts, partial failures, cancellations).</li>
-        </ul>
-      </div>
-      <div class="case-sec">
-        <h4>Impact</h4>
-        <ul>
-          <li>Higher STP rate (e.g., ~10–25%) and fewer manual handoffs.</li>
-          <li>Shorter TAT (e.g., ~15–30%); fewer integration incidents.</li>
-          <li>Clear audit chain; faster root-cause analysis.</li>
-        </ul>
-      </div>
-    </div>
-  </details>
-
-  <!-- 可选：外链按钮 -->
-  <!-- <a class="visit" href="#" target="_blank" rel="noreferrer">Visit</a> -->
-</article>
-
-    <a class="project card" href="#">
-      <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
-        <strong>Asset-Based Credit (VoAP)</strong>
-        <span class="badge">UI Design</span>
-      </div>
-      <p style="color:var(--muted);margin:10px 0 0">
-        Added VoAP fields & dependency checks with rules-engine integration for more accurate decisions.
-      </p>
-    </a>
-  </div>
-</section>
-
-  <!-- SKILLS 
-  <section id="skills" class="container">
-    <h2 class="section-title">Skills</h2>
-    <div class="skills">
-      <span class="chip">HTML5</span>
-      <span class="chip">CSS3</span>
-      <span class="chip">Responsive Design</span>
-      <span class="chip">Business Development</span>
-      <span class="chip">UI/UX</span>
-      <span class="chip">API Connection</span>
-      <span class="chip">Manual Testing</span>
-      <span class="chip">Requirement Analysis</span>
-      <span class="chip">BRD / FSD Documentation</span>
-      <span class="chip">User Journey Mapping</span>
-      <span class="chip">UML & Process Modeling (Flowchart / Sequence Diagram / Mermaid)</span>
-      <span class="chip">Stakeholder Management</span>
-      <span class="chip">UAT Leadership</span>
-      <span class="chip">Cross Functional Collaboration</span>
-      <span class="chip">Conflict Resolution</span>
-      <span class="chip">Test Strategy Development</span>
-      <span class="chip">Defect Management Lifecycle</span>
-      <span class="chip">Root Cause Analysis</span>
-    </div>
-  </section>-->
-
-  <section id="skills" class="container">
-  <h2 class="section-title">Skills</h2>
-
-  <div class="skill-groups">
-    <!-- A. Core Skills -->
-    <div class="skill-group card">
-      <h3>Core Skills</h3>
-      <div class="tags">
-        <span class="chip">Requirements Elicitation & Traceability</span>
-        <span class="chip">BRD / FSD Documentation</span>
-        <span class="chip">Stakeholder Management</span>
-        <span class="chip">Workflow / State-Machine Modeling (UML · BPMN/Mermaid)</span>
-        <span class="chip">Policy & Approval Matrix Design</span>
-        <span class="chip">Data Integrity & Validation</span>
-        <span class="chip">Regulatory Reporting (e.g., CCRIS-like)</span>
-        <span class="chip">Risk-based Test Strategy (VSIT/SIT/UAT/Regression)</span>
-        <span class="chip">UAT Leadership & Defect Triage</span>
-        <span class="chip">Root Cause Analysis</span>
-        <span class="chip">Release & Change Management</span>
-        <span class="chip">Post-release Monitoring & Observability</span>
-      </div>
-    </div>
-
-    <!-- B. Technical & Tools -->
-    <div class="skill-group card">
-      <h3>Technical &amp; Tools</h3>
-      <div class="tags">
-        <span class="chip">API Integration & Contract Validation</span>
-        <span class="chip">Jira</span>
-        <span class="chip">Confluence</span>
-        <span class="chip">HP ALM</span>
-        <span class="chip">DocGen / Word Templates</span>
-        <span class="chip">SQL (basic)</span>
-        <span class="chip">Dashboarding / Monitoring</span>
-      </div>
-    </div>
-
-    <!-- C. Collaboration -->
-    <div class="skill-group card">
-      <h3>Collaboration</h3>
-      <div class="tags">
-        <span class="chip">Cross-functional Collaboration</span>
-        <span class="chip">Conflict Resolution</span>
-        <span class="chip">Facilitation & Workshop</span>
-      </div>
-    </div>
-
-    <!-- D. Secondary / Other -->
-    <div class="skill-group card">
-      <h3>Secondary / Other</h3>
-      <div class="tags">
-        <span class="chip">UI/UX Collaboration</span>
-        <span class="chip">HTML5</span>
-        <span class="chip">CSS3</span>
-        <span class="chip">Responsive Design</span>
-        <span class="chip">Stakeholder Alignment / Commercial Awareness</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-  <!-- CONTACT -->
-  <section id="contact" class="container">
-    <div class="cta-strip card">
-      <div>
-        <div style="font-weight:700;font-size:18px">Let’s build something</div>
-        <div style="color:#dbeafe">Happy to chat about roles, projects, or collaboration.</div>
-      </div>
-      <div style="display:flex;flex-wrap:wrap;gap:10px">
-        <a class="btn primary" href="mailto:you@example.com">Email me</a>
-      </div>
-    </div>
-  </section>
-
-  <footer>© <span id="year"></span> TAN ZE XIANG · All rights reserved.</footer>
-  <script>document.getElementById('year').textContent = new Date().getFullYear()</script>
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+    window.addEventListener("DOMContentLoaded", () => {
+      if (window.lucide) {
+        window.lucide.createIcons();
+      }
+    });
+  </script>
 </body>
 </html>
