@@ -23,6 +23,8 @@
       --strong: #08111f;
       --muted: #5b697d;
       --aqua: #0f766e;
+      --accent: #0f766e;
+      --accent-soft: rgba(15, 118, 110, .16);
       --gold: #c5892f;
       --slate: #1f3149;
       --glass: rgba(255, 255, 255, .66);
@@ -33,7 +35,7 @@
     }
 
     * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; scroll-padding-top: 104px; }
     body {
       min-width: 0;
       margin: 0;
@@ -62,10 +64,33 @@
       content: "";
       pointer-events: none;
     }
+    button {
+      font: inherit;
+      color: inherit;
+      cursor: pointer;
+    }
     a { color: inherit; text-decoration: none; }
     img { display: block; max-width: 100%; }
     summary { font: inherit; }
     .container { width: min(var(--max), calc(100% - 40px)); margin: 0 auto; }
+    .scroll-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 60;
+      width: 100%;
+      height: 4px;
+      background: rgba(255,255,255,.22);
+      pointer-events: none;
+    }
+    .scroll-progress span {
+      display: block;
+      width: var(--scroll-progress, 0%);
+      height: 100%;
+      background: linear-gradient(90deg, var(--accent), #1f3149 58%, var(--gold));
+      box-shadow: 0 0 24px var(--accent-soft);
+      transition: width .12s linear;
+    }
     .glass {
       position: relative;
       overflow: hidden;
@@ -84,7 +109,48 @@
       content: "";
       pointer-events: none;
     }
+    .glass::before,
+    .interactive-card::after { z-index: 0; }
+    .interactive-card {
+      --mx: 50%;
+      --my: 0%;
+      --tilt-x: 0deg;
+      --tilt-y: 0deg;
+      --reveal-y: 0px;
+      --card-lift: 0px;
+      transform: perspective(900px) translateY(calc(var(--reveal-y) + var(--card-lift))) rotateX(var(--tilt-x)) rotateY(var(--tilt-y));
+      transform-style: preserve-3d;
+    }
+    .interactive-card::after {
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      background:
+        radial-gradient(circle at var(--mx) var(--my), rgba(255,255,255,.82), rgba(255,255,255,.2) 20%, transparent 44%),
+        linear-gradient(135deg, transparent, rgba(255,255,255,.22));
+      opacity: 0;
+      transition: opacity .22s ease;
+      content: "";
+      pointer-events: none;
+    }
+    .interactive-card:hover::after,
+    .interactive-card:focus-within::after { opacity: .72; }
     .glass > * { position: relative; z-index: 1; }
+    .reveal {
+      --reveal-y: 18px;
+      opacity: 0;
+      transform: translateY(var(--reveal-y));
+      transition: opacity .62s ease, transform .62s ease;
+    }
+    .reveal.is-visible {
+      --reveal-y: 0px;
+      opacity: 1;
+      transform: translateY(var(--reveal-y));
+    }
+    .interactive-card.reveal,
+    .interactive-card.reveal.is-visible {
+      transform: perspective(900px) translateY(calc(var(--reveal-y) + var(--card-lift))) rotateX(var(--tilt-x)) rotateY(var(--tilt-y));
+    }
 
     .site-header { position: sticky; top: 0; z-index: 20; padding: 14px 0; }
     .nav {
@@ -140,6 +206,11 @@
       background: rgba(255,255,255,.74);
       outline: none;
       transform: translateY(-1px);
+    }
+    .nav-links a.is-active {
+      background: rgba(255,255,255,.78);
+      color: var(--accent);
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,.76);
     }
     .nav-links a:last-child {
       border: 1px solid rgba(255,255,255,.72);
@@ -220,6 +291,24 @@
       background: linear-gradient(135deg, rgba(15,118,110,.96), rgba(31,49,73,.94) 62%, rgba(197,137,47,.9));
       color: #fff;
     }
+    .btn,
+    .contact-link,
+    .lens-tab,
+    .segment-btn {
+      transition: transform .18s ease, background .18s ease, box-shadow .18s ease, border-color .18s ease;
+    }
+    .btn:hover,
+    .btn:focus-visible,
+    .contact-link:hover,
+    .contact-link:focus-visible,
+    .lens-tab:hover,
+    .lens-tab:focus-visible,
+    .segment-btn:hover,
+    .segment-btn:focus-visible {
+      outline: none;
+      transform: translateY(-2px);
+      box-shadow: 0 20px 40px rgba(31,49,73,.14);
+    }
     .icon,
     .signal-icon,
     .role-card .icon {
@@ -227,6 +316,82 @@
       height: 18px;
       flex: 0 0 auto;
       stroke-width: 2.2;
+    }
+    .lens-deck {
+      display: grid;
+      gap: 14px;
+      max-width: 690px;
+      margin-top: 24px;
+      border-radius: 26px;
+      padding: 16px;
+    }
+    .deck-top,
+    .control-heading {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      color: #506075;
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
+    .deck-top output {
+      color: var(--strong);
+      font-size: 14px;
+      text-transform: none;
+    }
+    .lens-tabs,
+    .segmented {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .lens-tab,
+    .segment-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-height: 40px;
+      border: 1px solid rgba(255,255,255,.7);
+      border-radius: 999px;
+      padding: 8px 12px;
+      background: rgba(255,255,255,.52);
+      color: #38465a;
+      font-size: 13px;
+      font-weight: 850;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.72);
+    }
+    .lens-tab.is-active,
+    .segment-btn.is-active {
+      border-color: rgba(255,255,255,.96);
+      background: linear-gradient(135deg, var(--accent), #1f3149);
+      color: #fff;
+      box-shadow: 0 16px 30px rgba(31,49,73,.16);
+    }
+    .lens-copy {
+      min-height: 78px;
+      margin: 0;
+      color: #415168;
+      font-size: 15px;
+      line-height: 1.66;
+    }
+    .signal-meter {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 8px;
+    }
+    .signal-meter span {
+      height: 8px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.7);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.9);
+    }
+    .signal-meter span.is-on {
+      background: linear-gradient(90deg, var(--accent), rgba(197,137,47,.88));
+      box-shadow: 0 10px 22px var(--accent-soft);
     }
 
     .hero-panel { border-radius: 32px; box-shadow: 0 32px 90px rgba(31,49,73,.18); }
@@ -314,6 +479,11 @@
     .signal-card { min-height: 96px; border-radius: 22px; }
     .signal-card strong { display: block; color: var(--strong); font-size: 15px; line-height: 1.25; }
     .signal-card span { display: block; margin-top: 4px; color: #566579; font-size: 13px; font-weight: 650; line-height: 1.35; }
+    .is-lens-match {
+      border-color: rgba(255,255,255,.92);
+      background: linear-gradient(145deg, rgba(255,255,255,.82), rgba(255,255,255,.46));
+      box-shadow: 0 30px 76px rgba(31,49,73,.17), 0 0 0 1px var(--accent-soft);
+    }
 
     .section { padding: 76px 0; }
     .section.alt { background: linear-gradient(180deg, rgba(255,255,255,.24), rgba(255,255,255,.48)); }
@@ -344,6 +514,27 @@
     }
     h3 { margin: 0; color: var(--strong); font-size: 21px; line-height: 1.25; font-weight: 900; letter-spacing: 0; }
     .section-intro { margin: 0; color: #4b586d; font-size: 16px; line-height: 1.82; }
+    .control-panel {
+      display: grid;
+      gap: 14px;
+      margin-bottom: 18px;
+      border-radius: 26px;
+      padding: 16px;
+    }
+    .control-heading strong {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--strong);
+      font-size: 14px;
+      text-transform: none;
+    }
+    .control-status {
+      margin: 0;
+      color: #4b586d;
+      font-size: 14px;
+      line-height: 1.65;
+    }
     .about-layout {
       display: grid;
       grid-template-columns: minmax(0, 1.05fr) minmax(300px, .95fr);
@@ -380,7 +571,7 @@
     .experience-item:hover,
     .project-card:hover,
     .skill-group:hover {
-      transform: translateY(-3px);
+      --card-lift: -3px;
       background: rgba(255,255,255,.72);
       box-shadow: 0 32px 90px rgba(31,49,73,.18);
     }
@@ -479,11 +670,21 @@
     .badge.teal { color: var(--aqua); }
     .badge.amber { color: #9a641e; }
     .project-body { display: grid; gap: 18px; padding: 24px; }
+    .project-card.is-hidden,
+    .skill-group.is-hidden { display: none; }
+    .project-card.is-featured {
+      border-color: rgba(255,255,255,.92);
+      box-shadow: 0 34px 92px rgba(31,49,73,.2), 0 0 0 1px var(--accent-soft);
+    }
     details {
       overflow: hidden;
       border: 1px solid rgba(255,255,255,.62);
       border-radius: 18px;
       background: rgba(255,255,255,.4);
+    }
+    details[open] {
+      background: rgba(255,255,255,.62);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.8);
     }
     summary {
       display: flex;
@@ -519,7 +720,36 @@
     }
     .contact-card p { max-width: 680px; margin: 12px 0 0; color: #4b586d; }
     .contact-actions { display: flex; flex-wrap: wrap; gap: 10px; justify-content: flex-end; }
+    button.contact-link {
+      appearance: none;
+      border-color: rgba(255,255,255,.74);
+    }
     footer { padding: 24px 0 34px; color: #657386; font-size: 13px; text-align: center; }
+    .toast {
+      position: fixed;
+      right: 22px;
+      bottom: 22px;
+      z-index: 70;
+      max-width: min(340px, calc(100vw - 32px));
+      border: 1px solid rgba(255,255,255,.74);
+      border-radius: 999px;
+      padding: 12px 16px;
+      background: rgba(255,255,255,.78);
+      color: var(--strong);
+      font-size: 14px;
+      font-weight: 850;
+      box-shadow: 0 24px 60px rgba(31,49,73,.18);
+      opacity: 0;
+      transform: translateY(14px);
+      transition: opacity .22s ease, transform .22s ease;
+      pointer-events: none;
+      backdrop-filter: blur(22px);
+      -webkit-backdrop-filter: blur(22px);
+    }
+    .toast.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
 
     @supports not ((backdrop-filter: blur(12px)) or (-webkit-backdrop-filter: blur(12px))) {
       .glass, .btn, .contact-link, .eyebrow { background: rgba(255,255,255,.9); }
@@ -546,6 +776,11 @@
       .headline { font-size: 52px; }
       .role { font-size: 22px; }
       .lede { font-size: 16px; line-height: 1.7; }
+      .lens-deck { max-width: none; }
+      .segmented,
+      .lens-tabs { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .segment-btn,
+      .lens-tab { width: 100%; }
       .portrait-shell,
       .experience-item,
       .project-grid,
@@ -559,8 +794,13 @@
       h2 { font-size: 36px; }
     }
     @media (max-width: 540px) {
-      .nav-links { gap: 1px; font-size: 12px; }
-      .nav-links a { padding: 7px 6px; }
+      .nav-links {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 4px;
+        font-size: 12px;
+      }
+      .nav-links a { padding: 7px 6px; text-align: center; }
       .actions,
       .contact-actions { display: grid; grid-template-columns: 1fr; }
       .btn,
@@ -577,6 +817,10 @@
       .meta-strip,
       .signal-strip,
       .method-grid { grid-template-columns: 1fr; }
+      .deck-top,
+      .control-heading { align-items: flex-start; flex-direction: column; }
+      .segmented,
+      .lens-tabs { grid-template-columns: 1fr; }
       .meta-strip { padding: 0 12px 12px; }
       .statement,
       .role-card,
@@ -592,8 +836,7 @@
       h2 { font-size: 31px; }
     }
     @media (max-width: 360px) {
-      .nav-links { flex-wrap: wrap; justify-content: flex-start; row-gap: 4px; }
-      .nav-links a { flex: 1 1 calc(33.333% - 4px); text-align: center; }
+      .nav-links { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .headline { font-size: 34px; }
     }
     @media (prefers-reduced-motion: reduce) {
@@ -603,10 +846,13 @@
         animation-duration: .01ms !important;
         animation-iteration-count: 1 !important;
       }
+      .interactive-card { transform: none !important; }
+      .reveal { opacity: 1; transform: none; }
     }
   </style>
 </head>
 <body>
+  <div class="scroll-progress" aria-hidden="true"><span></span></div>
   <header class="site-header">
     <div class="container nav glass">
       <a class="brand" href="#home" aria-label="Go to top"><span class="brand-mark">TZ</span><span>TAN ZE XIANG</span></a>
@@ -615,6 +861,7 @@
         <a href="#method">Method</a>
         <a href="#experience">Experience</a>
         <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
         <a href="#contact">Contact</a>
       </nav>
     </div>
@@ -632,6 +879,17 @@
             <a class="btn primary" href="mailto:tanzexiang8@gmail.com"><i data-lucide="mail" class="icon" aria-hidden="true"></i>Email me</a>
             <a class="btn" href="#projects"><i data-lucide="briefcase-business" class="icon" aria-hidden="true"></i>View work</a>
             <a class="btn" href="https://github.com/Xiang13-gif" target="_blank" rel="noreferrer"><i data-lucide="code-xml" class="icon" aria-hidden="true"></i>GitHub</a>
+          </div>
+          <div class="lens-deck glass interactive-card" aria-label="Role lens selector">
+            <div class="deck-top"><span>Role lens</span><output id="lensTitle">Transformation BA</output></div>
+            <div class="lens-tabs" role="tablist" aria-label="Role lens">
+              <button class="lens-tab is-active" type="button" data-lens="transformation" aria-pressed="true"><i data-lucide="route" class="icon" aria-hidden="true"></i>Transformation</button>
+              <button class="lens-tab" type="button" data-lens="uat" aria-pressed="false"><i data-lucide="clipboard-check" class="icon" aria-hidden="true"></i>UAT</button>
+              <button class="lens-tab" type="button" data-lens="api" aria-pressed="false"><i data-lucide="plug-zap" class="icon" aria-hidden="true"></i>API</button>
+              <button class="lens-tab" type="button" data-lens="compliance" aria-pressed="false"><i data-lucide="shield-check" class="icon" aria-hidden="true"></i>Compliance</button>
+            </div>
+            <p class="lens-copy" id="lensCopy">I connect stakeholder intent, lending policy, workflow states, UAT evidence, and release readiness into one delivery path.</p>
+            <div class="signal-meter" aria-hidden="true"><span class="is-on"></span><span class="is-on"></span><span class="is-on"></span><span></span></div>
           </div>
         </div>
         <aside class="hero-panel glass" aria-label="Profile highlights">
@@ -652,10 +910,10 @@
         </aside>
       </div>
       <div class="container signal-strip" aria-label="Profile strengths">
-        <div class="signal-card glass"><i data-lucide="workflow" class="signal-icon" aria-hidden="true"></i><div><strong>LOS journeys</strong><span>Rules, states, approvals, and exceptions</span></div></div>
-        <div class="signal-card glass"><i data-lucide="shield-check" class="signal-icon" aria-hidden="true"></i><div><strong>Regulatory control</strong><span>Pre-checks, reconciliation, auditability</span></div></div>
-        <div class="signal-card glass"><i data-lucide="plug-zap" class="signal-icon" aria-hidden="true"></i><div><strong>API delivery</strong><span>Contracts, idempotency, state sync</span></div></div>
-        <div class="signal-card glass"><i data-lucide="radar" class="signal-icon" aria-hidden="true"></i><div><strong>Release confidence</strong><span>UAT coverage, triage, monitoring</span></div></div>
+        <div class="signal-card glass" data-lens-tags="transformation uat"><i data-lucide="workflow" class="signal-icon" aria-hidden="true"></i><div><strong>LOS journeys</strong><span>Rules, states, approvals, and exceptions</span></div></div>
+        <div class="signal-card glass" data-lens-tags="compliance transformation"><i data-lucide="shield-check" class="signal-icon" aria-hidden="true"></i><div><strong>Regulatory control</strong><span>Pre-checks, reconciliation, auditability</span></div></div>
+        <div class="signal-card glass" data-lens-tags="api transformation"><i data-lucide="plug-zap" class="signal-icon" aria-hidden="true"></i><div><strong>API delivery</strong><span>Contracts, idempotency, state sync</span></div></div>
+        <div class="signal-card glass" data-lens-tags="uat compliance"><i data-lucide="radar" class="signal-icon" aria-hidden="true"></i><div><strong>Release confidence</strong><span>UAT coverage, triage, monitoring</span></div></div>
       </div>
     </section>
 
@@ -669,16 +927,16 @@
           <div class="statement glass">
             <p>Business Analyst focused on core banking transformation. I have led multiple concurrent LOS enhancements, partnered with senior stakeholders, co-designed 100+ UI screens, shaped configurable approval rules, and supported delivery through rigorous UAT, defect triage, documentation automation, and post-go-live monitoring.</p>
             <div class="role-fit">
-              <div class="role-card glass"><i data-lucide="badge-check" class="icon" aria-hidden="true"></i><strong>Best role fit</strong><span>Senior BA, BA lead, transformation BA, product-facing banking delivery.</span></div>
-              <div class="role-card glass"><i data-lucide="building-2" class="icon" aria-hidden="true"></i><strong>Domain fit</strong><span>Loan origination, SME lending, credit workflow, reporting, and operations.</span></div>
-              <div class="role-card glass"><i data-lucide="handshake" class="icon" aria-hidden="true"></i><strong>Team fit</strong><span>Stakeholders, product owners, QA, developers, vendors, and operations teams.</span></div>
+              <div class="role-card glass" data-lens-tags="transformation uat"><i data-lucide="badge-check" class="icon" aria-hidden="true"></i><strong>Best role fit</strong><span>Senior BA, BA lead, transformation BA, product-facing banking delivery.</span></div>
+              <div class="role-card glass" data-lens-tags="transformation compliance"><i data-lucide="building-2" class="icon" aria-hidden="true"></i><strong>Domain fit</strong><span>Loan origination, SME lending, credit workflow, reporting, and operations.</span></div>
+              <div class="role-card glass" data-lens-tags="api uat"><i data-lucide="handshake" class="icon" aria-hidden="true"></i><strong>Team fit</strong><span>Stakeholders, product owners, QA, developers, vendors, and operations teams.</span></div>
             </div>
           </div>
           <div class="focus-grid">
-            <div class="focus-card glass"><strong>Business process translation</strong><span>Converting policy, lending journeys, and stakeholder needs into usable flows and decision rules.</span></div>
-            <div class="focus-card glass"><strong>Rule and validation design</strong><span>Defining mandatory fields, dependencies, state handling, auditability, and reusable validation logic.</span></div>
-            <div class="focus-card glass"><strong>Testing and release control</strong><span>Creating coverage, leading UAT, prioritizing defects, and protecting regression confidence.</span></div>
-            <div class="focus-card glass"><strong>Operational visibility</strong><span>Using dashboards, monitoring, and incident analysis to shorten investigation and resolution cycles.</span></div>
+            <div class="focus-card glass" data-lens-tags="transformation compliance"><strong>Business process translation</strong><span>Converting policy, lending journeys, and stakeholder needs into usable flows and decision rules.</span></div>
+            <div class="focus-card glass" data-lens-tags="transformation api compliance"><strong>Rule and validation design</strong><span>Defining mandatory fields, dependencies, state handling, auditability, and reusable validation logic.</span></div>
+            <div class="focus-card glass" data-lens-tags="uat compliance"><strong>Testing and release control</strong><span>Creating coverage, leading UAT, prioritizing defects, and protecting regression confidence.</span></div>
+            <div class="focus-card glass" data-lens-tags="api uat"><strong>Operational visibility</strong><span>Using dashboards, monitoring, and incident analysis to shorten investigation and resolution cycles.</span></div>
           </div>
         </div>
       </div>
@@ -691,10 +949,10 @@
           <p class="section-intro">A simple operating model for BA delivery: understand the business risk, define the system behavior, validate with evidence, and keep the release path visible.</p>
         </div>
         <div class="method-grid">
-          <article class="step-card glass"><div class="step-marker"><span class="step-number">01</span><i data-lucide="search-check" class="icon" aria-hidden="true"></i></div><h3>Discover the real constraint</h3><p>Clarify stakeholders, policy intent, operational friction, compliance risk, and what success should look like.</p></article>
-          <article class="step-card glass"><div class="step-marker"><span class="step-number">02</span><i data-lucide="network" class="icon" aria-hidden="true"></i></div><h3>Shape system behavior</h3><p>Translate workflows into fields, states, validations, exceptions, audit trails, and integration contracts.</p></article>
-          <article class="step-card glass"><div class="step-marker"><span class="step-number">03</span><i data-lucide="clipboard-check" class="icon" aria-hidden="true"></i></div><h3>Validate with coverage</h3><p>Build test packs, scenario matrices, retest paths, and defect triage discipline before release pressure peaks.</p></article>
-          <article class="step-card glass"><div class="step-marker"><span class="step-number">04</span><i data-lucide="activity" class="icon" aria-hidden="true"></i></div><h3>Close the loop</h3><p>Use production signals, dashboards, and root-cause patterns to improve the next requirement cycle.</p></article>
+          <article class="step-card glass" data-lens-tags="transformation compliance"><div class="step-marker"><span class="step-number">01</span><i data-lucide="search-check" class="icon" aria-hidden="true"></i></div><h3>Discover the real constraint</h3><p>Clarify stakeholders, policy intent, operational friction, compliance risk, and what success should look like.</p></article>
+          <article class="step-card glass" data-lens-tags="transformation api"><div class="step-marker"><span class="step-number">02</span><i data-lucide="network" class="icon" aria-hidden="true"></i></div><h3>Shape system behavior</h3><p>Translate workflows into fields, states, validations, exceptions, audit trails, and integration contracts.</p></article>
+          <article class="step-card glass" data-lens-tags="uat compliance"><div class="step-marker"><span class="step-number">03</span><i data-lucide="clipboard-check" class="icon" aria-hidden="true"></i></div><h3>Validate with coverage</h3><p>Build test packs, scenario matrices, retest paths, and defect triage discipline before release pressure peaks.</p></article>
+          <article class="step-card glass" data-lens-tags="api uat"><div class="step-marker"><span class="step-number">04</span><i data-lucide="activity" class="icon" aria-hidden="true"></i></div><h3>Close the loop</h3><p>Use production signals, dashboards, and root-cause patterns to improve the next requirement cycle.</p></article>
         </div>
       </div>
     </section>
@@ -706,11 +964,11 @@
           <p class="section-intro">Selected BA delivery work across core banking transformation, testing governance, and release readiness.</p>
         </div>
         <div class="experience-list">
-          <article class="experience-item glass">
+          <article class="experience-item glass" data-lens-tags="transformation api compliance">
             <div class="experience-side"><strong>Core Banking Transformation</strong><span>Senior BA focus</span></div>
             <div class="experience-body"><h3>Loan origination and approval workflow enhancements</h3><p>Led requirement analysis for concurrent LOS changes, including journey design, approval matrix configuration, UI requirements, validation behavior, defect triage, and stakeholder alignment.</p><ul class="impact-list"><li>Co-designed 100+ UI screens and refined business rules across lending journeys.</li><li>Improved delivery confidence through traceable requirements and structured sign-off.</li><li>Supported post-go-live issue resolution with dashboard-led investigation patterns.</li></ul></div>
           </article>
-          <article class="experience-item glass">
+          <article class="experience-item glass" data-lens-tags="uat compliance transformation">
             <div class="experience-side"><strong>Quality & Release</strong><span>UAT, regression, readiness</span></div>
             <div class="experience-body"><h3>Testing strategy and defect governance</h3><p>Built detailed test coverage for banking modules, coordinated UAT execution, clarified failure scenarios, and kept business, technology, and operations teams aligned during defect closure.</p><ul class="impact-list"><li>Prepared 2,000+ detailed scripts across 30+ modules.</li><li>Led UAT and defect triage with clear ownership, severity, and retest paths.</li><li>Used root-cause analysis to reduce repeat defects and speed up release readiness.</li></ul></div>
           </article>
@@ -724,20 +982,31 @@
           <div><span class="section-kicker"><i data-lucide="folder-kanban" class="icon" aria-hidden="true"></i>Projects</span><h2>Case studies with measurable business impact.</h2></div>
           <p class="section-intro">Compact case studies that show the business problem, delivery action, and practical result.</p>
         </div>
+        <div class="control-panel glass interactive-card" aria-label="Project filters">
+          <div class="control-heading"><strong><i data-lucide="sliders-horizontal" class="icon" aria-hidden="true"></i>Delivery angle</strong><span id="projectCount">4 case studies</span></div>
+          <div class="segmented" role="tablist" aria-label="Project category">
+            <button class="segment-btn is-active" type="button" data-project-filter="all" aria-pressed="true">All</button>
+            <button class="segment-btn" type="button" data-project-filter="los" aria-pressed="false">LOS</button>
+            <button class="segment-btn" type="button" data-project-filter="regulatory" aria-pressed="false">Regulatory</button>
+            <button class="segment-btn" type="button" data-project-filter="api" aria-pressed="false">API</button>
+            <button class="segment-btn" type="button" data-project-filter="credit" aria-pressed="false">Credit rules</button>
+          </div>
+          <p class="control-status" id="projectStatus">Showing all delivery case studies across lending workflow, reporting, integration, and credit decision quality.</p>
+        </div>
         <div class="project-grid">
-          <article class="project-card glass">
+          <article class="project-card glass" data-project-tags="los credit uat" data-lens-tags="transformation uat">
             <div class="project-top"><h3>SME Lending - Stage Re-validation</h3><div class="badges"><span class="badge teal">Validation</span><span class="badge">State machine</span><span class="badge">Data integrity</span><span class="badge amber">UAT</span></div></div>
             <div class="project-body"><p>Implemented stage-reversal re-validation so applications moving backward through the journey trigger fresh checks before progressing again.</p><details><summary>Case study <i data-lucide="chevron-down" class="icon" aria-hidden="true"></i></summary><div class="case-content"><dl><div><dt>Problem</dt><dd>Mandatory fields and conditional checks could be bypassed during stage reversal, creating stale data and rework.</dd></div><div><dt>Actions</dt><dd>Defined reusable validation triggers, dependency rules, audit logs, failure reasons, and regression coverage for reversal scenarios.</dd></div><div><dt>Impact</dt><dd>Improved first-pass quality, strengthened data integrity, and made support investigation faster.</dd></div></dl></div></details></div>
           </article>
-          <article class="project-card glass">
+          <article class="project-card glass" data-project-tags="regulatory uat credit" data-lens-tags="compliance uat">
             <div class="project-top"><h3>Regulatory Credit Reporting</h3><div class="badges"><span class="badge teal">Compliance</span><span class="badge">Pre-checks</span><span class="badge">Error taxonomy</span><span class="badge amber">Audit trail</span></div></div>
             <div class="project-body"><p>Led improvements for credit reporting submission readiness, retry handling, status tracking, and explainable exception closure.</p><details><summary>Case study <i data-lucide="chevron-down" class="icon" aria-hidden="true"></i></summary><div class="case-content"><dl><div><dt>Problem</dt><dd>Submission quality depended on inconsistent checks and uneven response handling, slowing compliance operations.</dd></div><div><dt>Actions</dt><dd>Introduced reusable pre-submission validation, standardized error codes, controlled retries, and reconciliation visibility.</dd></div><div><dt>Impact</dt><dd>Reduced manual intervention, improved data quality, and made the submission path more auditable.</dd></div></dl></div></details></div>
           </article>
-          <article class="project-card glass">
+          <article class="project-card glass" data-project-tags="api los" data-lens-tags="api transformation">
             <div class="project-top"><h3>SME Digital - Third-Party Guarantee API</h3><div class="badges"><span class="badge teal">API integration</span><span class="badge">Idempotency</span><span class="badge">State sync</span><span class="badge amber">Exception flow</span></div></div>
             <div class="project-body"><p>Designed integration requirements for a guarantee provider workflow, with reliable state handling, mapping, and observability.</p><details><summary>Case study <i data-lucide="chevron-down" class="icon" aria-hidden="true"></i></summary><div class="case-content"><dl><div><dt>Problem</dt><dd>External integration introduced timeout, duplicate submission, state drift, and audit trail risks.</dd></div><div><dt>Actions</dt><dd>Defined eligibility rules, contract validation, idempotency keys, retry policies, callbacks, alerts, and exception SLAs.</dd></div><div><dt>Impact</dt><dd>Supported higher straight-through processing and faster root-cause analysis for integration issues.</dd></div></dl></div></details></div>
           </article>
-          <article class="project-card glass">
+          <article class="project-card glass" data-project-tags="credit los" data-lens-tags="transformation compliance">
             <div class="project-top"><h3>Asset-Based Credit - VoAP</h3><div class="badges"><span class="badge teal">Credit rules</span><span class="badge">Dependency checks</span><span class="badge">Rules engine</span><span class="badge amber">Decision quality</span></div></div>
             <div class="project-body"><p>Added VoAP fields and dependency checks to improve credit decision completeness and reduce avoidable rework.</p><details><summary>Case study <i data-lucide="chevron-down" class="icon" aria-hidden="true"></i></summary><div class="case-content"><dl><div><dt>Problem</dt><dd>Asset-based credit inputs needed clearer validation and stronger dependency control before decisioning.</dd></div><div><dt>Actions</dt><dd>Mapped field dependencies, validation states, front-end prompts, rules-engine behavior, and UAT scenarios.</dd></div><div><dt>Impact</dt><dd>Improved completeness of credit assessment inputs and reduced downstream clarification cycles.</dd></div></dl></div></details></div>
           </article>
@@ -751,11 +1020,22 @@
           <div><span class="section-kicker"><i data-lucide="layers-3" class="icon" aria-hidden="true"></i>Skills</span><h2>What I bring into delivery rooms.</h2></div>
           <p class="section-intro">A practical mix of business analysis, banking delivery, testing leadership, and technical collaboration.</p>
         </div>
+        <div class="control-panel glass interactive-card" aria-label="Skill filters">
+          <div class="control-heading"><strong><i data-lucide="scan-search" class="icon" aria-hidden="true"></i>Skill lens</strong><span id="skillCount">4 groups</span></div>
+          <div class="segmented" role="tablist" aria-label="Skill category">
+            <button class="segment-btn is-active" type="button" data-skill-filter="all" aria-pressed="true">All</button>
+            <button class="segment-btn" type="button" data-skill-filter="analysis" aria-pressed="false">Analysis</button>
+            <button class="segment-btn" type="button" data-skill-filter="banking" aria-pressed="false">Banking</button>
+            <button class="segment-btn" type="button" data-skill-filter="testing" aria-pressed="false">Testing</button>
+            <button class="segment-btn" type="button" data-skill-filter="technical" aria-pressed="false">Technical</button>
+          </div>
+          <p class="control-status" id="skillStatus">Showing the full BA toolkit across requirements, banking delivery, UAT, and technical collaboration.</p>
+        </div>
         <div class="skills-grid">
-          <div class="skill-group glass"><h3>Business Analysis</h3><div class="skill-list"><span class="chip">Requirements elicitation</span><span class="chip">Traceability</span><span class="chip">BRD / FSD documentation</span><span class="chip">Stakeholder management</span><span class="chip">Approval matrix design</span><span class="chip">Workflow modeling</span></div></div>
-          <div class="skill-group glass"><h3>Banking & Delivery</h3><div class="skill-list"><span class="chip">Loan origination systems</span><span class="chip">Core banking transformation</span><span class="chip">Regulatory reporting</span><span class="chip">Data integrity</span><span class="chip">Release readiness</span><span class="chip">Change management</span></div></div>
-          <div class="skill-group glass"><h3>Testing & Quality</h3><div class="skill-list"><span class="chip">UAT leadership</span><span class="chip">Defect triage</span><span class="chip">Regression planning</span><span class="chip">Root-cause analysis</span><span class="chip">Risk-based test strategy</span><span class="chip">Post-release monitoring</span></div></div>
-          <div class="skill-group glass"><h3>Technical Collaboration</h3><div class="skill-list"><span class="chip">API contract validation</span><span class="chip">SQL basics</span><span class="chip">Jira</span><span class="chip">Confluence</span><span class="chip">HP ALM</span><span class="chip">HTML / CSS</span></div></div>
+          <div class="skill-group glass" data-skill-tags="analysis banking" data-lens-tags="transformation compliance"><h3>Business Analysis</h3><div class="skill-list"><span class="chip">Requirements elicitation</span><span class="chip">Traceability</span><span class="chip">BRD / FSD documentation</span><span class="chip">Stakeholder management</span><span class="chip">Approval matrix design</span><span class="chip">Workflow modeling</span></div></div>
+          <div class="skill-group glass" data-skill-tags="banking analysis" data-lens-tags="transformation compliance"><h3>Banking & Delivery</h3><div class="skill-list"><span class="chip">Loan origination systems</span><span class="chip">Core banking transformation</span><span class="chip">Regulatory reporting</span><span class="chip">Data integrity</span><span class="chip">Release readiness</span><span class="chip">Change management</span></div></div>
+          <div class="skill-group glass" data-skill-tags="testing banking" data-lens-tags="uat compliance"><h3>Testing & Quality</h3><div class="skill-list"><span class="chip">UAT leadership</span><span class="chip">Defect triage</span><span class="chip">Regression planning</span><span class="chip">Root-cause analysis</span><span class="chip">Risk-based test strategy</span><span class="chip">Post-release monitoring</span></div></div>
+          <div class="skill-group glass" data-skill-tags="technical testing" data-lens-tags="api uat"><h3>Technical Collaboration</h3><div class="skill-list"><span class="chip">API contract validation</span><span class="chip">SQL basics</span><span class="chip">Jira</span><span class="chip">Confluence</span><span class="chip">HP ALM</span><span class="chip">HTML / CSS</span></div></div>
         </div>
       </div>
     </section>
@@ -766,6 +1046,7 @@
           <div><span class="section-kicker"><i data-lucide="send" class="icon" aria-hidden="true"></i>Contact</span><h2>Ready to talk about business analysis or banking transformation.</h2><p>Best reached by email. I am open to BA, senior BA, and transformation roles where clear requirements and strong delivery control matter.</p></div>
           <div class="contact-actions">
             <a class="contact-link" href="mailto:tanzexiang8@gmail.com"><i data-lucide="mail" class="icon" aria-hidden="true"></i>tanzexiang8@gmail.com</a>
+            <button class="contact-link" type="button" data-copy-email="tanzexiang8@gmail.com"><i data-lucide="copy" class="icon" aria-hidden="true"></i>Copy email</button>
             <a class="contact-link" href="https://github.com/Xiang13-gif" target="_blank" rel="noreferrer"><i data-lucide="code-xml" class="icon" aria-hidden="true"></i>GitHub</a>
           </div>
         </div>
@@ -774,11 +1055,224 @@
   </main>
 
   <footer><div class="container">&copy; <span id="year"></span> TAN ZE XIANG. All rights reserved.</div></footer>
+  <div class="toast" id="toast" role="status" aria-live="polite">Email copied</div>
   <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-    window.addEventListener("DOMContentLoaded", () => {
+    const root = document.documentElement;
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    const lensCopy = {
+      transformation: {
+        title: "Transformation BA",
+        accent: "#0f766e",
+        text: "I connect stakeholder intent, lending policy, workflow states, UAT evidence, and release readiness into one delivery path.",
+        meter: 3
+      },
+      uat: {
+        title: "UAT and Release Control",
+        accent: "#2563eb",
+        text: "I build coverage, scenario matrices, severity logic, retest paths, and sign-off confidence before release pressure peaks.",
+        meter: 4
+      },
+      api: {
+        title: "API Delivery Partner",
+        accent: "#7c3aed",
+        text: "I translate integration risk into contracts, mapping, idempotency, callbacks, exception handling, and observable production states.",
+        meter: 3
+      },
+      compliance: {
+        title: "Compliance Ready BA",
+        accent: "#b7791f",
+        text: "I turn reporting rules and audit needs into pre-checks, reconciliation visibility, explainable failures, and traceable closure.",
+        meter: 4
+      }
+    };
+
+    const projectCopy = {
+      all: "Showing all delivery case studies across lending workflow, reporting, integration, and credit decision quality.",
+      los: "Showing LOS work: lending journeys, stage behavior, validation rules, and exception paths.",
+      regulatory: "Showing regulatory work: pre-checks, retry handling, audit trail, and reconciliation visibility.",
+      api: "Showing API work: external workflow, state sync, idempotency, and operational observability.",
+      credit: "Showing credit rule work: dependency checks, decision completeness, and data integrity."
+    };
+
+    const skillCopy = {
+      all: "Showing the full BA toolkit across requirements, banking delivery, UAT, and technical collaboration.",
+      analysis: "Showing analysis skills: requirements, traceability, documentation, workflows, and stakeholder alignment.",
+      banking: "Showing banking delivery skills: LOS, transformation, reporting, release readiness, and data integrity.",
+      testing: "Showing testing skills: UAT leadership, defect triage, regression planning, and root-cause analysis.",
+      technical: "Showing technical collaboration skills: API contracts, SQL basics, Jira, Confluence, and delivery tooling."
+    };
+
+    function setPressed(buttons, activeButton) {
+      buttons.forEach((button) => {
+        const active = button === activeButton;
+        button.classList.toggle("is-active", active);
+        button.setAttribute("aria-pressed", String(active));
+      });
+    }
+
+    function showToast(message) {
+      const toast = document.getElementById("toast");
+      if (!toast) return;
+      toast.textContent = message;
+      toast.classList.add("is-visible");
+      window.clearTimeout(showToast.timer);
+      showToast.timer = window.setTimeout(() => toast.classList.remove("is-visible"), 1800);
+    }
+
+    function applyLens(lens) {
+      const data = lensCopy[lens] || lensCopy.transformation;
+      root.style.setProperty("--accent", data.accent);
+      root.style.setProperty("--accent-soft", `${data.accent}26`);
+      document.getElementById("lensTitle").textContent = data.title;
+      document.getElementById("lensCopy").textContent = data.text;
+      document.querySelectorAll(".signal-meter span").forEach((bar, index) => {
+        bar.classList.toggle("is-on", index < data.meter);
+      });
+      document.querySelectorAll("[data-lens-tags]").forEach((card) => {
+        const tags = card.dataset.lensTags.split(" ");
+        card.classList.toggle("is-lens-match", tags.includes(lens));
+      });
+    }
+
+    function filterCards(buttons, cards, filter, dataKey, statusNode, countNode, copy) {
+      let visible = 0;
+      cards.forEach((card) => {
+        const tags = (card.dataset[dataKey] || "").split(" ");
+        const show = filter === "all" || tags.includes(filter);
+        card.classList.toggle("is-hidden", !show);
+        card.classList.toggle("is-featured", show && filter !== "all");
+        if (show) visible += 1;
+      });
+      if (statusNode) statusNode.textContent = copy[filter] || copy.all;
+      if (countNode) {
+        const unit = dataKey === "projectTags"
+          ? (visible === 1 ? "case study" : "case studies")
+          : (visible === 1 ? "group" : "groups");
+        countNode.textContent = `${visible} ${unit}`;
+      }
+      setPressed(buttons, [...buttons].find((button) => button.dataset.projectFilter === filter || button.dataset.skillFilter === filter));
+    }
+
+    function setupInteractions() {
+      document.getElementById("year").textContent = new Date().getFullYear();
+
+      const lensButtons = document.querySelectorAll("[data-lens]");
+      lensButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          setPressed(lensButtons, button);
+          applyLens(button.dataset.lens);
+        });
+      });
+      applyLens("transformation");
+
+      const projectButtons = document.querySelectorAll("[data-project-filter]");
+      const projectCards = document.querySelectorAll(".project-card");
+      projectButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          filterCards(projectButtons, projectCards, button.dataset.projectFilter, "projectTags", document.getElementById("projectStatus"), document.getElementById("projectCount"), projectCopy);
+        });
+      });
+
+      const skillButtons = document.querySelectorAll("[data-skill-filter]");
+      const skillGroups = document.querySelectorAll(".skill-group");
+      skillButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          filterCards(skillButtons, skillGroups, button.dataset.skillFilter, "skillTags", document.getElementById("skillStatus"), document.getElementById("skillCount"), skillCopy);
+        });
+      });
+
+      document.querySelectorAll(".project-card details").forEach((detail) => {
+        detail.addEventListener("toggle", () => {
+          if (!detail.open) return;
+          document.querySelectorAll(".project-card details").forEach((other) => {
+            if (other !== detail) other.open = false;
+          });
+        });
+      });
+
+      document.querySelectorAll("[data-copy-email]").forEach((button) => {
+        button.addEventListener("click", async () => {
+          const email = button.dataset.copyEmail;
+          try {
+            await navigator.clipboard.writeText(email);
+            showToast("Email copied");
+          } catch {
+            const textarea = document.createElement("textarea");
+            textarea.value = email;
+            textarea.setAttribute("readonly", "");
+            textarea.style.position = "fixed";
+            textarea.style.opacity = "0";
+            document.body.appendChild(textarea);
+            textarea.select();
+            document.execCommand("copy");
+            textarea.remove();
+            showToast("Email copied");
+          }
+        });
+      });
+
+      if (!prefersReducedMotion) {
+        document.querySelectorAll(".glass").forEach((card) => {
+          card.classList.add("interactive-card");
+          card.addEventListener("pointermove", (event) => {
+            const rect = card.getBoundingClientRect();
+            const x = event.clientX - rect.left;
+            const y = event.clientY - rect.top;
+            const rx = ((y / rect.height) - .5) * -5;
+            const ry = ((x / rect.width) - .5) * 5;
+            card.style.setProperty("--mx", `${(x / rect.width) * 100}%`);
+            card.style.setProperty("--my", `${(y / rect.height) * 100}%`);
+            card.style.setProperty("--tilt-x", `${rx.toFixed(2)}deg`);
+            card.style.setProperty("--tilt-y", `${ry.toFixed(2)}deg`);
+          });
+          card.addEventListener("pointerleave", () => {
+            card.style.setProperty("--tilt-x", "0deg");
+            card.style.setProperty("--tilt-y", "0deg");
+          });
+        });
+      }
+
+      const revealTargets = document.querySelectorAll(".section-head, .glass");
+      if ("IntersectionObserver" in window && !prefersReducedMotion) {
+        const revealObserver = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+            entry.target.classList.add("is-visible");
+            revealObserver.unobserve(entry.target);
+          });
+        }, { threshold: .13 });
+        revealTargets.forEach((target) => {
+          target.classList.add("reveal");
+          revealObserver.observe(target);
+        });
+      } else {
+        revealTargets.forEach((target) => target.classList.add("is-visible"));
+      }
+
+      const navLinks = [...document.querySelectorAll(".nav-links a")];
+      const sections = navLinks
+        .map((link) => document.querySelector(link.getAttribute("href")))
+        .filter(Boolean);
+
+      function updateScrollState() {
+        const scrollTop = window.scrollY || document.documentElement.scrollTop;
+        const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+        root.style.setProperty("--scroll-progress", `${maxScroll > 0 ? (scrollTop / maxScroll) * 100 : 0}%`);
+
+        const current = sections
+          .filter((section) => section.getBoundingClientRect().top <= 150)
+          .pop() || sections[0];
+        navLinks.forEach((link) => link.classList.toggle("is-active", link.getAttribute("href") === `#${current.id}`));
+      }
+
+      updateScrollState();
+      window.addEventListener("scroll", updateScrollState, { passive: true });
+
       if (window.lucide) window.lucide.createIcons();
-    });
+    }
+
+    window.addEventListener("DOMContentLoaded", setupInteractions);
   </script>
 </body>
 </html>
