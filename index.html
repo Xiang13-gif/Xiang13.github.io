@@ -4,370 +4,319 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="Tan Ze Xiang - Senior Business Analyst portfolio for core banking transformation, lending, regulatory reporting, UAT, and API integration." />
+  <meta name="theme-color" content="#edf7f5" />
+  <meta property="og:title" content="Tan Ze Xiang - Senior Business Analyst" />
+  <meta property="og:description" content="Business analyst portfolio focused on core banking transformation, LOS enhancements, UAT leadership, and measurable delivery outcomes." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="assets/profile.jpg" />
   <title>TAN ZE XIANG - Senior Business Analyst</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="image" href="assets/dune-glass-bg.svg">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <script src="https://unpkg.com/lucide@latest" defer></script>
   <style>
     :root {
       color-scheme: light;
       --ink: #172033;
-      --ink-strong: #08111f;
-      --muted: #667085;
-      --line: #d8dee8;
-      --paper: #f7f8fb;
-      --surface: #ffffff;
-      --surface-soft: #eef3f7;
-      --navy: #10243e;
-      --blue: #2563eb;
-      --teal: #0f766e;
-      --amber: #b45309;
-      --green: #166534;
-      --shadow: 0 18px 45px rgba(16, 36, 62, .11);
-      --shadow-strong: 0 24px 70px rgba(16, 36, 62, .18);
-      --radius: 8px;
-      --max: 1120px;
+      --strong: #08111f;
+      --muted: #5b697d;
+      --aqua: #0f766e;
+      --gold: #c5892f;
+      --slate: #1f3149;
+      --glass: rgba(255, 255, 255, .66);
+      --glass-soft: rgba(255, 255, 255, .42);
+      --line: rgba(255, 255, 255, .66);
+      --shadow: 0 24px 70px rgba(31, 49, 73, .14);
+      --max: 1180px;
     }
 
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
     body {
+      min-width: 0;
       margin: 0;
-      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       color: var(--ink);
-      background: var(--paper);
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       line-height: 1.6;
+      background: #f7fbfa;
+      overflow-x: hidden;
     }
-
-    img {
-      display: block;
-      max-width: 100%;
+    body::before {
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.08), rgba(247,251,250,.92) 75%),
+        url("assets/dune-glass-bg.svg") center top / cover no-repeat;
+      content: "";
     }
-
-    a {
-      color: inherit;
-      text-decoration: none;
+    body::after {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      background:
+        linear-gradient(90deg, rgba(255,255,255,.38), rgba(255,255,255,.08) 48%, rgba(255,255,255,.42)),
+        repeating-linear-gradient(115deg, rgba(255,255,255,.09) 0 1px, transparent 1px 92px);
+      content: "";
+      pointer-events: none;
     }
-
-    button,
-    summary {
-      font: inherit;
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+    summary { font: inherit; }
+    .container { width: min(var(--max), calc(100% - 40px)); margin: 0 auto; }
+    .glass {
+      position: relative;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      background: linear-gradient(145deg, var(--glass), var(--glass-soft));
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(28px) saturate(1.35);
+      -webkit-backdrop-filter: blur(28px) saturate(1.35);
     }
-
-    .container {
-      width: min(var(--max), calc(100% - 40px));
-      margin: 0 auto;
+    .glass::before {
+      position: absolute;
+      inset: 1px 1px auto;
+      height: 45%;
+      border-radius: inherit;
+      background: linear-gradient(180deg, rgba(255,255,255,.86), rgba(255,255,255,0));
+      content: "";
+      pointer-events: none;
     }
+    .glass > * { position: relative; z-index: 1; }
 
-    .site-header {
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      border-bottom: 1px solid rgba(216, 222, 232, .82);
-      background: rgba(247, 248, 251, .92);
-      backdrop-filter: blur(18px);
-    }
-
+    .site-header { position: sticky; top: 0; z-index: 20; padding: 14px 0; }
     .nav {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      min-height: 72px;
-      gap: 20px;
+      gap: 18px;
+      min-height: 64px;
+      border-radius: 28px;
+      padding: 10px 12px 10px 14px;
     }
-
     .brand {
       display: flex;
       align-items: center;
       gap: 12px;
-      font-weight: 800;
-      letter-spacing: 0;
-      color: var(--ink-strong);
+      min-width: 0;
+      color: var(--strong);
+      font-weight: 900;
       white-space: nowrap;
     }
-
     .brand-mark {
       display: grid;
-      width: 38px;
-      height: 38px;
+      width: 42px;
+      height: 42px;
+      flex: 0 0 auto;
       place-items: center;
-      border-radius: var(--radius);
-      background: linear-gradient(135deg, var(--navy), #174064 72%, var(--teal));
-      color: #fff;
+      border: 1px solid rgba(255,255,255,.78);
+      border-radius: 16px;
+      background:
+        linear-gradient(145deg, rgba(255,255,255,.9), rgba(255,255,255,.38)),
+        linear-gradient(135deg, rgba(13,148,136,.9), rgba(197,137,47,.8));
+      color: var(--slate);
       font-size: 13px;
-      box-shadow: 0 12px 28px rgba(16, 36, 62, .2);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.96), 0 12px 28px rgba(13,148,136,.16);
     }
-
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 8px;
-      color: #3d4a5f;
+      justify-content: flex-end;
+      gap: 4px;
+      color: #354156;
       font-size: 14px;
-      font-weight: 650;
+      font-weight: 760;
     }
-
     .nav-links a {
-      border-radius: var(--radius);
-      padding: 9px 12px;
+      min-height: 40px;
+      border-radius: 999px;
+      padding: 9px 13px;
+      transition: background .18s ease, transform .18s ease;
     }
-
     .nav-links a:hover,
     .nav-links a:focus-visible {
-      background: #e8edf3;
-      color: var(--ink-strong);
+      background: rgba(255,255,255,.74);
       outline: none;
+      transform: translateY(-1px);
     }
-
     .nav-links a:last-child {
-      border: 1px solid #bfd0df;
-      background: #fff;
-      color: var(--navy);
-      box-shadow: 0 8px 18px rgba(16, 36, 62, .06);
+      border: 1px solid rgba(255,255,255,.72);
+      background: rgba(255,255,255,.68);
+      color: var(--aqua);
     }
 
-    .hero {
-      position: relative;
-      overflow: hidden;
-      background:
-        linear-gradient(120deg, rgba(15,118,110,.1), rgba(255,255,255,0) 42%),
-        linear-gradient(180deg, rgba(255,255,255,.78), rgba(247,248,251,0) 58%),
-        repeating-linear-gradient(90deg, rgba(16,36,62,.045) 0, rgba(16,36,62,.045) 1px, transparent 1px, transparent 72px),
-        repeating-linear-gradient(0deg, rgba(16,36,62,.045) 0, rgba(16,36,62,.045) 1px, transparent 1px, transparent 72px);
-      border-bottom: 1px solid var(--line);
-    }
-
-    .hero::after {
-      position: absolute;
-      right: -12vw;
-      bottom: -80px;
-      width: 56vw;
-      height: 220px;
-      background: linear-gradient(135deg, rgba(37, 99, 235, .13), rgba(15, 118, 110, .2));
-      transform: rotate(-8deg);
-      content: "";
-      pointer-events: none;
-    }
-
+    .hero { padding: 54px 0 42px; }
     .hero-inner {
-      position: relative;
-      z-index: 1;
       display: grid;
-      grid-template-columns: minmax(0, 1.12fr) minmax(320px, .88fr);
-      gap: 52px;
+      grid-template-columns: minmax(0, 1.02fr) minmax(360px, .98fr);
+      gap: 42px;
       align-items: center;
-      padding: 64px 0 52px;
     }
-
     .eyebrow {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      padding: 8px 11px;
-      border: 1px solid #c8d4e3;
-      border-radius: var(--radius);
-      background: rgba(255, 255, 255, .7);
-      color: var(--teal);
+      gap: 9px;
+      min-height: 38px;
+      border: 1px solid rgba(255,255,255,.74);
+      border-radius: 999px;
+      padding: 8px 13px;
+      background: rgba(255,255,255,.62);
+      color: var(--aqua);
       font-size: 13px;
-      font-weight: 800;
-      box-shadow: 0 10px 24px rgba(15, 118, 110, .08);
+      font-weight: 850;
+      box-shadow: 0 12px 24px rgba(13,148,136,.08);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
     }
-
     .headline {
       max-width: 760px;
-      margin: 22px 0 16px;
-      color: var(--ink-strong);
-      font-size: clamp(42px, 7vw, 78px);
-      line-height: .98;
+      margin: 24px 0 14px;
+      color: var(--strong);
+      font-size: 78px;
+      line-height: .96;
       font-weight: 900;
       letter-spacing: 0;
     }
-
     .role {
-      color: var(--navy);
-      font-size: clamp(19px, 2.2vw, 27px);
-      font-weight: 800;
-      line-height: 1.22;
+      max-width: 740px;
+      color: var(--slate);
+      font-size: 26px;
+      font-weight: 850;
+      line-height: 1.24;
     }
-
     .lede {
       max-width: 690px;
       margin: 18px 0 0;
-      color: #445064;
+      color: #46576d;
       font-size: 18px;
-      line-height: 1.8;
+      line-height: 1.78;
     }
-
-    .hero-actions {
+    .actions {
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
       margin-top: 28px;
     }
-
-    .btn {
+    .btn,
+    .contact-link {
       display: inline-flex;
       align-items: center;
       justify-content: center;
       gap: 10px;
-      min-height: 46px;
-      border: 1px solid #c9d3df;
-      border-radius: var(--radius);
-      padding: 11px 15px;
-      background: #fff;
-      color: var(--ink-strong);
-      font-weight: 800;
-      box-shadow: 0 10px 24px rgba(16, 36, 62, .08);
-      transition: transform .16s ease, box-shadow .16s ease, border-color .16s ease, background .16s ease;
+      min-height: 48px;
+      border: 1px solid rgba(255,255,255,.74);
+      border-radius: 999px;
+      padding: 12px 17px;
+      background: rgba(255,255,255,.7);
+      color: var(--strong);
+      font-weight: 850;
+      box-shadow: 0 14px 30px rgba(31,49,73,.1);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
     }
-
-    .btn:hover,
-    .btn:focus-visible {
-      transform: translateY(-2px);
-      border-color: #aebdcd;
-      box-shadow: 0 14px 30px rgba(16, 36, 62, .13);
-      outline: none;
-    }
-
     .btn.primary {
-      border-color: var(--navy);
-      background: linear-gradient(135deg, var(--navy), #174064);
+      background: linear-gradient(135deg, rgba(15,118,110,.96), rgba(31,49,73,.94) 62%, rgba(197,137,47,.9));
       color: #fff;
     }
-
-    .btn .icon,
-    .meta-item .icon,
-    .section-kicker .icon,
-    .contact-link .icon {
+    .icon,
+    .signal-icon,
+    .role-card .icon {
       width: 18px;
       height: 18px;
-      stroke-width: 2.2;
       flex: 0 0 auto;
+      stroke-width: 2.2;
     }
 
-    .hero-panel {
-      position: relative;
-      border: 1px solid #cad5df;
-      border-radius: var(--radius);
-      background: rgba(255, 255, 255, .78);
-      box-shadow: var(--shadow-strong);
-      overflow: hidden;
-    }
-
-    .hero-panel::before {
-      position: absolute;
-      inset: 0 0 auto;
-      height: 5px;
-      background: linear-gradient(90deg, var(--teal), var(--blue), var(--amber));
-      content: "";
-      z-index: 1;
-    }
-
+    .hero-panel { border-radius: 32px; box-shadow: 0 32px 90px rgba(31,49,73,.18); }
     .portrait-shell {
       display: grid;
-      grid-template-columns: .72fr 1fr;
-      min-height: 420px;
-      background: #fff;
+      grid-template-columns: minmax(170px, .74fr) minmax(0, 1fr);
+      gap: 16px;
+      min-height: 430px;
+      padding: 16px;
     }
-
     .portrait {
       position: relative;
-      min-height: 420px;
-      background: #dbe5ee;
+      min-height: 398px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,.72);
+      border-radius: 26px;
+      background: rgba(255,255,255,.5);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.9), 0 18px 36px rgba(31,49,73,.15);
     }
-
-    .portrait img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
+    .portrait::after {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(255,255,255,.18), rgba(255,255,255,0) 36%), linear-gradient(145deg, transparent 54%, rgba(255,255,255,.32));
+      content: "";
     }
-
+    .portrait img { width: 100%; height: 100%; object-fit: cover; }
     .proof {
       display: grid;
-      align-content: stretch;
-      border-left: 1px solid var(--line);
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
     }
-
     .proof-item {
       display: grid;
       align-content: center;
-      gap: 4px;
-      min-height: 105px;
+      gap: 8px;
+      min-height: 118px;
+      border: 1px solid rgba(255,255,255,.66);
+      border-radius: 22px;
       padding: 18px;
-      border-bottom: 1px solid var(--line);
-      background: linear-gradient(180deg, #fff, #f9fbfd);
+      background: linear-gradient(150deg, rgba(255,255,255,.78), rgba(255,255,255,.38));
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.84), 0 14px 30px rgba(31,49,73,.08);
     }
-
-    .proof-item:last-child {
-      border-bottom: 0;
-    }
-
-    .proof-number {
-      color: var(--navy);
-      font-size: 30px;
-      font-weight: 900;
-      line-height: 1;
-    }
-
-    .proof-label {
-      color: var(--muted);
-      font-size: 13px;
-      font-weight: 700;
-      line-height: 1.35;
-    }
-
-    .meta-strip {
+    .proof-number { color: var(--strong); font-size: 32px; font-weight: 900; line-height: 1; }
+    .proof-label { color: #526176; font-size: 13px; font-weight: 760; line-height: 1.35; }
+    .meta-strip,
+    .signal-strip {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
-      border-top: 1px solid var(--line);
-      background: var(--surface-soft);
+      gap: 10px;
+      padding: 0 16px 16px;
     }
-
-    .meta-item {
+    .meta-item,
+    .signal-card {
       display: flex;
       align-items: center;
       gap: 10px;
-      padding: 16px;
-      border-right: 1px solid var(--line);
+      min-width: 0;
+      border: 1px solid rgba(255,255,255,.62);
+      border-radius: 18px;
+      padding: 12px;
+      background: rgba(255,255,255,.48);
       color: #354156;
       font-size: 13px;
-      font-weight: 750;
-      min-width: 0;
+      font-weight: 800;
+      line-height: 1.25;
     }
-
-    .meta-item .icon {
+    .meta-item .icon,
+    .signal-icon,
+    .role-card .icon,
+    .step-marker .icon {
       display: grid;
-      width: 30px;
-      height: 30px;
+      width: 40px;
+      height: 40px;
       place-items: center;
-      padding: 6px;
-      border-radius: var(--radius);
-      background: #fff;
-      color: var(--teal);
-      box-shadow: inset 0 0 0 1px #d6e1ea;
+      border-radius: 16px;
+      padding: 9px;
+      background: rgba(255,255,255,.74);
+      color: var(--aqua);
     }
-
-    .meta-item:last-child {
-      border-right: 0;
+    .signal-strip {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      margin-top: 34px;
+      padding: 0;
     }
+    .signal-card { min-height: 96px; border-radius: 22px; }
+    .signal-card strong { display: block; color: var(--strong); font-size: 15px; line-height: 1.25; }
+    .signal-card span { display: block; margin-top: 4px; color: #566579; font-size: 13px; font-weight: 650; line-height: 1.35; }
 
-    .section {
-      padding: 72px 0;
-      border-bottom: 1px solid var(--line);
-      background: var(--paper);
-    }
-
-    .section.alt {
-      background: linear-gradient(180deg, #fff, #fbfcfe);
-    }
-
+    .section { padding: 76px 0; }
+    .section.alt { background: linear-gradient(180deg, rgba(255,255,255,.24), rgba(255,255,255,.48)); }
     .section-head {
       display: grid;
       grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr);
@@ -375,670 +324,281 @@
       align-items: end;
       margin-bottom: 30px;
     }
-
     .section-kicker {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      color: var(--teal);
+      min-height: 32px;
+      color: var(--aqua);
       font-size: 13px;
       font-weight: 900;
       text-transform: uppercase;
     }
-
     h2 {
       margin: 10px 0 0;
-      color: var(--ink-strong);
-      font-size: clamp(30px, 4.6vw, 48px);
+      color: var(--strong);
+      font-size: 46px;
       line-height: 1.05;
       font-weight: 900;
       letter-spacing: 0;
     }
-
-    .section-intro {
-      margin: 0;
-      color: #4b586d;
-      font-size: 16px;
-      line-height: 1.8;
-    }
-
+    h3 { margin: 0; color: var(--strong); font-size: 21px; line-height: 1.25; font-weight: 900; letter-spacing: 0; }
+    .section-intro { margin: 0; color: #4b586d; font-size: 16px; line-height: 1.82; }
     .about-layout {
       display: grid;
-      grid-template-columns: minmax(0, 1.05fr) minmax(280px, .95fr);
-      gap: 22px;
+      grid-template-columns: minmax(0, 1.05fr) minmax(300px, .95fr);
+      gap: 18px;
       align-items: start;
     }
-
-    .statement {
-      position: relative;
-      padding: 28px;
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      background: var(--surface);
-      box-shadow: var(--shadow);
-    }
-
-    .statement::before {
-      position: absolute;
-      inset: 0 auto 0 0;
-      width: 5px;
-      background: linear-gradient(180deg, var(--teal), var(--blue));
-      content: "";
-    }
-
-    .statement p {
-      margin: 0;
-      color: #3f4a5e;
-      font-size: 18px;
-      line-height: 1.9;
-    }
-
-    .focus-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 12px;
-    }
-
-    .focus-card,
-    .experience-item,
-    .project-card,
-    .skill-group {
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      background: var(--surface);
-      box-shadow: 0 14px 34px rgba(16, 36, 62, .08);
-    }
-
-    .focus-card {
-      position: relative;
-      padding: 18px;
-      transition: transform .16s ease, box-shadow .16s ease, border-color .16s ease;
-    }
-
-    .focus-card:hover {
-      border-color: #b8c7d7;
-      box-shadow: var(--shadow);
-      transform: translateY(-2px);
-    }
-
-    .focus-card strong {
-      display: block;
-      color: var(--ink-strong);
-      font-size: 16px;
-      line-height: 1.35;
-    }
-
-    .focus-card span {
-      display: block;
-      margin-top: 8px;
-      color: var(--muted);
-      font-size: 14px;
-      line-height: 1.55;
-    }
-
-    .experience-list {
+    .statement { min-height: 100%; border-radius: 32px; padding: 28px; }
+    .statement p { margin: 0; color: #334155; font-size: 19px; line-height: 1.9; }
+    .role-fit,
+    .focus-grid,
+    .method-grid,
+    .project-grid,
+    .skills-grid {
       display: grid;
       gap: 16px;
     }
+    .role-fit { grid-template-columns: repeat(3, minmax(0, 1fr)); margin-top: 18px; }
+    .focus-grid,
+    .project-grid,
+    .skills-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .method-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    .role-card,
+    .focus-card,
+    .step-card,
+    .experience-item,
+    .project-card,
+    .skill-group {
+      border-radius: 24px;
+      transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
+    }
+    .role-card:hover,
+    .focus-card:hover,
+    .step-card:hover,
+    .experience-item:hover,
+    .project-card:hover,
+    .skill-group:hover {
+      transform: translateY(-3px);
+      background: rgba(255,255,255,.72);
+      box-shadow: 0 32px 90px rgba(31,49,73,.18);
+    }
+    .role-card,
+    .focus-card,
+    .step-card,
+    .skill-group { padding: 22px; }
+    .role-card { min-height: 150px; }
+    .focus-card { min-height: 158px; }
+    .role-card .icon { margin-bottom: 16px; }
+    .role-card strong,
+    .focus-card strong { display: block; color: var(--strong); font-size: 16px; line-height: 1.35; }
+    .role-card span,
+    .focus-card span,
+    .step-card p,
+    .project-body p { display: block; margin-top: 8px; color: #58677b; font-size: 14px; line-height: 1.58; }
 
+    .step-card { min-height: 236px; }
+    .step-marker {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 26px;
+    }
+    .step-number { color: rgba(31,49,73,.28); font-size: 38px; font-weight: 900; line-height: 1; }
+
+    .experience-list { display: grid; gap: 16px; }
     .experience-item {
       display: grid;
-      grid-template-columns: 220px minmax(0, 1fr);
+      grid-template-columns: 235px minmax(0, 1fr);
       overflow: hidden;
-      transition: transform .16s ease, box-shadow .16s ease, border-color .16s ease;
     }
-
-    .experience-item:hover {
-      border-color: #b8c7d7;
-      box-shadow: var(--shadow);
-      transform: translateY(-2px);
-    }
-
     .experience-side {
-      padding: 22px;
-      border-right: 1px solid var(--line);
-      background: var(--surface-soft);
+      padding: 24px;
+      border-right: 1px solid rgba(255,255,255,.56);
+      background: linear-gradient(150deg, rgba(255,255,255,.7), rgba(255,255,255,.28));
     }
-
-    .experience-side strong {
-      display: block;
-      color: var(--navy);
-      font-size: 15px;
-      line-height: 1.35;
-    }
-
-    .experience-side span {
-      display: block;
-      margin-top: 7px;
-      color: var(--muted);
-      font-size: 13px;
-      font-weight: 700;
-    }
-
-    .experience-body {
-      padding: 22px;
-    }
-
-    .experience-body h3,
-    .project-card h3,
-    .skill-group h3 {
-      margin: 0;
-      color: var(--ink-strong);
-      font-size: 20px;
-      line-height: 1.25;
-      font-weight: 900;
-    }
-
-    .experience-body p {
-      margin: 11px 0 0;
-      color: #4b586d;
-    }
-
-    .impact-list {
-      display: grid;
-      gap: 8px;
-      margin: 16px 0 0;
-      padding: 0;
-      list-style: none;
-    }
-
-    .impact-list li {
-      position: relative;
-      padding-left: 24px;
-      color: #344154;
-    }
-
+    .experience-side strong { display: block; color: var(--aqua); font-size: 15px; line-height: 1.35; }
+    .experience-side span { display: block; margin-top: 8px; color: #637083; font-size: 13px; font-weight: 760; }
+    .experience-body { padding: 24px; }
+    .experience-body p { margin: 11px 0 0; color: #4b586d; }
+    .impact-list { display: grid; gap: 8px; margin: 16px 0 0; padding: 0; list-style: none; }
+    .impact-list li { position: relative; padding-left: 24px; color: #344154; }
     .impact-list li::before {
       position: absolute;
       left: 0;
       top: .66em;
       width: 8px;
       height: 8px;
-      border-radius: 50%;
-      background: var(--teal);
+      border-radius: 999px;
+      background: linear-gradient(135deg, #0d9488, var(--gold));
+      box-shadow: 0 0 0 4px rgba(13,148,136,.1);
       content: "";
     }
 
-    .project-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 18px;
-      counter-reset: project;
-    }
-
-    .project-card {
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      min-height: 100%;
-      overflow: hidden;
-      counter-increment: project;
-      transition: transform .16s ease, box-shadow .16s ease, border-color .16s ease;
-    }
-
-    .project-card:hover {
-      border-color: #b8c7d7;
-      box-shadow: var(--shadow-strong);
-      transform: translateY(-3px);
-    }
-
-    .project-top {
-      position: relative;
-      padding: 22px 22px 18px;
-      border-bottom: 1px solid var(--line);
-      background: linear-gradient(180deg, #ffffff, #f3f6f9);
-    }
-
+    .project-grid { counter-reset: project; }
+    .project-card { display: flex; min-height: 100%; flex-direction: column; counter-increment: project; }
+    .project-top { padding: 24px 24px 18px; border-bottom: 1px solid rgba(255,255,255,.5); }
     .project-top::before {
       display: inline-grid;
-      width: 34px;
-      height: 34px;
+      width: 40px;
+      height: 40px;
       place-items: center;
-      margin-bottom: 14px;
-      border-radius: var(--radius);
-      background: var(--navy);
+      margin-bottom: 16px;
+      border: 1px solid rgba(255,255,255,.78);
+      border-radius: 16px;
+      background: linear-gradient(150deg, rgba(31,49,73,.94), rgba(13,148,136,.86));
       color: #fff;
       font-size: 13px;
       font-weight: 900;
       content: "0" counter(project);
+      box-shadow: 0 14px 28px rgba(31,49,73,.14);
     }
-
-    .badges {
+    .badges,
+    .skill-list {
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
-      margin-top: 14px;
+      margin-top: 16px;
     }
-
-    .badge {
+    .badge,
+    .chip {
       display: inline-flex;
       align-items: center;
-      min-height: 28px;
-      padding: 5px 9px;
-      border: 1px solid #cdd8e2;
-      border-radius: var(--radius);
-      background: #fff;
-      color: #354156;
+      min-height: 30px;
+      border: 1px solid rgba(255,255,255,.72);
+      border-radius: 999px;
+      padding: 6px 10px;
+      background: rgba(255,255,255,.58);
+      color: #334155;
       font-size: 12px;
-      font-weight: 800;
-      line-height: 1;
+      font-weight: 850;
+      line-height: 1.15;
     }
-
-    .badge.teal {
-      border-color: #b7d8d4;
-      background: #ecfdf9;
-      color: var(--teal);
-    }
-
-    .badge.amber {
-      border-color: #ead2a7;
-      background: #fff8e8;
-      color: var(--amber);
-    }
-
-    .project-body {
-      display: grid;
-      gap: 18px;
-      padding: 22px;
-    }
-
-    .project-body p {
-      margin: 0;
-      color: #4b586d;
-    }
-
+    .badge.teal { color: var(--aqua); }
+    .badge.amber { color: #9a641e; }
+    .project-body { display: grid; gap: 18px; padding: 24px; }
     details {
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
       overflow: hidden;
-      background: #fbfdff;
+      border: 1px solid rgba(255,255,255,.62);
+      border-radius: 18px;
+      background: rgba(255,255,255,.4);
     }
-
     summary {
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 14px;
-      min-height: 46px;
-      padding: 12px 14px;
+      min-height: 48px;
+      padding: 12px 15px;
+      color: var(--aqua);
+      font-weight: 900;
       cursor: pointer;
-      color: var(--navy);
-      font-weight: 900;
       list-style: none;
-      background: linear-gradient(180deg, #fff, #f4f7fa);
     }
+    summary::-webkit-details-marker { display: none; }
+    summary .icon { transition: transform .18s ease; }
+    details[open] summary .icon { transform: rotate(180deg); }
+    .case-content { display: grid; gap: 12px; padding: 0 15px 15px; }
+    .case-content dl { display: grid; gap: 12px; margin: 0; }
+    .case-content div { padding-top: 12px; border-top: 1px solid rgba(31,49,73,.1); }
+    .case-content dt { color: var(--strong); font-size: 13px; font-weight: 900; text-transform: uppercase; }
+    .case-content dd { margin: 4px 0 0; color: #4b586d; }
+    .skill-group { min-height: 190px; }
+    .chip { min-height: 34px; font-size: 13px; font-weight: 760; }
 
-    summary::-webkit-details-marker {
-      display: none;
-    }
-
-    summary .icon {
-      width: 18px;
-      height: 18px;
-      transition: transform .16s ease;
-    }
-
-    details[open] summary .icon {
-      transform: rotate(180deg);
-    }
-
-    .case-content {
-      display: grid;
-      gap: 14px;
-      padding: 0 14px 14px;
-    }
-
-    .case-content dl {
-      display: grid;
-      gap: 12px;
-      margin: 0;
-    }
-
-    .case-content div {
-      padding-top: 12px;
-      border-top: 1px solid #e7ecf2;
-    }
-
-    .case-content dt {
-      color: var(--ink-strong);
-      font-size: 13px;
-      font-weight: 900;
-      text-transform: uppercase;
-    }
-
-    .case-content dd {
-      margin: 4px 0 0;
-      color: #4b586d;
-    }
-
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 18px;
-    }
-
-    .skill-group {
-      position: relative;
-      padding: 22px;
-      overflow: hidden;
-    }
-
-    .skill-group::before {
-      position: absolute;
-      inset: 0 0 auto;
-      height: 4px;
-      background: linear-gradient(90deg, var(--teal), var(--blue));
-      content: "";
-    }
-
-    .skill-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 9px;
-      margin-top: 16px;
-    }
-
-    .chip {
-      display: inline-flex;
-      align-items: center;
-      min-height: 34px;
-      padding: 7px 10px;
-      border: 1px solid #cbd6e2;
-      border-radius: var(--radius);
-      background: linear-gradient(180deg, #fff, #f6f9fc);
-      color: #334155;
-      font-size: 13px;
-      font-weight: 750;
-      line-height: 1.22;
-    }
-
-    .contact-band {
-      position: relative;
-      overflow: hidden;
-      padding: 54px 0;
-      background:
-        linear-gradient(135deg, #08111f, var(--navy) 52%, #0f766e);
-      color: #fff;
-    }
-
-    .contact-band::before {
-      position: absolute;
-      inset: 0;
-      background:
-        repeating-linear-gradient(90deg, rgba(255,255,255,.055) 0, rgba(255,255,255,.055) 1px, transparent 1px, transparent 70px),
-        repeating-linear-gradient(0deg, rgba(255,255,255,.045) 0, rgba(255,255,255,.045) 1px, transparent 1px, transparent 70px);
-      content: "";
-      opacity: .55;
-      pointer-events: none;
-    }
-
-    .contact-inner {
-      position: relative;
-      z-index: 1;
+    .contact-band { padding: 70px 0 58px; }
+    .contact-card {
       display: grid;
       grid-template-columns: minmax(0, 1fr) auto;
-      gap: 28px;
+      gap: 30px;
       align-items: center;
+      border-radius: 32px;
+      padding: 34px;
     }
+    .contact-card p { max-width: 680px; margin: 12px 0 0; color: #4b586d; }
+    .contact-actions { display: flex; flex-wrap: wrap; gap: 10px; justify-content: flex-end; }
+    footer { padding: 24px 0 34px; color: #657386; font-size: 13px; text-align: center; }
 
-    .contact-inner h2 {
-      color: #fff;
+    @supports not ((backdrop-filter: blur(12px)) or (-webkit-backdrop-filter: blur(12px))) {
+      .glass, .btn, .contact-link, .eyebrow { background: rgba(255,255,255,.9); }
     }
-
-    .contact-inner p {
-      max-width: 650px;
-      margin: 12px 0 0;
-      color: #d8e2ee;
-    }
-
-    .contact-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      justify-content: flex-end;
-    }
-
-    .contact-link {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 9px;
-      min-height: 44px;
-      padding: 10px 14px;
-      border: 1px solid rgba(255, 255, 255, .24);
-      border-radius: var(--radius);
-      color: #fff;
-      font-weight: 850;
-    }
-
-    .contact-link:hover,
-    .contact-link:focus-visible {
-      background: rgba(255, 255, 255, .12);
-      outline: none;
-    }
-
-    footer {
-      padding: 24px 0;
-      background: #08111f;
-      color: #b7c2d1;
-      font-size: 13px;
-      text-align: center;
-    }
-
-    @media (max-width: 960px) {
+    @media (max-width: 1080px) {
       .hero-inner,
       .section-head,
       .about-layout,
-      .contact-inner {
-        grid-template-columns: 1fr;
-      }
-
-      .hero-inner {
-        padding: 50px 0 42px;
-      }
-
-      .hero-panel {
-        max-width: 720px;
-      }
-
-      .section-head {
-        gap: 14px;
-      }
-
-      .contact-actions {
-        justify-content: flex-start;
-      }
+      .contact-card { grid-template-columns: 1fr; }
+      .hero-panel { max-width: 760px; }
+      .signal-strip,
+      .method-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .contact-actions { justify-content: flex-start; }
     }
-
-    @media (max-width: 760px) {
-      .container {
-        width: min(var(--max), calc(100% - 28px));
-      }
-
-      .nav {
-        min-height: auto;
-        padding: 12px 0;
-        align-items: flex-start;
-        flex-wrap: wrap;
-        gap: 10px;
-      }
-
-      .brand span:last-child {
-        display: none;
-      }
-
-      .nav-links {
-        width: 100%;
-        max-width: none;
-        justify-content: space-between;
-        overflow-x: visible;
-        padding-bottom: 2px;
-      }
-
-      .headline {
-        font-size: 40px;
-      }
-
+    @media (max-width: 780px) {
+      .container { width: min(var(--max), calc(100% - 28px)); }
+      .site-header { padding: 10px 0; }
+      .nav { align-items: flex-start; flex-wrap: wrap; gap: 10px; border-radius: 24px; }
+      .brand span:last-child { display: none; }
+      .nav-links { flex: 1 1 100%; min-width: 0; justify-content: space-between; overflow-x: visible; }
+      .nav-links a { flex: 0 1 auto; padding: 8px 10px; }
+      .hero { padding: 34px 0 26px; }
+      .hero-inner { gap: 24px; }
+      .headline { font-size: 52px; }
+      .role { font-size: 22px; }
+      .lede { font-size: 16px; line-height: 1.7; }
       .portrait-shell,
       .experience-item,
       .project-grid,
       .skills-grid,
-      .focus-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .portrait {
-        min-height: 300px;
-      }
-
-      .proof {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        border-left: 0;
-        border-top: 1px solid var(--line);
-      }
-
-      .proof-item {
-        min-height: 94px;
-        border-right: 1px solid var(--line);
-      }
-
-      .proof-item:nth-child(2n) {
-        border-right: 0;
-      }
-
-      .meta-strip {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-      }
-
-      .meta-item {
-        align-items: flex-start;
-        border-right: 1px solid var(--line);
-        border-bottom: 0;
-        padding: 12px 10px;
-        font-size: 12px;
-        line-height: 1.25;
-      }
-
-      .meta-item:last-child {
-        border-right: 0;
-      }
-
-      .experience-side {
-        border-right: 0;
-        border-bottom: 1px solid var(--line);
-      }
-
-      .section {
-        padding: 54px 0;
-      }
+      .focus-grid,
+      .role-fit { grid-template-columns: 1fr; }
+      .portrait-shell { min-height: 0; }
+      .portrait { min-height: 340px; }
+      .experience-side { border-right: 0; border-bottom: 1px solid rgba(255,255,255,.56); }
+      .section { padding: 58px 0; }
+      h2 { font-size: 36px; }
     }
-
-    @media (max-width: 480px) {
-      .nav-links {
-        gap: 4px;
-        font-size: 13px;
-      }
-
-      .nav-links a {
-        padding: 8px;
-      }
-
-      .hero-inner {
-        gap: 20px;
-        padding: 28px 0 22px;
-      }
-
-      .eyebrow {
-        padding: 7px 9px;
-        font-size: 12px;
-      }
-
-      .headline {
-        margin: 14px 0 10px;
-        font-size: 34px;
-      }
-
-      .role {
-        font-size: 17px;
-      }
-
-      .lede {
-        margin-top: 12px;
-        font-size: 15px;
-        line-height: 1.58;
-      }
-
-      .hero-actions {
-        display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 9px;
-        margin-top: 16px;
-      }
-
-      .hero-actions .btn {
-        min-height: 42px;
-        padding: 9px 10px;
-        font-size: 13px;
-      }
-
-      .hero-actions .btn.primary {
-        grid-column: span 2;
-      }
-
-      .portrait-shell {
-        grid-template-columns: 112px minmax(0, 1fr);
-        min-height: 0;
-      }
-
-      .portrait {
-        min-height: 0;
-      }
-
-      .proof {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        border-top: 0;
-        border-left: 1px solid var(--line);
-      }
-
-      .proof-item {
-        min-height: 63px;
-        padding: 9px 10px;
-      }
-
-      .proof-number {
-        font-size: 20px;
-      }
-
-      .proof-label {
-        font-size: 11px;
-      }
-
-      .proof-item:nth-child(2n) {
-        border-right: 0;
-      }
-
+    @media (max-width: 540px) {
+      .nav-links { gap: 1px; font-size: 12px; }
+      .nav-links a { padding: 7px 6px; }
+      .actions,
+      .contact-actions { display: grid; grid-template-columns: 1fr; }
+      .btn,
+      .contact-link { width: 100%; }
+      .headline { margin-top: 18px; font-size: 39px; }
+      .role { font-size: 18px; }
+      .eyebrow { font-size: 12px; }
+      .portrait-shell { padding: 12px; }
+      .portrait { min-height: 280px; border-radius: 20px; }
+      .proof { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+      .proof-item { min-height: 92px; border-radius: 18px; padding: 13px; }
+      .proof-number { font-size: 23px; }
+      .proof-label { font-size: 11px; }
+      .meta-strip,
+      .signal-strip,
+      .method-grid { grid-template-columns: 1fr; }
+      .meta-strip { padding: 0 12px 12px; }
       .statement,
+      .role-card,
+      .focus-card,
+      .step-card,
       .project-top,
       .project-body,
       .skill-group,
       .experience-body,
-      .experience-side {
-        padding: 18px;
-      }
-
-      .meta-item .icon {
-        display: none;
-      }
+      .experience-side,
+      .contact-card { padding: 18px; }
+      .statement p { font-size: 16px; line-height: 1.74; }
+      h2 { font-size: 31px; }
     }
-
+    @media (max-width: 360px) {
+      .nav-links { flex-wrap: wrap; justify-content: flex-start; row-gap: 4px; }
+      .nav-links a { flex: 1 1 calc(33.333% - 4px); text-align: center; }
+      .headline { font-size: 34px; }
+    }
     @media (prefers-reduced-motion: reduce) {
-      html {
-        scroll-behavior: auto;
-      }
-
-      *,
-      *::before,
-      *::after {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
         transition-duration: .01ms !important;
         animation-duration: .01ms !important;
         animation-iteration-count: 1 !important;
@@ -1048,16 +608,13 @@
 </head>
 <body>
   <header class="site-header">
-    <div class="container nav">
-      <a class="brand" href="#home" aria-label="Go to top">
-        <span class="brand-mark">TZ</span>
-        <span>TAN ZE XIANG</span>
-      </a>
+    <div class="container nav glass">
+      <a class="brand" href="#home" aria-label="Go to top"><span class="brand-mark">TZ</span><span>TAN ZE XIANG</span></a>
       <nav class="nav-links" aria-label="Primary navigation">
         <a href="#about">About</a>
+        <a href="#method">Method</a>
         <a href="#experience">Experience</a>
         <a href="#projects">Projects</a>
-        <a href="#skills">Skills</a>
         <a href="#contact">Contact</a>
       </nav>
     </div>
@@ -1067,42 +624,24 @@
     <section class="hero" aria-label="Profile introduction">
       <div class="container hero-inner">
         <div>
-          <span class="eyebrow"><i data-lucide="sparkles" class="icon" aria-hidden="true"></i>Available for opportunities</span>
+          <span class="eyebrow"><i data-lucide="sparkles" class="icon" aria-hidden="true"></i>Available for BA and transformation roles</span>
           <h1 class="headline">TAN ZE XIANG</h1>
-          <div class="role">Senior Business Analyst for core banking transformation</div>
-          <p class="lede">
-            I turn complex lending, regulatory, and operational requirements into clear workflows,
-            testable rules, and measurable delivery outcomes for banking technology teams.
-          </p>
-          <div class="hero-actions">
+          <div class="role">Senior Business Analyst turning banking complexity into delivery-ready systems.</div>
+          <p class="lede">I bridge business stakeholders and technology teams across loan origination, regulatory reporting, API integration, UAT governance, and post-release operations.</p>
+          <div class="actions">
             <a class="btn primary" href="mailto:tanzexiang8@gmail.com"><i data-lucide="mail" class="icon" aria-hidden="true"></i>Email me</a>
             <a class="btn" href="#projects"><i data-lucide="briefcase-business" class="icon" aria-hidden="true"></i>View work</a>
-            <a class="btn" href="https://github.com/Xiang13-gif" target="_blank" rel="noreferrer"><i data-lucide="github" class="icon" aria-hidden="true"></i>GitHub</a>
+            <a class="btn" href="https://github.com/Xiang13-gif" target="_blank" rel="noreferrer"><i data-lucide="code-xml" class="icon" aria-hidden="true"></i>GitHub</a>
           </div>
         </div>
-
-        <aside class="hero-panel" aria-label="Profile highlights">
+        <aside class="hero-panel glass" aria-label="Profile highlights">
           <div class="portrait-shell">
-            <div class="portrait">
-              <img src="assets/profile.jpg?v=4" alt="Tan Ze Xiang headshot">
-            </div>
+            <div class="portrait"><img src="assets/profile.jpg?v=5" alt="Tan Ze Xiang headshot"></div>
             <div class="proof">
-              <div class="proof-item">
-                <div class="proof-number">100+</div>
-                <div class="proof-label">UI screens co-designed</div>
-              </div>
-              <div class="proof-item">
-                <div class="proof-number">2,000+</div>
-                <div class="proof-label">detailed test scripts prepared</div>
-              </div>
-              <div class="proof-item">
-                <div class="proof-number">30+</div>
-                <div class="proof-label">modules covered through testing</div>
-              </div>
-              <div class="proof-item">
-                <div class="proof-number">70%+</div>
-                <div class="proof-label">manual documentation effort reduced</div>
-              </div>
+              <div class="proof-item"><div class="proof-number">100+</div><div class="proof-label">UI screens co-designed</div></div>
+              <div class="proof-item"><div class="proof-number">2,000+</div><div class="proof-label">detailed test scripts prepared</div></div>
+              <div class="proof-item"><div class="proof-number">30+</div><div class="proof-label">modules covered through testing</div></div>
+              <div class="proof-item"><div class="proof-number">70%+</div><div class="proof-label">manual documentation effort reduced</div></div>
             </div>
           </div>
           <div class="meta-strip">
@@ -1112,343 +651,133 @@
           </div>
         </aside>
       </div>
+      <div class="container signal-strip" aria-label="Profile strengths">
+        <div class="signal-card glass"><i data-lucide="workflow" class="signal-icon" aria-hidden="true"></i><div><strong>LOS journeys</strong><span>Rules, states, approvals, and exceptions</span></div></div>
+        <div class="signal-card glass"><i data-lucide="shield-check" class="signal-icon" aria-hidden="true"></i><div><strong>Regulatory control</strong><span>Pre-checks, reconciliation, auditability</span></div></div>
+        <div class="signal-card glass"><i data-lucide="plug-zap" class="signal-icon" aria-hidden="true"></i><div><strong>API delivery</strong><span>Contracts, idempotency, state sync</span></div></div>
+        <div class="signal-card glass"><i data-lucide="radar" class="signal-icon" aria-hidden="true"></i><div><strong>Release confidence</strong><span>UAT coverage, triage, monitoring</span></div></div>
+      </div>
     </section>
 
     <section id="about" class="section alt">
       <div class="container">
         <div class="section-head">
-          <div>
-            <span class="section-kicker"><i data-lucide="user-check" class="icon" aria-hidden="true"></i>About</span>
-            <h2>Requirements with business clarity and delivery discipline.</h2>
-          </div>
-          <p class="section-intro">
-            My work sits between stakeholders, product decisions, system behavior, and production outcomes.
-            I focus on making ambiguity visible early, then turning it into rules, journeys, test packs, and release-ready documentation.
-          </p>
+          <div><span class="section-kicker"><i data-lucide="user-check" class="icon" aria-hidden="true"></i>About</span><h2>Business clarity for systems that cannot afford ambiguity.</h2></div>
+          <p class="section-intro">My work sits between stakeholders, product decisions, system behavior, and production outcomes. I make ambiguity visible early, then turn it into rules, journeys, test packs, and release-ready documentation.</p>
         </div>
-
         <div class="about-layout">
-          <div class="statement">
-            <p>
-              Business Analyst focused on core banking transformation. I have led multiple concurrent LOS enhancements,
-              partnered with senior stakeholders, co-designed 100+ UI screens, shaped a configurable approval matrix,
-              and supported delivery through rigorous UAT, defect triage, documentation automation, and post-go-live monitoring.
-            </p>
+          <div class="statement glass">
+            <p>Business Analyst focused on core banking transformation. I have led multiple concurrent LOS enhancements, partnered with senior stakeholders, co-designed 100+ UI screens, shaped configurable approval rules, and supported delivery through rigorous UAT, defect triage, documentation automation, and post-go-live monitoring.</p>
+            <div class="role-fit">
+              <div class="role-card glass"><i data-lucide="badge-check" class="icon" aria-hidden="true"></i><strong>Best role fit</strong><span>Senior BA, BA lead, transformation BA, product-facing banking delivery.</span></div>
+              <div class="role-card glass"><i data-lucide="building-2" class="icon" aria-hidden="true"></i><strong>Domain fit</strong><span>Loan origination, SME lending, credit workflow, reporting, and operations.</span></div>
+              <div class="role-card glass"><i data-lucide="handshake" class="icon" aria-hidden="true"></i><strong>Team fit</strong><span>Stakeholders, product owners, QA, developers, vendors, and operations teams.</span></div>
+            </div>
           </div>
           <div class="focus-grid">
-            <div class="focus-card">
-              <strong>Business process translation</strong>
-              <span>Converting policy, lending journeys, and stakeholder needs into usable flows and decision rules.</span>
-            </div>
-            <div class="focus-card">
-              <strong>Rule and validation design</strong>
-              <span>Defining mandatory fields, dependencies, state handling, auditability, and reusable validation logic.</span>
-            </div>
-            <div class="focus-card">
-              <strong>Testing and release control</strong>
-              <span>Creating coverage, leading UAT, prioritizing defects, and protecting regression confidence.</span>
-            </div>
-            <div class="focus-card">
-              <strong>Operational visibility</strong>
-              <span>Using dashboards, monitoring, and incident analysis to shorten investigation and resolution cycles.</span>
-            </div>
+            <div class="focus-card glass"><strong>Business process translation</strong><span>Converting policy, lending journeys, and stakeholder needs into usable flows and decision rules.</span></div>
+            <div class="focus-card glass"><strong>Rule and validation design</strong><span>Defining mandatory fields, dependencies, state handling, auditability, and reusable validation logic.</span></div>
+            <div class="focus-card glass"><strong>Testing and release control</strong><span>Creating coverage, leading UAT, prioritizing defects, and protecting regression confidence.</span></div>
+            <div class="focus-card glass"><strong>Operational visibility</strong><span>Using dashboards, monitoring, and incident analysis to shorten investigation and resolution cycles.</span></div>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="experience" class="section">
+    <section id="method" class="section">
       <div class="container">
         <div class="section-head">
-          <div>
-            <span class="section-kicker"><i data-lucide="route" class="icon" aria-hidden="true"></i>Experience</span>
-            <h2>Selected delivery responsibilities.</h2>
-          </div>
-          <p class="section-intro">
-            Selected BA delivery work across core banking transformation, testing governance, and release readiness.
-          </p>
+          <div><span class="section-kicker"><i data-lucide="git-branch-plus" class="icon" aria-hidden="true"></i>Method</span><h2>How I move work from unclear to release-ready.</h2></div>
+          <p class="section-intro">A simple operating model for BA delivery: understand the business risk, define the system behavior, validate with evidence, and keep the release path visible.</p>
         </div>
+        <div class="method-grid">
+          <article class="step-card glass"><div class="step-marker"><span class="step-number">01</span><i data-lucide="search-check" class="icon" aria-hidden="true"></i></div><h3>Discover the real constraint</h3><p>Clarify stakeholders, policy intent, operational friction, compliance risk, and what success should look like.</p></article>
+          <article class="step-card glass"><div class="step-marker"><span class="step-number">02</span><i data-lucide="network" class="icon" aria-hidden="true"></i></div><h3>Shape system behavior</h3><p>Translate workflows into fields, states, validations, exceptions, audit trails, and integration contracts.</p></article>
+          <article class="step-card glass"><div class="step-marker"><span class="step-number">03</span><i data-lucide="clipboard-check" class="icon" aria-hidden="true"></i></div><h3>Validate with coverage</h3><p>Build test packs, scenario matrices, retest paths, and defect triage discipline before release pressure peaks.</p></article>
+          <article class="step-card glass"><div class="step-marker"><span class="step-number">04</span><i data-lucide="activity" class="icon" aria-hidden="true"></i></div><h3>Close the loop</h3><p>Use production signals, dashboards, and root-cause patterns to improve the next requirement cycle.</p></article>
+        </div>
+      </div>
+    </section>
 
+    <section id="experience" class="section alt">
+      <div class="container">
+        <div class="section-head">
+          <div><span class="section-kicker"><i data-lucide="route" class="icon" aria-hidden="true"></i>Experience</span><h2>Selected delivery responsibilities.</h2></div>
+          <p class="section-intro">Selected BA delivery work across core banking transformation, testing governance, and release readiness.</p>
+        </div>
         <div class="experience-list">
-          <article class="experience-item">
-            <div class="experience-side">
-              <strong>Core Banking Transformation</strong>
-              <span>Senior BA focus</span>
-            </div>
-            <div class="experience-body">
-              <h3>Loan origination and approval workflow enhancements</h3>
-              <p>
-                Led requirement analysis for concurrent LOS changes, including journey design, approval matrix configuration,
-                UI requirements, validation behavior, defect triage, and stakeholder alignment.
-              </p>
-              <ul class="impact-list">
-                <li>Co-designed 100+ UI screens and refined business rules across lending journeys.</li>
-                <li>Improved delivery confidence through traceable requirements and structured sign-off.</li>
-                <li>Supported post-go-live issue resolution with dashboard-led investigation patterns.</li>
-              </ul>
-            </div>
+          <article class="experience-item glass">
+            <div class="experience-side"><strong>Core Banking Transformation</strong><span>Senior BA focus</span></div>
+            <div class="experience-body"><h3>Loan origination and approval workflow enhancements</h3><p>Led requirement analysis for concurrent LOS changes, including journey design, approval matrix configuration, UI requirements, validation behavior, defect triage, and stakeholder alignment.</p><ul class="impact-list"><li>Co-designed 100+ UI screens and refined business rules across lending journeys.</li><li>Improved delivery confidence through traceable requirements and structured sign-off.</li><li>Supported post-go-live issue resolution with dashboard-led investigation patterns.</li></ul></div>
           </article>
-
-          <article class="experience-item">
-            <div class="experience-side">
-              <strong>Quality & Release</strong>
-              <span>UAT, regression, readiness</span>
-            </div>
-            <div class="experience-body">
-              <h3>Testing strategy and defect governance</h3>
-              <p>
-                Built detailed test coverage for banking modules, coordinated UAT execution, clarified failure scenarios,
-                and kept business, technology, and operations teams aligned during defect closure.
-              </p>
-              <ul class="impact-list">
-                <li>Prepared 2,000+ detailed scripts across 30+ modules.</li>
-                <li>Led UAT and defect triage with clear ownership, severity, and retest paths.</li>
-                <li>Used root-cause analysis to reduce repeat defects and speed up release readiness.</li>
-              </ul>
-            </div>
+          <article class="experience-item glass">
+            <div class="experience-side"><strong>Quality & Release</strong><span>UAT, regression, readiness</span></div>
+            <div class="experience-body"><h3>Testing strategy and defect governance</h3><p>Built detailed test coverage for banking modules, coordinated UAT execution, clarified failure scenarios, and kept business, technology, and operations teams aligned during defect closure.</p><ul class="impact-list"><li>Prepared 2,000+ detailed scripts across 30+ modules.</li><li>Led UAT and defect triage with clear ownership, severity, and retest paths.</li><li>Used root-cause analysis to reduce repeat defects and speed up release readiness.</li></ul></div>
           </article>
         </div>
       </div>
     </section>
 
-    <section id="projects" class="section alt">
+    <section id="projects" class="section">
       <div class="container">
         <div class="section-head">
-          <div>
-            <span class="section-kicker"><i data-lucide="folder-kanban" class="icon" aria-hidden="true"></i>Projects</span>
-            <h2>Case studies with measurable business impact.</h2>
-          </div>
-          <p class="section-intro">
-            Compact case studies that show the business problem, delivery action, and practical result.
-          </p>
+          <div><span class="section-kicker"><i data-lucide="folder-kanban" class="icon" aria-hidden="true"></i>Projects</span><h2>Case studies with measurable business impact.</h2></div>
+          <p class="section-intro">Compact case studies that show the business problem, delivery action, and practical result.</p>
         </div>
-
         <div class="project-grid">
-          <article class="project-card">
-            <div class="project-top">
-              <h3>SME Lending - Stage Re-validation</h3>
-              <div class="badges">
-                <span class="badge teal">Validation</span>
-                <span class="badge">State machine</span>
-                <span class="badge">Data integrity</span>
-                <span class="badge amber">UAT</span>
-              </div>
-            </div>
-            <div class="project-body">
-              <p>Implemented stage-reversal re-validation so applications moving backward through the journey trigger fresh checks before progressing again.</p>
-              <details>
-                <summary>Case study <i data-lucide="chevron-down" class="icon" aria-hidden="true"></i></summary>
-                <div class="case-content">
-                  <dl>
-                    <div>
-                      <dt>Problem</dt>
-                      <dd>Mandatory fields and conditional checks could be bypassed during stage reversal, creating stale data and rework.</dd>
-                    </div>
-                    <div>
-                      <dt>Actions</dt>
-                      <dd>Defined reusable validation triggers, dependency rules, audit logs, failure reasons, and regression coverage for reversal scenarios.</dd>
-                    </div>
-                    <div>
-                      <dt>Impact</dt>
-                      <dd>Improved first-pass quality, strengthened data integrity, and made support investigation faster.</dd>
-                    </div>
-                  </dl>
-                </div>
-              </details>
-            </div>
+          <article class="project-card glass">
+            <div class="project-top"><h3>SME Lending - Stage Re-validation</h3><div class="badges"><span class="badge teal">Validation</span><span class="badge">State machine</span><span class="badge">Data integrity</span><span class="badge amber">UAT</span></div></div>
+            <div class="project-body"><p>Implemented stage-reversal re-validation so applications moving backward through the journey trigger fresh checks before progressing again.</p><details><summary>Case study <i data-lucide="chevron-down" class="icon" aria-hidden="true"></i></summary><div class="case-content"><dl><div><dt>Problem</dt><dd>Mandatory fields and conditional checks could be bypassed during stage reversal, creating stale data and rework.</dd></div><div><dt>Actions</dt><dd>Defined reusable validation triggers, dependency rules, audit logs, failure reasons, and regression coverage for reversal scenarios.</dd></div><div><dt>Impact</dt><dd>Improved first-pass quality, strengthened data integrity, and made support investigation faster.</dd></div></dl></div></details></div>
           </article>
-
-          <article class="project-card">
-            <div class="project-top">
-              <h3>Regulatory Credit Reporting</h3>
-              <div class="badges">
-                <span class="badge teal">Compliance</span>
-                <span class="badge">Pre-checks</span>
-                <span class="badge">Error taxonomy</span>
-                <span class="badge amber">Audit trail</span>
-              </div>
-            </div>
-            <div class="project-body">
-              <p>Led improvements for credit reporting submission readiness, retry handling, status tracking, and explainable exception closure.</p>
-              <details>
-                <summary>Case study <i data-lucide="chevron-down" class="icon" aria-hidden="true"></i></summary>
-                <div class="case-content">
-                  <dl>
-                    <div>
-                      <dt>Problem</dt>
-                      <dd>Submission quality depended on inconsistent checks and uneven response handling, slowing compliance operations.</dd>
-                    </div>
-                    <div>
-                      <dt>Actions</dt>
-                      <dd>Introduced reusable pre-submission validation, standardized error codes, controlled retries, and reconciliation visibility.</dd>
-                    </div>
-                    <div>
-                      <dt>Impact</dt>
-                      <dd>Reduced manual intervention, improved data quality, and made the submission path more auditable.</dd>
-                    </div>
-                  </dl>
-                </div>
-              </details>
-            </div>
+          <article class="project-card glass">
+            <div class="project-top"><h3>Regulatory Credit Reporting</h3><div class="badges"><span class="badge teal">Compliance</span><span class="badge">Pre-checks</span><span class="badge">Error taxonomy</span><span class="badge amber">Audit trail</span></div></div>
+            <div class="project-body"><p>Led improvements for credit reporting submission readiness, retry handling, status tracking, and explainable exception closure.</p><details><summary>Case study <i data-lucide="chevron-down" class="icon" aria-hidden="true"></i></summary><div class="case-content"><dl><div><dt>Problem</dt><dd>Submission quality depended on inconsistent checks and uneven response handling, slowing compliance operations.</dd></div><div><dt>Actions</dt><dd>Introduced reusable pre-submission validation, standardized error codes, controlled retries, and reconciliation visibility.</dd></div><div><dt>Impact</dt><dd>Reduced manual intervention, improved data quality, and made the submission path more auditable.</dd></div></dl></div></details></div>
           </article>
-
-          <article class="project-card">
-            <div class="project-top">
-              <h3>SME Digital - Third-Party Guarantee API</h3>
-              <div class="badges">
-                <span class="badge teal">API integration</span>
-                <span class="badge">Idempotency</span>
-                <span class="badge">State sync</span>
-                <span class="badge amber">Exception flow</span>
-              </div>
-            </div>
-            <div class="project-body">
-              <p>Designed integration requirements for a guarantee provider workflow, with reliable state handling, mapping, and observability.</p>
-              <details>
-                <summary>Case study <i data-lucide="chevron-down" class="icon" aria-hidden="true"></i></summary>
-                <div class="case-content">
-                  <dl>
-                    <div>
-                      <dt>Problem</dt>
-                      <dd>External integration introduced timeout, duplicate submission, state drift, and audit trail risks.</dd>
-                    </div>
-                    <div>
-                      <dt>Actions</dt>
-                      <dd>Defined eligibility rules, contract validation, idempotency keys, retry policies, callbacks, alerts, and exception SLAs.</dd>
-                    </div>
-                    <div>
-                      <dt>Impact</dt>
-                      <dd>Supported higher straight-through processing and faster root-cause analysis for integration issues.</dd>
-                    </div>
-                  </dl>
-                </div>
-              </details>
-            </div>
+          <article class="project-card glass">
+            <div class="project-top"><h3>SME Digital - Third-Party Guarantee API</h3><div class="badges"><span class="badge teal">API integration</span><span class="badge">Idempotency</span><span class="badge">State sync</span><span class="badge amber">Exception flow</span></div></div>
+            <div class="project-body"><p>Designed integration requirements for a guarantee provider workflow, with reliable state handling, mapping, and observability.</p><details><summary>Case study <i data-lucide="chevron-down" class="icon" aria-hidden="true"></i></summary><div class="case-content"><dl><div><dt>Problem</dt><dd>External integration introduced timeout, duplicate submission, state drift, and audit trail risks.</dd></div><div><dt>Actions</dt><dd>Defined eligibility rules, contract validation, idempotency keys, retry policies, callbacks, alerts, and exception SLAs.</dd></div><div><dt>Impact</dt><dd>Supported higher straight-through processing and faster root-cause analysis for integration issues.</dd></div></dl></div></details></div>
           </article>
-
-          <article class="project-card">
-            <div class="project-top">
-              <h3>Asset-Based Credit - VoAP</h3>
-              <div class="badges">
-                <span class="badge teal">Credit rules</span>
-                <span class="badge">Dependency checks</span>
-                <span class="badge">Rules engine</span>
-                <span class="badge amber">Decision quality</span>
-              </div>
-            </div>
-            <div class="project-body">
-              <p>Added VoAP fields and dependency checks to improve credit decision completeness and reduce avoidable rework.</p>
-              <details>
-                <summary>Case study <i data-lucide="chevron-down" class="icon" aria-hidden="true"></i></summary>
-                <div class="case-content">
-                  <dl>
-                    <div>
-                      <dt>Problem</dt>
-                      <dd>Asset-based credit inputs needed clearer validation and stronger dependency control before decisioning.</dd>
-                    </div>
-                    <div>
-                      <dt>Actions</dt>
-                      <dd>Mapped field dependencies, validation states, front-end prompts, rules-engine behavior, and UAT scenarios.</dd>
-                    </div>
-                    <div>
-                      <dt>Impact</dt>
-                      <dd>Improved completeness of credit assessment inputs and reduced downstream clarification cycles.</dd>
-                    </div>
-                  </dl>
-                </div>
-              </details>
-            </div>
+          <article class="project-card glass">
+            <div class="project-top"><h3>Asset-Based Credit - VoAP</h3><div class="badges"><span class="badge teal">Credit rules</span><span class="badge">Dependency checks</span><span class="badge">Rules engine</span><span class="badge amber">Decision quality</span></div></div>
+            <div class="project-body"><p>Added VoAP fields and dependency checks to improve credit decision completeness and reduce avoidable rework.</p><details><summary>Case study <i data-lucide="chevron-down" class="icon" aria-hidden="true"></i></summary><div class="case-content"><dl><div><dt>Problem</dt><dd>Asset-based credit inputs needed clearer validation and stronger dependency control before decisioning.</dd></div><div><dt>Actions</dt><dd>Mapped field dependencies, validation states, front-end prompts, rules-engine behavior, and UAT scenarios.</dd></div><div><dt>Impact</dt><dd>Improved completeness of credit assessment inputs and reduced downstream clarification cycles.</dd></div></dl></div></details></div>
           </article>
         </div>
       </div>
     </section>
 
-    <section id="skills" class="section">
+    <section id="skills" class="section alt">
       <div class="container">
         <div class="section-head">
-          <div>
-            <span class="section-kicker"><i data-lucide="layers-3" class="icon" aria-hidden="true"></i>Skills</span>
-            <h2>What I bring into delivery rooms.</h2>
-          </div>
-          <p class="section-intro">
-            A practical mix of business analysis, banking delivery, testing leadership, and technical collaboration.
-          </p>
+          <div><span class="section-kicker"><i data-lucide="layers-3" class="icon" aria-hidden="true"></i>Skills</span><h2>What I bring into delivery rooms.</h2></div>
+          <p class="section-intro">A practical mix of business analysis, banking delivery, testing leadership, and technical collaboration.</p>
         </div>
-
         <div class="skills-grid">
-          <div class="skill-group">
-            <h3>Business Analysis</h3>
-            <div class="skill-list">
-              <span class="chip">Requirements elicitation</span>
-              <span class="chip">Traceability</span>
-              <span class="chip">BRD / FSD documentation</span>
-              <span class="chip">Stakeholder management</span>
-              <span class="chip">Approval matrix design</span>
-              <span class="chip">Workflow modeling</span>
-            </div>
-          </div>
-          <div class="skill-group">
-            <h3>Banking & Delivery</h3>
-            <div class="skill-list">
-              <span class="chip">Loan origination systems</span>
-              <span class="chip">Core banking transformation</span>
-              <span class="chip">Regulatory reporting</span>
-              <span class="chip">Data integrity</span>
-              <span class="chip">Release readiness</span>
-              <span class="chip">Change management</span>
-            </div>
-          </div>
-          <div class="skill-group">
-            <h3>Testing & Quality</h3>
-            <div class="skill-list">
-              <span class="chip">UAT leadership</span>
-              <span class="chip">Defect triage</span>
-              <span class="chip">Regression planning</span>
-              <span class="chip">Root-cause analysis</span>
-              <span class="chip">Risk-based test strategy</span>
-              <span class="chip">Post-release monitoring</span>
-            </div>
-          </div>
-          <div class="skill-group">
-            <h3>Technical Collaboration</h3>
-            <div class="skill-list">
-              <span class="chip">API contract validation</span>
-              <span class="chip">SQL basics</span>
-              <span class="chip">Jira</span>
-              <span class="chip">Confluence</span>
-              <span class="chip">HP ALM</span>
-              <span class="chip">HTML / CSS</span>
-            </div>
-          </div>
+          <div class="skill-group glass"><h3>Business Analysis</h3><div class="skill-list"><span class="chip">Requirements elicitation</span><span class="chip">Traceability</span><span class="chip">BRD / FSD documentation</span><span class="chip">Stakeholder management</span><span class="chip">Approval matrix design</span><span class="chip">Workflow modeling</span></div></div>
+          <div class="skill-group glass"><h3>Banking & Delivery</h3><div class="skill-list"><span class="chip">Loan origination systems</span><span class="chip">Core banking transformation</span><span class="chip">Regulatory reporting</span><span class="chip">Data integrity</span><span class="chip">Release readiness</span><span class="chip">Change management</span></div></div>
+          <div class="skill-group glass"><h3>Testing & Quality</h3><div class="skill-list"><span class="chip">UAT leadership</span><span class="chip">Defect triage</span><span class="chip">Regression planning</span><span class="chip">Root-cause analysis</span><span class="chip">Risk-based test strategy</span><span class="chip">Post-release monitoring</span></div></div>
+          <div class="skill-group glass"><h3>Technical Collaboration</h3><div class="skill-list"><span class="chip">API contract validation</span><span class="chip">SQL basics</span><span class="chip">Jira</span><span class="chip">Confluence</span><span class="chip">HP ALM</span><span class="chip">HTML / CSS</span></div></div>
         </div>
       </div>
     </section>
 
     <section id="contact" class="contact-band">
-      <div class="container contact-inner">
-        <div>
-          <span class="section-kicker"><i data-lucide="send" class="icon" aria-hidden="true"></i>Contact</span>
-          <h2>Ready to talk about business analysis or banking transformation.</h2>
-          <p>Best reached by email. I am open to BA, senior BA, and transformation roles where clear requirements and strong delivery control matter.</p>
-        </div>
-        <div class="contact-actions">
-          <a class="contact-link" href="mailto:tanzexiang8@gmail.com"><i data-lucide="mail" class="icon" aria-hidden="true"></i>tanzexiang8@gmail.com</a>
-          <a class="contact-link" href="https://github.com/Xiang13-gif" target="_blank" rel="noreferrer"><i data-lucide="github" class="icon" aria-hidden="true"></i>GitHub</a>
+      <div class="container">
+        <div class="contact-card glass">
+          <div><span class="section-kicker"><i data-lucide="send" class="icon" aria-hidden="true"></i>Contact</span><h2>Ready to talk about business analysis or banking transformation.</h2><p>Best reached by email. I am open to BA, senior BA, and transformation roles where clear requirements and strong delivery control matter.</p></div>
+          <div class="contact-actions">
+            <a class="contact-link" href="mailto:tanzexiang8@gmail.com"><i data-lucide="mail" class="icon" aria-hidden="true"></i>tanzexiang8@gmail.com</a>
+            <a class="contact-link" href="https://github.com/Xiang13-gif" target="_blank" rel="noreferrer"><i data-lucide="code-xml" class="icon" aria-hidden="true"></i>GitHub</a>
+          </div>
         </div>
       </div>
     </section>
   </main>
 
-  <footer>
-    <div class="container">© <span id="year"></span> TAN ZE XIANG. All rights reserved.</div>
-  </footer>
-
+  <footer><div class="container">&copy; <span id="year"></span> TAN ZE XIANG. All rights reserved.</div></footer>
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
     window.addEventListener("DOMContentLoaded", () => {
-      if (window.lucide) {
-        window.lucide.createIcons();
-      }
+      if (window.lucide) window.lucide.createIcons();
     });
   </script>
 </body>
