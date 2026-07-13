@@ -1,0 +1,34 @@
+{
+  "name": "banking-ba-portfolio",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Evidence-led Banking Business Analyst portfolio focused on credit operations, loan origination, requirements, UAT, and controlled delivery.",
+  "scripts": {
+    "dev": "next dev --hostname 127.0.0.1",
+    "build": "next build",
+    "start": "next start --hostname 127.0.0.1",
+    "lint": "eslint . --max-warnings=0",
+    "typecheck": "tsc --noEmit",
+    "check": "pnpm run lint && pnpm run typecheck && pnpm run build"
+  },
+  "dependencies": {
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "lucide-react": "^0.554.0",
+    "next": "^16.0.7",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "tailwind-merge": "^3.4.0"
+  },
+  "devDependencies": {
+    "@types/node": "^24.10.1",
+    "@types/react": "^19.2.7",
+    "@types/react-dom": "^19.2.3",
+    "autoprefixer": "^10.4.22",
+    "eslint": "^9.39.1",
+    "eslint-config-next": "^16.0.7",
+    "postcss": "8.5.16",
+    "tailwindcss": "^3.4.17",
+    "typescript": "^5.9.3"
+  }
+}
