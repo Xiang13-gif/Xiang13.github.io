@@ -150,7 +150,7 @@ def build_resume(output_path: Path) -> None:
         canvas.line(18 * mm, 12 * mm, 192 * mm, 12 * mm)
         canvas.setFont(FONT, 7.5)
         canvas.setFillColor(MUTED)
-        canvas.drawString(18 * mm, 8 * mm, "Tan Ze Xiang - Banking Business Analyst")
+        canvas.drawString(18 * mm, 8 * mm, "Tan Ze Xiang - Credit Operations Business Analyst")
         canvas.drawRightString(192 * mm, 8 * mm, f"Page {doc.page}")
         canvas.restoreState()
 
@@ -161,16 +161,16 @@ def build_resume(output_path: Path) -> None:
         rightMargin=18 * mm,
         topMargin=15 * mm,
         bottomMargin=17 * mm,
-        title="Tan Ze Xiang - Banking Business Analyst Resume",
+        title="Tan Ze Xiang - Credit Operations Business Analyst Resume",
         author="Tan Ze Xiang",
-        subject="Banking Business Analyst and Financial IT Consultant resume",
+        subject="Credit Operations and Banking Systems Business Analyst resume",
     )
     frame = Frame(doc.leftMargin, doc.bottomMargin, doc.width, doc.height, id="resume")
     doc.addPageTemplates([PageTemplate(id="resume", frames=[frame], onPage=footer)])
 
     story = [
         Paragraph("TAN ZE XIANG", name_style),
-        Paragraph("BANKING BUSINESS ANALYST | CREDIT OPERATIONS &amp; FINANCIAL SYSTEMS", role_style),
+        Paragraph("CREDIT OPERATIONS &amp; BANKING SYSTEMS BUSINESS ANALYST", role_style),
         Paragraph(
             "Kuala Lumpur, Malaysia | tanzexiang8@gmail.com | "
             "linkedin.com/in/tan-ze-xiang-3b213a143 | github.com/Xiang13-gif",
@@ -182,7 +182,7 @@ def build_resume(output_path: Path) -> None:
 
     story += section("Professional Summary")
     story.append(paragraph(
-        "Banking Business Analyst with 6+ years of experience supporting loan origination, business credit, retail banking, and foreign-exchange system change. Skilled in requirement analysis, functional clarification, UAT and regression, defect triage, root-cause investigation, traceability, production verification, and stakeholder coordination. Combines banking-domain understanding with SQL, log, API, data, and UI/backend reasoning."
+        "Banking Business Analyst supporting loan origination, business credit, retail banking, and foreign-exchange system change since 2019. Skilled in requirement analysis, functional clarification, UAT and regression, defect triage, root-cause investigation, traceability, production verification, and stakeholder coordination. Combines banking-domain understanding with SQL, log, API, data, and UI/backend reasoning."
     ))
 
     story += section("Professional Experience")
@@ -194,7 +194,7 @@ def build_resume(output_path: Path) -> None:
     story.append(Paragraph("Loan Origination | Business Credit | Retail Banking | FX Deal System", small_style))
     for item in [
         "Analyze and translate requirements across business, operations, and technology stakeholders for banking system enhancements.",
-        "Maintain requirement-to-test traceability and support VSIT, SIT, UAT, regression, and production verification across interconnected modules.",
+        "Maintain requirement-to-test traceability and support integration testing, SIT, UAT, regression, and production verification across interconnected modules.",
         "Prepare reusable test assets, review UI and system behavior, and validate functional, interface, and backend outcomes with delivery teams.",
         "Facilitate defect triage and root-cause investigation using reproducible evidence, logs, business impact, and controlled retest scope.",
         "Support document-generation automation, field mapping, template validation, output verification, and operational documentation.",
@@ -218,13 +218,12 @@ def build_resume(output_path: Path) -> None:
     ]:
         story.append(bullet(item))
 
-    story.append(PageBreak())
     story += section("Core Capabilities")
     capability_data = [
         [paragraph("Business Analysis", job_style), paragraph("Banking Domain", job_style)],
         [paragraph("Requirements, functional specification, process mapping, impact analysis, business rules, acceptance criteria, traceability", small_style), paragraph("Loan origination, business credit, credit operations, retail banking, FX dealing, approval and document controls", small_style)],
         [paragraph("Testing & Delivery", job_style), paragraph("Technical Collaboration", job_style)],
-        [paragraph("VSIT, SIT, UAT, regression, defects, retest evidence, production verification, release support", small_style), paragraph("SQL, log analysis, API awareness, data validation, UI/backend behavior, GitHub, TypeScript portfolio execution", small_style)],
+        [paragraph("Integration testing, SIT, UAT, regression, defects, retest evidence, production verification, release support", small_style), paragraph("SQL, log analysis, API awareness, data validation, field mapping, UI/backend behavior, GitHub, TypeScript portfolio execution", small_style)],
     ]
     story.append(Table(capability_data, colWidths=[doc.width / 2, doc.width / 2], style=TableStyle([
         ("VALIGN", (0, 0), (-1, -1), "TOP"),
@@ -234,9 +233,11 @@ def build_resume(output_path: Path) -> None:
         ("BOTTOMPADDING", (0, 0), (-1, -1), 4),
     ])))
 
+    story.append(PageBreak())
     story += section("Selected Contribution Highlights")
     for item in [
         "Built and maintained reusable test assets and structured evidence to support repeatable execution and audit readiness.",
+        "Raised ambiguous behavior and exception paths to accountable business and control stakeholders before converting them into test and release evidence.",
         "Reviewed UI and system behavior with business and technology teams to align functional outcomes with user needs.",
         "Supported document automation through dynamic field mapping, template validation, and Word/PDF output verification.",
         "Used monitoring views, logs, and structured follow-up to improve visibility and investigation after release.",
@@ -273,7 +274,7 @@ def build_resume(output_path: Path) -> None:
 
     story += section("Public Portfolio Disclaimer")
     story.append(Paragraph(
-        "Portfolio projects use mock data and generalized banking workflows. No confidential client, customer, policy, requirement, screenshot, or production information is published.",
+        "Portfolio projects use mock data and generalized banking workflows. No confidential client, customer, policy, requirement, screenshot, or production information is published. Confidential or unverified delivery metrics are not published.",
         small_style,
     ))
 

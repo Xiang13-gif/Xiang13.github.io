@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     "Banking Business Analyst Malaysia",
     "Credit Operations Business Analyst",
     "Loan Origination System Analyst",
-    "Financial IT Consultant",
+    "Financial IT Business Consultant",
     "Banking UAT Analyst",
     "FinTech Business Analyst"
   ],

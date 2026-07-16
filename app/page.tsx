@@ -108,9 +108,9 @@ export default function HomePage() {
         <div className="container">
           <div className="mb-8 max-w-3xl">
             <span className="eyebrow">Selected evidence</span>
-            <h2 className="mt-4 text-3xl font-semibold" id="featured-work">Three views of the same professional story.</h2>
+            <h2 className="mt-4 text-3xl font-semibold" id="featured-work">Three complementary proof points for a Banking BA role.</h2>
             <p className="mt-3 leading-7 text-muted-foreground">
-              The flagship project proves BA reasoning in public. The two experience summaries show where that method comes from, without exposing client material.
+              The flagship project makes BA reasoning inspectable in public. The professional cases show my contribution, decision boundary, and transferable method without exposing client material.
             </p>
           </div>
           <div className="grid gap-5 lg:grid-cols-2">

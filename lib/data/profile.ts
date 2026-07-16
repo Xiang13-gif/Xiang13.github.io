@@ -9,36 +9,36 @@ export function absoluteUrl(path = "") {
 export const profile = {
   name: "Tan Ze Xiang",
   initials: "TZ",
-  role: "Banking Business Analyst | Credit Operations & Financial Systems",
-  shortRole: "Banking Business Analyst",
+  role: "Credit Operations & Banking Systems Business Analyst",
+  shortRole: "Credit Operations Business Analyst",
   location: "Kuala Lumpur, Malaysia",
   email: "tanzexiang8@gmail.com",
   github: "https://github.com/Xiang13-gif",
   linkedin: "https://www.linkedin.com/in/tan-ze-xiang-3b213a143",
   resumeUrl: "/resume/Tan-Ze-Xiang-Resume.pdf",
-  careerStatus: "Open to Banking BA and Financial IT opportunities",
-  headline: "I turn complex credit operations into clear, testable, and controlled system change.",
+  careerStatus: "Open to Credit Operations, Banking Systems, and Financial IT opportunities",
+  headline: "I translate credit operations into testable, controlled banking system change.",
   summary:
-    "Banking Business Analyst with 6+ years of experience supporting loan origination, business credit, retail banking, and foreign-exchange system change across requirements, UAT, defect triage, and release verification.",
+    "Banking Business Analyst supporting loan origination, business credit, retail banking, and foreign-exchange system change since 2019 across requirements, UAT, defect triage, and release verification.",
   positioning:
-    "I connect business intent, system behavior, test evidence, and delivery decisions so banking change is understandable, buildable, and safe to release.",
+    "I connect business intent, system behavior, change impact, test evidence, and delivery decisions so banking change is understandable, buildable, and safe to release.",
   metaDescription:
-    "Portfolio of Tan Ze Xiang, a Malaysia-based Banking Business Analyst specializing in credit operations, loan origination systems, requirements, UAT, traceability, and controlled delivery.",
+    "Portfolio of Tan Ze Xiang, a Malaysia-based Credit Operations and Banking Systems Business Analyst specializing in loan origination, requirements, UAT, traceability, and controlled delivery.",
   focusRoles: [
-    "Banking Business Analyst",
     "Credit Operations Business Analyst",
-    "Financial IT Consultant",
     "Loan Origination System Analyst",
-    "FinTech Product Analyst"
+    "Banking Systems Business Analyst",
+    "Financial IT Business Consultant",
+    "Banking UAT and Change Analyst"
   ],
   proofPoints: [
     {
-      value: "6+ years",
+      value: "Since 2019",
       label: "Banking system delivery",
-      detail: "Business analysis experience since 2019"
+      detail: "Requirements, testing, defects, and release support"
     },
     {
-      value: "Credit & LOS",
+      value: "Credit operations & LOS",
       label: "Domain focus",
       detail: "Loan origination, business credit, retail, and FX systems"
     },
@@ -48,7 +48,7 @@ export const profile = {
       detail: "Analysis, traceability, UAT, defects, and production verification"
     },
     {
-      value: "Business + technical",
+      value: "BA + system reasoning",
       label: "Collaboration strength",
       detail: "Business rules, SQL, logs, APIs, data, and UI behavior"
     }
@@ -62,4 +62,4 @@ export const profile = {
 } as const;
 
 export const portfolioDisclaimer =
-  "Portfolio projects use mock data and generalized banking workflows. They are not connected to any bank system and contain no confidential client, customer, policy, or production information. Professional experience summaries are intentionally anonymized and describe contribution areas only.";
+  "Portfolio projects use mock data and generalized banking workflows. They are not connected to any bank system and contain no confidential client, customer, policy, or production information. Professional experience summaries are intentionally anonymized, distinguish individual contribution from team delivery, and do not publish confidential or unverified performance metrics.";

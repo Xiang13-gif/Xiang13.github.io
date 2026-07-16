@@ -14,7 +14,7 @@ import { DeliverablePreview } from "@/components/deliverable-preview";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { projectArtifacts } from "@/lib/data/deliverables";
-import { absoluteUrl } from "@/lib/data/profile";
+import { absoluteUrl, profile } from "@/lib/data/profile";
 import { getProject, projects } from "@/lib/data/projects";
 import { assetPath, cn } from "@/lib/utils";
 
@@ -32,7 +32,19 @@ export async function generateMetadata({ params }: ProjectPageProps): Promise<Me
     title: project.title,
     description: project.summary,
     alternates: { canonical: absoluteUrl(`/projects/${project.slug}`) },
-    openGraph: project.image ? { images: [{ url: absoluteUrl(project.image), alt: project.imageAlt }] } : undefined
+    openGraph: {
+      type: "article",
+      title: `${project.title} | ${profile.name}`,
+      description: project.summary,
+      url: absoluteUrl(`/projects/${project.slug}`),
+      images: project.image ? [{ url: absoluteUrl(project.image), alt: project.imageAlt }] : []
+    },
+    twitter: {
+      card: project.image ? "summary_large_image" : "summary",
+      title: `${project.title} | ${profile.name}`,
+      description: project.summary,
+      images: project.image ? [absoluteUrl(project.image)] : []
+    }
   };
 }
 
@@ -149,6 +161,7 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
                   ["context", "Context"],
                   ["scope", "Scope & assumptions"],
                   ["analysis", "Analysis & rules"],
+                  ...(project.decisionStory ? [["decision-in-practice", "Decision in practice"]] : []),
                   ["delivery-assurance", "Delivery assurance"],
                   ["decisions", "Decisions & trade-offs"],
                   ["implementation", "Implementation"],
@@ -160,7 +173,10 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
             <article>
               <CaseSection id="context" label="Business problem" number="01" title="Context, users, and the problem behind the screen.">
                 <p className="text-base leading-8 text-muted-foreground">{project.problem}</p>
-                <div className="mt-7"><h3 className="text-base font-semibold">Users and stakeholders</h3><div className="mt-4"><EvidenceList items={project.stakeholders} /></div></div>
+                <div className="mt-7 grid gap-8 md:grid-cols-2">
+                  <div><h3 className="text-base font-semibold">Users and stakeholders</h3><div className="mt-4"><EvidenceList items={project.stakeholders} /></div></div>
+                  <div><h3 className="text-base font-semibold">My contribution</h3><div className="mt-4"><EvidenceList items={project.contributions} /></div></div>
+                </div>
               </CaseSection>
 
               <CaseSection id="scope" label="Boundaries" number="02" title="Scope, non-goals, and assumptions.">
@@ -179,28 +195,44 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
                 <div className="mt-8"><h3 className="font-semibold">Edge cases considered</h3><div className="mt-4"><EvidenceList items={project.edgeCases} /></div></div>
               </CaseSection>
 
-              <CaseSection id="delivery-assurance" label="Validation & control" number="04" title="UAT coverage, defects, risk, and release confidence.">
+              {project.decisionStory ? (
+                <CaseSection id="decision-in-practice" label="Delivery judgment" number="04" title={project.decisionStory.title}>
+                  <div className="border-l-2 border-accent pl-5">
+                    <h3 className="font-semibold">Context and tension</h3>
+                    <p className="mt-3 text-sm leading-7 text-muted-foreground">{project.decisionStory.context}</p>
+                    <p className="mt-3 text-sm leading-7 text-muted-foreground">{project.decisionStory.tension}</p>
+                  </div>
+                  <div className="mt-8"><h3 className="font-semibold">What I did</h3><div className="mt-4"><EvidenceList items={project.decisionStory.actions} /></div></div>
+                  <div className="mt-8 grid gap-8 md:grid-cols-3">
+                    <div><h3 className="font-semibold">Decision boundary</h3><p className="mt-3 text-sm leading-7 text-muted-foreground">{project.decisionStory.decision}</p></div>
+                    <div><h3 className="font-semibold">Contribution outcome</h3><p className="mt-3 text-sm leading-7 text-muted-foreground">{project.decisionStory.outcome}</p></div>
+                    <div><h3 className="font-semibold">Lesson</h3><p className="mt-3 text-sm leading-7 text-muted-foreground">{project.decisionStory.learning}</p></div>
+                  </div>
+                </CaseSection>
+              ) : null}
+
+              <CaseSection id="delivery-assurance" label="Validation & control" number={project.decisionStory ? "05" : "04"} title="UAT coverage, defects, risk, and release confidence.">
                 <div className="grid gap-8 md:grid-cols-2">
                   <div><h3 className="font-semibold">UAT coverage</h3><div className="mt-4"><EvidenceList items={project.uatCoverage} /></div></div>
                   <div><h3 className="font-semibold">Risk and control</h3><div className="mt-4"><EvidenceList items={project.riskControls} /></div></div>
                 </div>
               </CaseSection>
 
-              <CaseSection id="decisions" label="Judgment" number="05" title="Key decisions and the trade-offs behind them.">
+              <CaseSection id="decisions" label="Judgment" number={project.decisionStory ? "06" : "05"} title="Key decisions and the trade-offs behind them.">
                 <div className="grid gap-8 md:grid-cols-2">
                   <div><h3 className="font-semibold">Design decisions</h3><div className="mt-4"><EvidenceList items={project.decisions} /></div></div>
                   <div><h3 className="font-semibold">Trade-offs</h3><div className="mt-4"><EvidenceList items={project.tradeoffs} /></div></div>
                 </div>
               </CaseSection>
 
-              <CaseSection id="implementation" label="System understanding" number="06" title="Technical implementation at the level a BA should explain.">
+              <CaseSection id="implementation" label="System understanding" number={project.decisionStory ? "07" : "06"} title="Technical implementation at the level a BA should explain.">
                 <details className="rounded-lg border bg-card p-5" open={project.type === "Portfolio Project"}>
                   <summary className="cursor-pointer font-semibold">Technical details</summary>
                   <div className="mt-5"><EvidenceList items={project.technical} /></div>
                 </details>
               </CaseSection>
 
-              <CaseSection id="reflection" label="Outcome & learning" last number="07" title="What this proves, what I learned, and what comes next.">
+              <CaseSection id="reflection" label="Outcome & learning" last number={project.decisionStory ? "08" : "07"} title="What this proves, what I learned, and what comes next.">
                 <div className="grid gap-8 md:grid-cols-2">
                   <div><h3 className="font-semibold">Outcome</h3><div className="mt-4"><EvidenceList items={project.outcome} /></div></div>
                   <div><h3 className="font-semibold">Lessons learned</h3><div className="mt-4"><EvidenceList items={project.lessons} /></div></div>

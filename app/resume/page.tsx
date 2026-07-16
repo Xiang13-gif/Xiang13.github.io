@@ -18,7 +18,7 @@ export default function ResumePage() {
     <>
       <PageHeading
         eyebrow="Resume"
-        title="Banking Business Analyst with 6+ years of financial-system delivery experience."
+        title="Credit Operations and Banking Systems Business Analyst, delivering change since 2019."
         description="A recruiter-friendly summary of role fit, experience, and capabilities. The downloadable PDF excludes phone number and street address for public-site privacy."
       >
         <div className="flex flex-wrap gap-3">

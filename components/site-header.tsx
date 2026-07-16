@@ -23,7 +23,7 @@ export function SiteHeader() {
             </span>
             <span className="min-w-0 leading-tight">
               <span className="block truncate text-sm font-semibold">{profile.name}</span>
-              <span className="hidden truncate text-xs text-muted-foreground min-[390px]:block">Banking Business Analyst</span>
+              <span className="hidden truncate text-xs text-muted-foreground min-[390px]:block">{profile.shortRole}</span>
             </span>
           </a>
 

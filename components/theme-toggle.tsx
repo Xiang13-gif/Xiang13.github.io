@@ -9,6 +9,7 @@ export function ThemeToggle() {
       aria-pressed="false"
       className={buttonVariants({ size: "icon", variant: "outline" })}
       data-theme-toggle
+      suppressHydrationWarning
       title="Toggle color theme"
       type="button"
     >

@@ -1,5 +1,15 @@
 export type ProjectType = "Portfolio Project" | "Professional Experience";
 
+export type DecisionStory = {
+  title: string;
+  context: string;
+  tension: string;
+  actions: string[];
+  decision: string;
+  outcome: string;
+  learning: string;
+};
+
 export type Project = {
   slug: string;
   title: string;
@@ -11,6 +21,7 @@ export type Project = {
   summary: string;
   problem: string;
   stakeholders: string[];
+  contributions: string[];
   scope: string[];
   outOfScope: string[];
   assumptions: string[];
@@ -25,6 +36,7 @@ export type Project = {
   outcome: string[];
   lessons: string[];
   future: string[];
+  decisionStory?: DecisionStory;
   tags: string[];
   evidence: string[];
   disclaimer: string;
@@ -52,6 +64,11 @@ export const projects: Project[] = [
       "Credit Approver and Credit Administration",
       "Business Product Owner and Operations Lead",
       "Developers, QA, UAT users, and Release Steering Committee"
+    ],
+    contributions: [
+      "Framed the case around a BA-owned evidence chain instead of a feature list or generic dashboard.",
+      "Defined typed requirements, deterministic business rules, validation paths, traceability, and release gates for a safe public demonstration.",
+      "Built the interactive workspace, supporting artefacts, tests, and deployment pipeline as an independent portfolio project."
     ],
     scope: [
       "Commercial-credit case workflow and stage controls",
@@ -152,6 +169,12 @@ export const projects: Project[] = [
     problem:
       "Changes in a large loan-origination environment can affect multiple modules, roles, validations, documents, interfaces, and operating procedures. The BA challenge is to identify the real impact early and keep implementation and testing aligned.",
     stakeholders: ["Banking business and operations users", "Product and project leads", "Developers and vendors", "QA, UAT users, and release teams"],
+    contributions: [
+      "Analyzed requested behavior with business, operations, and technology stakeholders, then translated it into functional expectations and testable acceptance conditions.",
+      "Assessed likely change impact across UI, workflow, validation, document output, interfaces, and backend behavior before confirming test scope.",
+      "Prepared and maintained test coverage, reproducible issue evidence, retest outcomes, and traceability for delivery discussion and release follow-up.",
+      "Raised unresolved or conflicting behavior to the accountable decision owner instead of allowing test execution to substitute for a business decision."
+    ],
     scope: [
       "Requirement analysis and functional clarification",
       "Impact assessment across UI, workflow, validation, and backend behavior",
@@ -205,7 +228,8 @@ export const projects: Project[] = [
     outcome: [
       "Supported clearer requirements and more controlled test and release decisions.",
       "Improved the quality of cross-team issue discussion through evidence and business-impact framing.",
-      "Built reusable delivery methods now demonstrated safely in the CreditFlow portfolio project."
+      "Built reusable delivery methods now demonstrated safely in the CreditFlow portfolio project.",
+      "Outcome statements remain qualitative because confidential or unverified delivery metrics are not published in this portfolio."
     ],
     lessons: [
       "A requirement is incomplete until affected data, roles, exceptions, and regression areas are understood.",
@@ -213,6 +237,25 @@ export const projects: Project[] = [
       "Release support is part of BA ownership, not an activity that ends at UAT sign-off."
     ],
     future: ["Continue strengthening product discovery and value-measurement capability alongside delivery assurance."],
+    decisionStory: {
+      title: "Making an ambiguous change request testable",
+      context:
+        "An anonymized delivery pattern from loan-origination enhancement work, where a requested behavior could affect field validation, workflow, document output, and backend processing.",
+      tension:
+        "The initial request described the desired business result, but did not fully define the role, trigger, exception path, data condition, or expected system response needed for build and independent testing.",
+      actions: [
+        "Separated the request into business objective, user action, system behavior, validation, document/output impact, and exception handling.",
+        "Identified affected journeys and regression areas before test execution, rather than treating the change as a screen-only update.",
+        "Presented open behavior and exception questions to accountable business and delivery leads, then captured the confirmed interpretation as expected results and test coverage.",
+        "Used issue evidence, retest scope, and release conditions to keep the delivery discussion focused on observable behavior."
+      ],
+      decision:
+        "Kept the requirement and test baseline open until the authorized owner resolved conflicting interpretation. I did not use UAT results as a substitute for a business-policy decision.",
+      outcome:
+        "Created clearer conditions for development, UAT, retest, and release follow-up while retaining the correct decision ownership.",
+      learning:
+        "A BA adds most value when ambiguity is surfaced early, translated into choices, and returned to the right owner before it becomes a defect or release risk."
+    },
     tags: ["Loan Origination", "Impact Analysis", "UAT", "Defect Triage", "Release Support"],
     evidence: ["Verified work history", "Anonymized contribution summary", "Methods reflected in public CreditFlow artefacts"],
     disclaimer:
@@ -231,6 +274,12 @@ export const projects: Project[] = [
     problem:
       "Regulated dealing-system change requires precise interpretation, clear control ownership, and careful validation because a small workflow or data change may affect compliance, operations, downstream processing, and audit evidence.",
     stakeholders: ["Transaction-banking operations", "Compliance and control stakeholders", "Technology delivery teams", "QA and business testers"],
+    contributions: [
+      "Used structured questions to clarify control intent, expected workflow, data behavior, and test implications in an unfamiliar financial domain.",
+      "Separated regulatory or control intent from implementation detail so the resulting behavior could be reviewed and tested without inventing policy rules.",
+      "Supported traceable test coverage, evidence review, and coordination across operational, control, technology, QA, and business-test stakeholders.",
+      "Escalated ambiguous control ownership to authorized stakeholders rather than making unsupported assumptions."
+    ],
     scope: [
       "Requirement clarification and process-impact analysis",
       "Control, data, workflow, and test implication review",
@@ -281,7 +330,8 @@ export const projects: Project[] = [
     technical: ["Workflow and data-impact reasoning", "Testable validation behavior", "Cross-system and downstream-awareness"],
     outcome: [
       "Contributed to structured, regulatory-aligned process improvement during a temporary banking assignment.",
-      "Demonstrated the ability to transfer BA discipline from credit systems into another controlled financial domain."
+      "Demonstrated the ability to transfer BA discipline from credit systems into another controlled financial domain.",
+      "Outcome statements remain qualitative because confidential or unverified delivery metrics are not published in this portfolio."
     ],
     lessons: [
       "In regulated change, the BA must know which decisions require an authorized owner.",
@@ -289,6 +339,25 @@ export const projects: Project[] = [
       "Technical understanding is most valuable when it improves control and test clarity."
     ],
     future: ["Deepen transaction-banking product knowledge while maintaining a primary credit-operations focus."],
+    decisionStory: {
+      title: "Protecting control intent in an unfamiliar domain",
+      context:
+        "An anonymized pattern from a temporary FX deal-system assignment involving controlled workflow, operational handoffs, and regulated-process awareness.",
+      tension:
+        "A control statement is not yet a buildable or testable requirement. It still needs an accountable owner, operational trigger, system response, exception path, evidence expectation, and downstream impact.",
+      actions: [
+        "Used structured questions to distinguish the intended control outcome from the proposed system implementation.",
+        "Mapped the expected user action, validation, review step, operational handoff, and evidence needed to validate the control.",
+        "Raised unclear policy interpretation and ownership to the authorized business or control stakeholder instead of creating a rule from incomplete information.",
+        "Translated the confirmed behavior into expected, rejected, exception, and downstream test scenarios."
+      ],
+      decision:
+        "Kept regulatory interpretation with the authorized control owner while making the system behavior and test evidence precise enough for the delivery team.",
+      outcome:
+        "Supported clearer discussion of controlled behavior and a test scope that considered operational and downstream consequences.",
+      learning:
+        "In a regulated domain, technical confidence must never turn into unsupported policy interpretation; clarity of ownership is itself a control."
+    },
     tags: ["Transaction Banking", "Regulatory Change", "Requirements", "UAT", "Risk & Control"],
     evidence: ["Verified work-history context", "Anonymized method summary", "No confidential artefacts published"],
     disclaimer:
